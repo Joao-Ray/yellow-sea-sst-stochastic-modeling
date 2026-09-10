@@ -7,6 +7,8 @@ authors:
 version: 0.1.0
 date-released: 2026-09-10
 license: MIT
+repository-code: "https://github.com/Joao-Ray/yellow-sea-sst-stochastic-modeling"
+url: "https://github.com/Joao-Ray/yellow-sea-sst-stochastic-modeling"
 keywords:
   - sea surface temperature
   - Yellow Sea

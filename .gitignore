@@ -1,0 +1,29 @@
+# Downloaded and generated data (keep data/README.md tracked)
+data/raw/
+data/processed/
+*.nc
+*.nc4
+*.zarr/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/

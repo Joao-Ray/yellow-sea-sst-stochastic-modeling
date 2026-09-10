@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Yellow Sea SST Stochastic Modeling"
+type: software
+authors:
+  - name: "Yellow Sea SST Stochastic Modeling contributors"
+version: 0.1.0
+date-released: 2026-09-10
+license: MIT
+keywords:
+  - sea surface temperature
+  - Yellow Sea
+  - stochastic processes
+  - statistical learning
+  - reproducible research
+references:
+  - type: dataset
+    title: "NOAA Optimum Interpolation Sea Surface Temperature (OISST) Version 2.1"
+    doi: 10.25921/RE9P-PT57
+    publisher:
+      name: "NOAA National Centers for Environmental Information"

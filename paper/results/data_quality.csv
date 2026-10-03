@@ -1,0 +1,4 @@
+domain,ocean_grid_cells,daily_records,observed_days,missing_days,min_valid_fraction,mask_date,minimum_allowed_fraction
+iho_yellow_sea,651,5844,5844,0,1.0,2010-01-01,0.8
+original_pilot_box,795,5844,5844,0,1.0,2010-01-01,0.8
+iho_interior,493,5844,5844,0,1.0,2010-01-01,0.8

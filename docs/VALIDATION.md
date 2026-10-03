@@ -112,3 +112,31 @@ The completed pilot report describes its observed test scores and uncertainty,
 with explicit limits. It does not establish model superiority across time
 periods or an exact geographical Yellow Sea domain, and is not a manuscript
 conclusion.
+
+## Complete research extension
+
+The design is in configs/research.json and explicitly exploratory after the
+initial pilot test was viewed. The main domain is Marine Regions IHO MRGID 4303,
+which includes Bohai. Original-box and polygon-interior domains are prespecified
+sensitivity cases. Grid-center membership intersects first-day valid OISST cells;
+there is no future-informed spatial mask or temporal filling.
+
+Each backtest separates training, parameter selection, empirical interval
+calibration, and testing. AR order and ridge alpha use selection-only 7-day
+RMSE. Harmonic/trend coefficients and ridge centering/scaling use training only.
+All forecasts return to the same SST Celsius scale and share target/origin
+support. The original anomaly-persistence baseline remains fixed, with raw SST
+persistence reported separately. All observed origin lags precede or equal d-h.
+
+Empirical radius is the ceil((n+1)*level) absolute calibration-error order
+statistic, with at least 100 paired errors. Calendar dependence and distribution
+change mean there is no exchangeability-based guaranteed coverage. Gaussian AR
+intervals and empirical intervals are compared by both coverage and full width.
+Ridge receives only empirical intervals.
+
+There are three disjoint test periods and three overlapping region definitions,
+not nine independent replications. Every method and sensitivity result is
+reported; no test-score-based deployment model choice is made. Manuscript
+best-score descriptions are explicitly post hoc. Future confirmation requires
+new unviewed data. The draft, aggregate scores and figures may be versioned, while raw
+SST, downloaded polygon, every forecast and local audit outputs remain ignored.

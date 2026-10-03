@@ -1,7 +1,7 @@
 # 黄海海表温度随机建模：开始使用
 
 项目现在可以完整运行「NetCDF → 区域温度 → 季节异常 → 时间划分 → 预测比较 → 图表报告」。
-已完成 2010–2025 年真实数据的探索实验；另有模拟演示用于检查程序。
+已完成 2010–2025 年真实数据的完整探索研究、稳健性分析与论文初稿；另有模拟演示用于检查程序。
 真实实验结果与局限见 [项目状态](PROJECT_STATUS.md)，详细报告在本地生成。
 
 ## 1. 准备环境
@@ -16,7 +16,19 @@ python -m pip install -r requirements.txt
 
 Windows PowerShell 激活方式：`.venv\Scripts\Activate.ps1`。
 
-## 2. 一次跑通完整演示
+## 2. 生成完整研究成果
+
+```bash
+python -m src.research
+```
+
+完成 3 种海域、3 个测试时期和 8 个模型的比较；模型选择和区间校准使用分开的时间段。
+主海域采用有来源的 IHO Yellow Sea 多边形（包含渤海）。查看
+`data/processed/research/完整研究报告.html`；论文初稿为 `manuscript_zh.md`。
+首次运行下载约 47.7 MiB 的区域温度数据和约 1 MiB 的边界，后续校验并复用缓存。
+详见 [完成说明](COMPLETION_zh.md)。
+
+## 3. 一次跑通模拟演示
 
 ```bash
 python -m src.demo
@@ -30,7 +42,7 @@ python -m src.demo
 三个比较项是季节均值、持续性和 AR(1)。OU 是满足条件的 AR(1) 的连续时间解释，
 会输出均值回复速度、长期均值、扩散强度和半衰期；它与 AR(1) 产生相同预测。
 
-## 3. 验证一周真实 NOAA 数据
+## 4. 验证一周真实 NOAA 数据
 
 ```bash
 python -m src.data.download_oisst \
@@ -47,7 +59,7 @@ python -m src.data.preprocess \
 这一周只能验证数据管线。不能从一周数据得到可靠的季节均值或预测结论。
 下载支持断点续跑（已存在的有效文件会跳过），HTML 错误页或空文件会被拒绝。
 
-## 4. 复现真实数据探索实验
+## 5. 保留的初次真实数据探索实验
 
 现在可以先运行已经固定设计的真实数据探索实验：
 
@@ -99,7 +111,7 @@ python -m src.evaluation.experiment \
 AR 的 95% 温度预测区间只考虑高斯创新误差，未包含参数与季节均值估计的不确定性。
 相对技能分数为正表示本次样本上的 RMSE 较小，不代表统计显著优势。
 
-## 5. 检查程序
+## 6. 检查程序
 
 ```bash
 python -m pytest -q

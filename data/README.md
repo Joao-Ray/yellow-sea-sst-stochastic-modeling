@@ -9,6 +9,11 @@ This directory is intentionally data-free in version control.
   metrics.
 - `processed/pilot/`: frozen config, Chinese/English reports, figures, daily
   series, model parameters, forecasts, diagnostics, and acquisition provenance.
+- `raw/research/`: expanded monthly SST subsets covering the complete polygon.
+- `raw/boundaries/`: official Marine Regions polygon and checksum/source metadata;
+  fetch from the provider rather than redistributing geometry.
+- `processed/research/`: complete backtests, calibration, sensitivity, residual
+  diagnostics, standalone HTML report, five figures, manuscript and checksums.
 
 Both subdirectories are ignored by Git. Recreate them using the commands in the
 repository-level README rather than committing data products.

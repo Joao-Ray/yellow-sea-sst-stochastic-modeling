@@ -10,11 +10,14 @@ history, and which stochastic or statistical models describe their persistence,
 variability, and forecast uncertainty without overstating the available
 evidence?
 
-The project includes a leakage-safe experiment with climatology, persistence,
-AR(1), validation-selected AR(p), an exact OU interpretation, and an offline
-synthetic demo. A reproducible observational pilot adds official regional
-acquisition, paired calendar-block skill intervals, and residual diagnostics.
-It does **not** claim robust observational model superiority. See the
+The complete exploratory study includes climatology, persistence, AR(1)/AR(p),
+harmonic seasonality, training-only linear trend, standardized ridge regression,
+separate model selection and interval calibration, and an offline synthetic demo.
+Official polygon masking, three regional definitions, three disjoint test periods,
+paired calendar-block skill intervals, and residual diagnostics are implemented.
+The IHO Yellow Sea definition used here includes Bohai; the extension is
+retrospective exploration after the initial pilot test was viewed. See the
+[completion notes](docs/COMPLETION_zh.md), [manuscript](paper/manuscript_zh.md),
 [Chinese quick start](docs/QUICKSTART_zh.md) and
 [validation protocol](docs/VALIDATION.md).
 
@@ -41,15 +44,17 @@ Users must comply with NOAA's terms and cite the dataset in resulting work.
 ```text
 data/                    Local-only raw and processed data
 src/data/                Downloading and preprocessing modules
-src/models/              Persistence, AR(1)/AR(p), exact OU interpretation
+src/models/              Persistence, AR/OU, harmonics/trend, ridge regression
 src/evaluation/          Time splits, common-support scores, reports
 src/demo.py              Offline synthetic NetCDF-to-report workflow
 src/pilot.py             Frozen observational pilot and provenance
+src/research.py          Complete study, separated calibration, manuscript
 configs/pilot.json       Dates, region, candidate orders, bootstrap design
+configs/research.json    Complete exploratory extension design
 docs/                    Quick start and validation protocol
 notebooks/               Reproducible exploration notebooks
 tests/                   Unit tests for core transformations
-paper/                   Manuscript scope and remaining research requirements
+paper/                   Complete Chinese draft and generated aggregate figures
 ```
 
 ## Reproduction
@@ -63,6 +68,32 @@ python -m venv .venv
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
+
+### Reproduce the complete observational study
+
+```bash
+python -m src.research
+```
+
+This acquires 2010–2025 monthly subsets for 31–42 N, 117–128 E (about 47.7 MiB)
+and the official Marine Regions IHO Yellow Sea polygon (about 1 MiB). Cached
+files and boundary checksums are validated before reuse. The main polygon
+includes Bohai; the original rectangle and an eroded-polygon interior are
+prespecified sensitivity domains. The land mask is fixed using the first day.
+
+For each domain, training, model selection, calibration and testing are
+chronologically separated. Tests cover 2017–2019, 2020–2022 and 2023–2025.
+Eight comparison models and 1/7/30-day horizons produce 216 score rows, with
+15/30/60-day block sensitivity, Gaussian/empirical interval coverage and widths,
+yearly errors, and training residual diagnostics. The extension is exploratory;
+it does not create an untouched confirmatory holdout.
+
+Open `data/processed/research/完整研究报告.html` for a standalone Chinese report
+with embedded figures, or edit its Markdown counterpart. `manuscript_zh.md`
+is generated from the same results; the reviewed draft and figures are in
+`paper/`. Protocol, config, raw-acquisition hashes, parameters, every forecast,
+quality/mask tables and output checksums are retained locally. Changed configs
+require a fresh output directory to preserve the previous design.
 
 ### Run the complete workflow without downloading data
 
@@ -201,21 +232,15 @@ python -m pytest
 
 ## Current status
 
-**Observational pilot completed locally.** The frozen 2010–2025 design produced
-5,844 valid daily regional means, no missing days, and a 2023–2025 independent
-test segment. AR(1) was selected on validation; its test RMSE did not beat
-persistence at 1/7/30 days, and 7/30-day conditional interval coverage was below
-the nominal 95%. These are exploratory results for a rectangle containing
-adjacent seas; see [project status](docs/PROJECT_STATUS.md).
+**Complete exploratory research version.** All nine domain/period backtests,
+reports, five aggregate figures, manuscript draft, and 53 tests completed
+locally. The original pilot remains preserved: its AR(1) did not beat anomaly
+persistence in the original test segment. The extension shows period-dependent
+improvement for harmonic/trend/ridge models and explicit calibration limits;
+see [project status](docs/PROJECT_STATUS.md) for actual numbers.
 
-Training-only preprocessing,
-chronological validation/test splits, common-support multihorizon evaluation,
-AR(1)/OU parameters, conditional uncertainty, labeled synthetic demo, regression
-tests, validation-selected AR(p), audited regional acquisition, block-bootstrap
-skill intervals, residual diagnostics, and GitHub Actions are included. Downloaded observations and generated
-outputs stay local and are not committed.
-
-Next research steps: decide a defensible geographical ocean mask, inspect trend
-and seasonal smoothing choices, repeat independent time splits and block-length
-sensitivity, and compare richer models under a predeclared protocol. XGBoost models and
-manuscript conclusions are not yet implemented.
+This version is ready for scientific/code review and reproducible use. New
+unviewed periods, spatial models, alternative marine conventions, or publication
+submission are future research decisions. Downloaded/derived observations stay
+local. Source, documentation, the manuscript draft, aggregate score tables and
+generated figures are versioned.

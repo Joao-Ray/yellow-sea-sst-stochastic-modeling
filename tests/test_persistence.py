@@ -7,9 +7,7 @@ from src.models.persistence import evaluate_persistence, persistence_predictions
 
 
 def test_persistence_uses_previous_calendar_day() -> None:
-    anomaly = pd.Series(
-        [0.5, 1.0, -0.5], index=pd.date_range("2020-01-01", periods=3)
-    )
+    anomaly = pd.Series([0.5, 1.0, -0.5], index=pd.date_range("2020-01-01", periods=3))
     prediction = persistence_predictions(anomaly)
     assert np.isnan(prediction.iloc[0])
     assert prediction.iloc[1:].tolist() == [0.5, 1.0]

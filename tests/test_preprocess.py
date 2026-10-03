@@ -51,12 +51,36 @@ def test_regularize_and_fill_marks_only_short_internal_gap() -> None:
     assert output.loc["2000-01-02", "sst_celsius"] == pytest.approx(11.0)
     assert bool(output.loc["2000-01-02", "is_interpolated"])
     assert np.isnan(output.loc["2000-01-05", "sst_celsius"])
+    assert output.loc["2000-01-04":"2000-01-06", "sst_celsius"].isna().all()
+
+
+def test_permanent_land_is_not_counted_as_missing_ocean() -> None:
+    data = xr.DataArray(
+        [[[np.nan, 10.0], [np.nan, 20.0]], [[np.nan, np.nan], [np.nan, 22.0]]],
+        coords={
+            "time": pd.date_range("2000-01-01", periods=2),
+            "lat": [35, 36],
+            "lon": [120, 121],
+        },
+        dims=("time", "lat", "lon"),
+    )
+    mean = area_weighted_mean_sst(data, min_valid_fraction=0.8)
+    assert np.isfinite(mean.isel(time=0).item())
+    assert np.isnan(mean.isel(time=1).item())
+
+
+def test_unseen_leap_day_uses_neighboring_calendar_days() -> None:
+    series = pd.Series(
+        [10, 14, 999], index=pd.to_datetime(["2019-02-28", "2019-03-01", "2020-02-29"])
+    )
+    mapped, _ = calculate_climatology(
+        series, reference_start="2019-01-01", reference_end="2019-12-31"
+    )
+    assert mapped.loc["2020-02-29"] == pytest.approx(12)
 
 
 def test_monthly_climatology_uses_only_reference_period() -> None:
-    index = pd.to_datetime(
-        ["1991-01-01", "1991-01-02", "1991-02-01", "2021-01-01"]
-    )
+    index = pd.to_datetime(["1991-01-01", "1991-01-02", "1991-02-01", "2021-01-01"])
     series = pd.Series([10.0, 12.0, 20.0, 100.0], index=index)
     mapped, cycle = calculate_climatology(
         series,
@@ -69,9 +93,7 @@ def test_monthly_climatology_uses_only_reference_period() -> None:
 
 
 def test_build_anomaly_table_subtracts_calendar_day_cycle() -> None:
-    index = pd.to_datetime(
-        ["1991-01-01", "1991-01-02", "1992-01-01", "1992-01-02"]
-    )
+    index = pd.to_datetime(["1991-01-01", "1991-01-02", "1992-01-01", "1992-01-02"])
     series = pd.Series([10.0, 20.0, 12.0, 18.0], index=index)
     table = build_anomaly_table(
         series,

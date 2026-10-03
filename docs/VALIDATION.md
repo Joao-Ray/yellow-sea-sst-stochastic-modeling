@@ -140,3 +140,30 @@ reported; no test-score-based deployment model choice is made. Manuscript
 best-score descriptions are explicitly post hoc. Future confirmation requires
 new unviewed data. The draft, aggregate scores and figures may be versioned, while raw
 SST, downloaded polygon, every forecast and local audit outputs remain ignored.
+
+## Additional frozen temporal window (2026)
+
+The new protocol uses only 2010-2019 training, 2020-2021 hyperparameter and
+method selection, and 2022 interval calibration. Only previously selected
+methods and anomaly persistence are scored on January-August 2026. The
+config and full parameter record were committed publicly in d0f6f17 at
+2026-10-03 06:52:39 UTC; the first new SST acquisition occurred at
+06:53:13 UTC. All 243 days are observed with 100% fixed ocean weight coverage.
+
+Six new tests verify that holdout targets cannot alter frozen fits/selection/
+radii; calibration cannot change overall selection; deserialized forecasts
+agree with the research implementation; intermediate observations cannot
+enter multiday forecasts; insufficient support is rejected; and new ocean
+availability or grid changes cannot silently alter the fixed spatial mask.
+The full suite now has 59 passing tests. The existing macOS import warning
+remains visible.
+
+The published frozen run uses the historical regional CSV as its fitting
+input and records its byte checksum. CSV export precision causes at most
+1.8e-6 °C difference from the original in-memory 2023-2025 predictions for
+these methods, well below the 1e-5 °C spot-check tolerance. This check was
+performed after freezing without changing any parameters or protocol.
+New output checksums, archive CRC, manuscript figure references and public
+freeze-before-acquisition ordering were verified. The new scientific plot
+was visually reviewed. This same-product temporal check is not independent
+instrumental confirmation or a live prospective forecast.

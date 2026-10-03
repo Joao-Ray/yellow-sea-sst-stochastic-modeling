@@ -120,3 +120,16 @@ python -m pytest -q
 测试覆盖陆地与缺测区分、整段缺测插值限制、闰日处理、未来数据不影响训练、
 多日预测不偷看中间观测、模型评分日期一致，以及 AR(1)/OU 等价关系。
 GitHub Actions 会自动运行测试和离线演示。
+
+## 查看新增时间验证与论文修订
+
+完成原研究后执行：
+
+```bash
+python -m src.validation evaluate
+```
+
+在 `data/processed/validation/` 打开 `时间验证报告.html` 和 `论文修订稿.html`。
+该命令直接使用 `paper/validation/frozen_protocol.json`，不按新数据调整模型。
+结果支持一日预测在该窗口的改进，七日优势不明确，三十日点估计较差。
+详见 [完整冻结协议](TEMPORAL_VALIDATION_zh.md)。

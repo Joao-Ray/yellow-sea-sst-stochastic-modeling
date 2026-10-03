@@ -39,56 +39,10 @@ def run_research_fold(sst: pd.Series, fold: dict, config: dict) -> dict:
     ):
         raise ValueError("ordered training/selection/calibration/test dates required")
     train_end, selection_end, calibration_end, _ = boundaries
-    training = sst.loc[:train_end]
-    daily_cycle, _ = calculate_climatology(
-        sst,
-        reference_start=str(sst.index[0].date()),
-        reference_end=str(train_end.date()),
+    models, selections, cycles, residuals, harmonic, trend = fit_research_candidates(
+        sst, train_end, selection_end, config
     )
-    if daily_cycle.isna().any():
-        raise ValueError("training seasonal cycle has uncovered calendar bins")
-    harmonic = fit_seasonal(training, config["harmonics"], False)
-    trend = fit_seasonal(training, config["harmonics"], True)
-    cycles = {
-        "day": daily_cycle,
-        "harmonic": harmonic.predict(sst.index),
-        "harmonic_trend": trend.predict(sst.index),
-    }
-    residuals = {name: sst - cycle for name, cycle in cycles.items()}
-    models, selections = {}, {}
-    for name, residual in residuals.items():
-        model, scores = select_ar_order(
-            residual,
-            train_end=train_end,
-            validation_end=selection_end,
-            orders=tuple(config["ar_candidates"]),
-            horizon=config["selection_horizon"],
-        )
-        models[f"ar_{name}"] = (model, cycles[name], residual)
-        selections[f"ar_{name}"] = {
-            "selected_order": model.order,
-            "scores": scores,
-            "parameters": model.to_dict(),
-        }
-    ridge, alpha, scores = select_ridge(
-        residuals["harmonic_trend"],
-        train_end,
-        selection_end,
-        config["ridge_order"],
-        config["ridge_alphas"],
-        config["selection_horizon"],
-    )
-    models["ridge_harmonic_trend"] = (
-        ridge,
-        cycles["harmonic_trend"],
-        residuals["harmonic_trend"],
-    )
-    selections["ridge_harmonic_trend"] = {
-        "selected_alpha": alpha,
-        "scores": scores,
-        "parameters": ridge.to_dict(),
-        "penalty_definition": "mean squared training error + alpha * sum(standardized lag coefficients squared); intercept unpenalized",
-    }
+    daily_cycle = cycles["day"]
     predictions, metrics, yearly, radii = [], [], [], []
     for horizon in config["horizons"]:
         means = {
@@ -204,3 +158,58 @@ def run_research_fold(sst: pd.Series, fold: dict, config: dict) -> dict:
         "support_rule": "all models share complete target and required origin-lag dates separately at each horizon",
         "protocol": fold,
     }
+
+
+def fit_research_candidates(sst, train_end, selection_end, config):
+    """Fit and tune candidates using only training and selection targets."""
+    training = sst.loc[:train_end]
+    daily_cycle, _ = calculate_climatology(
+        sst,
+        reference_start=str(sst.index[0].date()),
+        reference_end=str(train_end.date()),
+    )
+    if daily_cycle.isna().any():
+        raise ValueError("training seasonal cycle has uncovered calendar bins")
+    harmonic = fit_seasonal(training, config["harmonics"], False)
+    trend = fit_seasonal(training, config["harmonics"], True)
+    cycles = {
+        "day": daily_cycle,
+        "harmonic": harmonic.predict(sst.index),
+        "harmonic_trend": trend.predict(sst.index),
+    }
+    residuals = {name: sst - cycle for name, cycle in cycles.items()}
+    models, selections = {}, {}
+    for name, residual in residuals.items():
+        model, scores = select_ar_order(
+            residual,
+            train_end=train_end,
+            validation_end=selection_end,
+            orders=tuple(config["ar_candidates"]),
+            horizon=config["selection_horizon"],
+        )
+        models[f"ar_{name}"] = (model, cycles[name], residual)
+        selections[f"ar_{name}"] = {
+            "selected_order": model.order,
+            "scores": scores,
+            "parameters": model.to_dict(),
+        }
+    ridge, alpha, scores = select_ridge(
+        residuals["harmonic_trend"],
+        train_end,
+        selection_end,
+        config["ridge_order"],
+        config["ridge_alphas"],
+        config["selection_horizon"],
+    )
+    models["ridge_harmonic_trend"] = (
+        ridge,
+        cycles["harmonic_trend"],
+        residuals["harmonic_trend"],
+    )
+    selections["ridge_harmonic_trend"] = {
+        "selected_alpha": alpha,
+        "scores": scores,
+        "parameters": ridge.to_dict(),
+        "penalty_definition": "mean squared training error + alpha * sum(standardized lag coefficients squared); intercept unpenalized",
+    }
+    return models, selections, cycles, residuals, harmonic, trend

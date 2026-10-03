@@ -1,0 +1,256 @@
+{
+  "frozen_protocol_sha256": "8a11e5b9b56845936cbd72495a2f066bd2d5ae2a2a9044bc18282169ce684aa4",
+  "evaluated_utc": "2026-10-03T07:03:57.583828+00:00",
+  "design": {
+    "name": "Frozen 2026 temporal validation",
+    "design_version": 1,
+    "domain": "iho_yellow_sea",
+    "train_end": "2019-12-31",
+    "selection_end": "2021-12-31",
+    "calibration_end": "2022-12-31",
+    "test_start": "2026-01-01",
+    "test_end": "2026-08-31",
+    "horizons": [
+      1,
+      7,
+      30
+    ],
+    "candidate_order": [
+      "climatology",
+      "persistence",
+      "raw_persistence",
+      "trend_seasonal",
+      "ar_day",
+      "ar_harmonic",
+      "ar_harmonic_trend",
+      "ridge_harmonic_trend"
+    ],
+    "method_selection": "minimum common-support selection-period SST RMSE separately per horizon; exact ties use candidate_order",
+    "baseline": "persistence",
+    "interval_level": 0.95,
+    "bootstrap_replicates": 1000,
+    "bootstrap_block_days": [
+      30,
+      60
+    ],
+    "random_seed": 20261003,
+    "minimum_scoring_days": 200,
+    "scope": "New, previously unexamined temporal targets in the same NOAA OISST product, not an independent observational source or a prospective live forecast. Researcher has already examined 2010-2025 exploratory results. Only frozen selected methods and the baseline will be scored; no model re-selection or re-calibration on 2026. January-August is an incomplete annual cycle."
+  },
+  "source_acquisitions": [
+    {
+      "provider": "NOAA PSL",
+      "product": "NOAA/NCEI OISST v2.1",
+      "dataset_doi": "10.25921/RE9P-PT57",
+      "request_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-01-01T00%3A00%3A00Z&time_end=2026-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true",
+      "date_start": "2026-01-01",
+      "date_end": "2026-01-31",
+      "region": {
+        "lat_min": 31,
+        "lat_max": 42,
+        "lon_min": 117,
+        "lon_max": 128
+      },
+      "grid_shape": {
+        "lon": 44,
+        "time": 31,
+        "lat": 44
+      },
+      "sha256": "8f5e1ad80f6a89ae2533686381aae2e1e05b99987964ca2bc1da01a362c69d26",
+      "response_sha256": "e35e94884fed55763404f54dc39a9cb35ceeb37680574784d6722a1e8ce5abc3",
+      "source_version_note": "OISST v2.1 metadata",
+      "source_title": "NOAA/NCEI 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis, Version 2.1",
+      "acquired_utc": "2026-10-03T06:53:14.478991+00:00",
+      "processing": "SST only; crop service padding; no temporal interpolation"
+    },
+    {
+      "provider": "NOAA PSL",
+      "product": "NOAA/NCEI OISST v2.1",
+      "dataset_doi": "10.25921/RE9P-PT57",
+      "request_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-02-01T00%3A00%3A00Z&time_end=2026-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true",
+      "date_start": "2026-02-01",
+      "date_end": "2026-02-28",
+      "region": {
+        "lat_min": 31,
+        "lat_max": 42,
+        "lon_min": 117,
+        "lon_max": 128
+      },
+      "grid_shape": {
+        "lon": 44,
+        "time": 28,
+        "lat": 44
+      },
+      "sha256": "517b4b9887b854d4c9a6271e7339cfd809935c6ed95c94dbfb90f428016a0205",
+      "response_sha256": "a3f710e50bc66e901dbfe6f8b53178fb6263e15dd6fbe1968fb6acf4a08438cb",
+      "source_version_note": "OISST v2.1 metadata",
+      "source_title": "NOAA/NCEI 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis, Version 2.1",
+      "acquired_utc": "2026-10-03T06:53:13.313345+00:00",
+      "processing": "SST only; crop service padding; no temporal interpolation"
+    },
+    {
+      "provider": "NOAA PSL",
+      "product": "NOAA/NCEI OISST v2.1",
+      "dataset_doi": "10.25921/RE9P-PT57",
+      "request_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-03-01T00%3A00%3A00Z&time_end=2026-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true",
+      "date_start": "2026-03-01",
+      "date_end": "2026-03-31",
+      "region": {
+        "lat_min": 31,
+        "lat_max": 42,
+        "lon_min": 117,
+        "lon_max": 128
+      },
+      "grid_shape": {
+        "lon": 44,
+        "time": 31,
+        "lat": 44
+      },
+      "sha256": "022a1c9ab4c96ebc4da59ef789480edef6aa1d9f80296fd3fd4db803e2239d68",
+      "response_sha256": "400f4b69308da16f59b1503ccd71f797fc000a88b57633987eb21e9a43829be1",
+      "source_version_note": "OISST v2.1 metadata",
+      "source_title": "NOAA/NCEI 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis, Version 2.1",
+      "acquired_utc": "2026-10-03T06:53:14.093056+00:00",
+      "processing": "SST only; crop service padding; no temporal interpolation"
+    },
+    {
+      "provider": "NOAA PSL",
+      "product": "NOAA/NCEI OISST v2.1",
+      "dataset_doi": "10.25921/RE9P-PT57",
+      "request_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-04-01T00%3A00%3A00Z&time_end=2026-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true",
+      "date_start": "2026-04-01",
+      "date_end": "2026-04-30",
+      "region": {
+        "lat_min": 31,
+        "lat_max": 42,
+        "lon_min": 117,
+        "lon_max": 128
+      },
+      "grid_shape": {
+        "lon": 44,
+        "time": 30,
+        "lat": 44
+      },
+      "sha256": "a6c4c09cc7ddd751cc25b321a4217b31aa6466a6da6b9d11dee997b0577a1576",
+      "response_sha256": "f13429911d4623e76a87dd238e3609cc0950831d7603c3b8def8072448ca0f54",
+      "source_version_note": "OISST v2.1 metadata",
+      "source_title": "NOAA/NCEI 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis, Version 2.1",
+      "acquired_utc": "2026-10-03T06:53:23.800979+00:00",
+      "processing": "SST only; crop service padding; no temporal interpolation"
+    },
+    {
+      "provider": "NOAA PSL",
+      "product": "NOAA/NCEI OISST v2.1",
+      "dataset_doi": "10.25921/RE9P-PT57",
+      "request_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-05-01T00%3A00%3A00Z&time_end=2026-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true",
+      "date_start": "2026-05-01",
+      "date_end": "2026-05-31",
+      "region": {
+        "lat_min": 31,
+        "lat_max": 42,
+        "lon_min": 117,
+        "lon_max": 128
+      },
+      "grid_shape": {
+        "lon": 44,
+        "time": 31,
+        "lat": 44
+      },
+      "sha256": "38f8f96daab77e0000e0f84dac2ba85b81b05686653907abea795e057ea85194",
+      "response_sha256": "8b96338fd92a966dc36cf17104b183b95f246895f524ac774ae76ff9554073d1",
+      "source_version_note": "OISST v2.1 metadata",
+      "source_title": "NOAA/NCEI 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis, Version 2.1",
+      "acquired_utc": "2026-10-03T06:53:25.710886+00:00",
+      "processing": "SST only; crop service padding; no temporal interpolation"
+    },
+    {
+      "provider": "NOAA PSL",
+      "product": "NOAA/NCEI OISST v2.1",
+      "dataset_doi": "10.25921/RE9P-PT57",
+      "request_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-06-01T00%3A00%3A00Z&time_end=2026-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true",
+      "date_start": "2026-06-01",
+      "date_end": "2026-06-30",
+      "region": {
+        "lat_min": 31,
+        "lat_max": 42,
+        "lon_min": 117,
+        "lon_max": 128
+      },
+      "grid_shape": {
+        "lon": 44,
+        "time": 30,
+        "lat": 44
+      },
+      "sha256": "53cf7102f65435120f6f1a2f1388a8ccd5d837155017a8484b328791fc88c82e",
+      "response_sha256": "c56f32ba1915b66301bc752403aa3578a7702bca4799f0755079330a52619437",
+      "source_version_note": "OISST v2.1 metadata",
+      "source_title": "NOAA/NCEI 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis, Version 2.1",
+      "acquired_utc": "2026-10-03T06:53:25.600727+00:00",
+      "processing": "SST only; crop service padding; no temporal interpolation"
+    },
+    {
+      "provider": "NOAA PSL",
+      "product": "NOAA/NCEI OISST v2.1",
+      "dataset_doi": "10.25921/RE9P-PT57",
+      "request_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-07-01T00%3A00%3A00Z&time_end=2026-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true",
+      "date_start": "2026-07-01",
+      "date_end": "2026-07-31",
+      "region": {
+        "lat_min": 31,
+        "lat_max": 42,
+        "lon_min": 117,
+        "lon_max": 128
+      },
+      "grid_shape": {
+        "lon": 44,
+        "time": 31,
+        "lat": 44
+      },
+      "sha256": "8a7105755cc4361d35fe8b37da23a1c8b6da2922cb7c6c274047f1f6cef311cd",
+      "response_sha256": "0ff8b20e7c3448dc8b6cf3aeb9d8cdcccd95d3d590e31643c9f017d6b2115af9",
+      "source_version_note": "OISST v2.1 metadata",
+      "source_title": "NOAA/NCEI 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis, Version 2.1",
+      "acquired_utc": "2026-10-03T06:53:35.488804+00:00",
+      "processing": "SST only; crop service padding; no temporal interpolation"
+    },
+    {
+      "provider": "NOAA PSL",
+      "product": "NOAA/NCEI OISST v2.1",
+      "dataset_doi": "10.25921/RE9P-PT57",
+      "request_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-08-01T00%3A00%3A00Z&time_end=2026-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true",
+      "date_start": "2026-08-01",
+      "date_end": "2026-08-31",
+      "region": {
+        "lat_min": 31,
+        "lat_max": 42,
+        "lon_min": 117,
+        "lon_max": 128
+      },
+      "grid_shape": {
+        "lon": 44,
+        "time": 31,
+        "lat": 44
+      },
+      "sha256": "30a245403061e63d000477cfe41b8dd17ccf2c219325e37cd7d77a7b3654ea35",
+      "response_sha256": "8b91d9274c118b3e9909924e5c8001b2950c514bb73f9247478970950ecf85eb",
+      "source_version_note": "OISST v2.1 metadata",
+      "source_title": "NOAA/NCEI 1/4 Degree Daily Optimum Interpolation Sea Surface Temperature (OISST) Analysis, Version 2.1",
+      "acquired_utc": "2026-10-03T06:53:36.960569+00:00",
+      "processing": "SST only; crop service padding; no temporal interpolation"
+    }
+  ],
+  "quality": {
+    "daily_records": 243,
+    "observed_days": 243,
+    "minimum_valid_weight_fraction": 1.0
+  },
+  "interpretation": "New, previously unexamined temporal targets in the same NOAA OISST product, not an independent observational source or a prospective live forecast. Researcher has already examined 2010-2025 exploratory results. Only frozen selected methods and the baseline will be scored; no model re-selection or re-calibration on 2026. January-August is an incomplete annual cycle.",
+  "runtime_versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "xarray": "2024.11.0",
+    "netCDF4": "1.7.4",
+    "matplotlib": "3.9.2",
+    "shapely": "2.1.2"
+  }
+}

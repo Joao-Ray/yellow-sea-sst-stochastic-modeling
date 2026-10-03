@@ -244,3 +244,22 @@ unviewed periods, spatial models, alternative marine conventions, or publication
 submission are future research decisions. Downloaded/derived observations stay
 local. Source, documentation, the manuscript draft, aggregate score tables and
 generated figures are versioned.
+
+## Frozen 2026 temporal validation and revised manuscript
+
+The design and fitted parameters were committed before acquiring January-August
+2026 targets. Reproduce after the historical study with:
+
+```bash
+python -m src.validation evaluate
+```
+
+Only the previously selected methods and anomaly persistence are scored.
+1/7/30-day skill is 21.1%/2.4%/-16.2%; 7/30-day skill intervals include zero.
+This same-product temporal check does not establish universal long-range skill
+or replace independent observations. An integrated revised manuscript, six
+scientific figures, standalone HTML and audited outputs are generated.
+
+See [protocol and reproduction](docs/TEMPORAL_VALIDATION_zh.md),
+[published validation](paper/validation/README.md), and
+[revised Chinese manuscript](paper/manuscript_zh.md).

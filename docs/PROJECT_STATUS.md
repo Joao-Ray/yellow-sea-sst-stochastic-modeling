@@ -43,7 +43,7 @@ superiority, a unique marine definition, or publication acceptance.
 
 ## Verification
 
-- 53 local unit/regression tests passed; style/static and diff checks passed.
+- 59 local unit/regression tests passed; style/static and diff checks passed.
 - Full observed research workflow ran, including all nine region/period cases.
 - Synthetic NetCDF-to-report demo and the original observed pilot remain usable.
 - All scientific figures were visually reviewed.
@@ -55,3 +55,18 @@ Raw SST and boundary geometry remain local and ignored by Git. Generated
 aggregate score tables, figures and a manuscript are included for review. Reproduction
 records every acquisition URL/checksum, geometry checksum, runtime version,
 config, model parameters, and output checksums.
+
+## Frozen 2026 temporal validation
+
+A new January-August 2026 window (243 valid days) was acquired only after
+config and fitted parameters were committed publicly in d0f6f17. The overall
+method at each horizon uses only 2020-2021 selection scores; fits end in 2019
+and empirical interval calibration ends in 2022. The selected 1-day trend
+ridge has 21.1% skill, 7-day trend AR 2.4%, and 30-day trend AR -16.2%.
+The 7/30-day paired-block intervals include zero. No parameters, selection
+or interval radii changed after seeing new scores. This is a new temporal
+window of the same OISST product, not independent instrumental observations
+or a live prospective forecast. The manuscript now integrates both stages.
+
+See [validation protocol and reproduction](TEMPORAL_VALIDATION_zh.md) and
+[the published aggregate outputs](../paper/validation/README.md).

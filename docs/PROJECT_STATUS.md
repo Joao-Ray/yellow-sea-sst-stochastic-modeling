@@ -1,4 +1,4 @@
-# Project status — 2026-10-03
+# Project status — 2026-10-04
 
 **Complete exploratory research version.** Source, configuration, tests,
 reproducible acquisition, actual backtest outputs, figures, a readable Chinese
@@ -43,7 +43,7 @@ superiority, a unique marine definition, or publication acceptance.
 
 ## Verification
 
-- 59 local unit/regression tests passed; style/static and diff checks passed.
+- 70 local unit/regression tests passed; style/static and diff checks passed.
 - Full observed research workflow ran, including all nine region/period cases.
 - Synthetic NetCDF-to-report demo and the original observed pilot remain usable.
 - All scientific figures were visually reviewed.
@@ -70,3 +70,14 @@ or a live prospective forecast. The manuscript now integrates both stages.
 
 See [validation protocol and reproduction](TEMPORAL_VALIDATION_zh.md) and
 [the published aggregate outputs](../paper/validation/README.md).
+
+## Independent AMSR2 instrument verification completed
+
+1 天 RMSE 2.1108℃、技能 0.4%、有效日 225；7 天 RMSE 2.2264℃、技能 1.1%、有效日 225；30 天 RMSE 2.3533℃、技能 0.7%、有效日 225。
+
+三个步长的30天块技能区间均跨零，独立观测未确认稳定预测优势。完成的是独立仪器来源的离岸格点验证。AMSR2 漂移校准存在 Reynolds SST 共同参考，不能声称完全统计独立；缺测岸区与全海域均值未获得直接外部真值。
+
+All 243 UTC dates were requested; 0 original source files were missing.
+Protocol commit a3deb64 precedes the first external acquisition. Public provenance
+retains every original URL, acquisition time, strong ETag and requested range hash.
+The final manuscript and standalone HTML integrate all three evidence stages.

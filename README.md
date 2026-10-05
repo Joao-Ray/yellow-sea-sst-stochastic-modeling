@@ -24,9 +24,9 @@ retrospective exploration after the initial pilot test was viewed. See the
 ## Data source
 
 The project uses the NOAA/NCEI 1/4-degree Daily Optimum Interpolation Sea
-Surface Temperature (OISST), Version 2.1, AVHRR-only product. NOAA describes it
+Surface Temperature (OISST), Version 2.1 collection (legacy AVHRR directory name). NOAA describes it
 as a global Level-4 analysis combining satellite and in-situ observations on a
-0.25-degree grid. The record begins in September 1981. Final files replace
+0.25-degree grid. Since October 2021 its inputs include ACSPO AVHRR and VIIRS; April 2023 introduced monthly ship-bias adjustment. The record begins in September 1981. Final files replace
 near-real-time preliminary files after NOAA's production delay.
 
 - Dataset DOI: [10.25921/RE9P-PT57](https://doi.org/10.25921/RE9P-PT57)
@@ -233,7 +233,7 @@ python -m pytest
 ## Current status
 
 **Complete exploratory research version.** All nine domain/period backtests,
-reports, five aggregate figures, manuscript draft, and 53 tests completed
+reports, five aggregate figures, manuscript draft, and 70 tests completed
 locally. The original pilot remains preserved: its AR(1) did not beat anomaly
 persistence in the original test segment. The extension shows period-dependent
 improvement for harmonic/trend/ridge models and explicit calibration limits;
@@ -263,3 +263,19 @@ scientific figures, standalone HTML and audited outputs are generated.
 See [protocol and reproduction](docs/TEMPORAL_VALIDATION_zh.md),
 [published validation](paper/validation/README.md), and
 [revised Chinese manuscript](paper/manuscript_zh.md).
+
+## Independent AMSR2 instrument check
+
+After the research and temporal-validation commands, run `python -m src.independent`.
+A protocol publicly frozen before new AMSR2 target acquisition evaluates origin-only
+spatial projections against matched observed offshore cells. Ascending/descending
+passes, raw grid persistence, daily coverage, product differences and paired
+30/60-day daily-loss intervals are retained. No external observations retune models.
+
+1 天 RMSE 2.1108℃、技能 0.4%、有效日 225；7 天 RMSE 2.2264℃、技能 1.1%、有效日 225；30 天 RMSE 2.3533℃、技能 0.7%、有效日 225。
+
+三个步长的30天块技能区间均跨零，独立观测未确认稳定预测优势。完成的是独立仪器来源的离岸格点验证。AMSR2 漂移校准存在 Reynolds SST 共同参考，不能声称完全统计独立；缺测岸区与全海域均值未获得直接外部真值。
+
+See [independent validation](docs/INDEPENDENT_VALIDATION_zh.md),
+[public results and audited sources](paper/independent/README.md), and the
+[integrated seven-figure manuscript](paper/manuscript_zh.md).

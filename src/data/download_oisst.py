@@ -1,4 +1,4 @@
-"""Download final NOAA OISST v2.1 AVHRR-only daily NetCDF files."""
+"""Download final NOAA OISST v2.1 daily files from its legacy AVHRR directory."""
 
 from __future__ import annotations
 

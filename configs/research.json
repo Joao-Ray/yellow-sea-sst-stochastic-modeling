@@ -1,0 +1,26 @@
+{
+  "name": "Yellow Sea complete exploratory replication",
+  "design_version": 1,
+  "date_start": "2010-01-01",
+  "date_end": "2025-12-31",
+  "acquisition_region": {"lat_min": 31, "lat_max": 42, "lon_min": 117, "lon_max": 128},
+  "domains": ["iho_yellow_sea", "original_pilot_box", "iho_interior"],
+  "boundary_mrgid": 4303,
+  "interior_buffer_degrees": 0.125,
+  "folds": [
+    {"name": "2017-2019", "train_end": "2014-12-31", "selection_end": "2015-12-31", "calibration_end": "2016-12-31", "test_end": "2019-12-31"},
+    {"name": "2020-2022", "train_end": "2017-12-31", "selection_end": "2018-12-31", "calibration_end": "2019-12-31", "test_end": "2022-12-31"},
+    {"name": "2023-2025", "train_end": "2019-12-31", "selection_end": "2021-12-31", "calibration_end": "2022-12-31", "test_end": "2025-12-31"}
+  ],
+  "horizons": [1, 7, 30],
+  "ar_candidates": [1, 3, 7, 14],
+  "selection_horizon": 7,
+  "harmonics": 3,
+  "ridge_order": 14,
+  "ridge_alphas": [0.001, 0.01, 0.1, 1.0],
+  "interval_level": 0.95,
+  "bootstrap_replicates": 500,
+  "bootstrap_block_days": [15, 30, 60],
+  "random_seed": 42,
+  "scope": "Exploratory extension after initial pilot test scores were observed; all later test comparisons are retrospective robustness analyses, not untouched confirmation. Design fixed before these extension runs."
+}

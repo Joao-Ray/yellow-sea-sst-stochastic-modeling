@@ -1,0 +1,13 @@
+season,lag_days,n_pairs,correlation,scope,ar1_coefficient,conditional_half_life_days
+DJF,1,891,0.9744355266692718,training-only conditional same-season SST association; not a heat-budget or reemergence attribution,0.9730899760595286,25.409805556839693
+DJF,7,825,0.7699451258432067,training-only conditional same-season SST association; not a heat-budget or reemergence attribution,,
+DJF,30,572,0.4561968098841337,training-only conditional same-season SST association; not a heat-budget or reemergence attribution,,
+MAM,1,910,0.956953784226312,training-only conditional same-season SST association; not a heat-budget or reemergence attribution,0.9616629570357936,17.731519141333358
+MAM,7,850,0.598551634532075,training-only conditional same-season SST association; not a heat-budget or reemergence attribution,,
+MAM,30,620,0.458426979938574,training-only conditional same-season SST association; not a heat-budget or reemergence attribution,,
+JJA,1,910,0.9686796329086033,training-only conditional same-season SST association; not a heat-budget or reemergence attribution,0.9679749550398324,21.295456013456974
+JJA,7,850,0.6723864434815353,training-only conditional same-season SST association; not a heat-budget or reemergence attribution,,
+JJA,30,620,0.09549028676202781,training-only conditional same-season SST association; not a heat-budget or reemergence attribution,,
+SON,1,900,0.9575891622232601,training-only conditional same-season SST association; not a heat-budget or reemergence attribution,0.9579052433383414,16.117296714188086
+SON,7,840,0.6157727903460133,training-only conditional same-season SST association; not a heat-budget or reemergence attribution,,
+SON,30,610,0.046804795917663906,training-only conditional same-season SST association; not a heat-budget or reemergence attribution,,

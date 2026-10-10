@@ -1,0 +1,79 @@
+{
+  "frozen_utc": "2026-10-10T03:54:42.864405+00:00",
+  "source_urls": {
+    "202301": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202301-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202302": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202302-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202303": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202303-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202304": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202304-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202305": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202305-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202306": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202306-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202307": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202307-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202308": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202308-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202309": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202309-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202310": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202310-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202311": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202311-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202312": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202312-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202401": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202401-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202402": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202402-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202403": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202403-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202404": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202404-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202405": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202405-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202406": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202406-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv05.0.nc",
+    "202407": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202407-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202408": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202408-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202409": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202409-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202410": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202410-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202411": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202411-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "202412": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202412-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "202501": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202501-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv03.0.nc",
+    "202502": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202502-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "202503": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202503-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "202504": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202504-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "202505": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202505-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "202506": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202506-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv00.0.nc",
+    "202507": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202507-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "202508": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202508-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "202509": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202509-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "202510": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202510-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "202511": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202511-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv06.0.nc",
+    "202512": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202512-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv06.0.nc"
+  },
+  "date_start": "2023-01-01",
+  "date_end": "2025-12-31",
+  "region": {
+    "lat_min": 31,
+    "lat_max": 42,
+    "lon_min": 117,
+    "lon_max": 128
+  },
+  "quality_level": 5,
+  "sst_celsius_min": -2,
+  "sst_celsius_max": 35,
+  "primary_platform_types": [
+    2,
+    3,
+    4,
+    6,
+    8
+  ],
+  "primary_sampling": "nighttime thermometric records: sst_flags bits 0 and 1 both zero",
+  "secondary_sampling": "daytime thermometric buoy records (bit 0 zero, bit 1 one); descriptive only",
+  "maximum_nearest_fixed_cell_distance_km": 20,
+  "minimum_primary_dates_per_year": 60,
+  "weighting": "average squared/absolute/signed errors within each platform type + ID + UTC date, then average platforms equally within a date, then average dates equally; do not average temperatures before squared loss",
+  "horizons": [
+    1,
+    7,
+    30
+  ],
+  "baseline": "grid_anomaly_persistence",
+  "inference": "Descriptive third-source validation; no significance claim or model re-selection. Preserve annual RMSE, bias, MAE and skill, date and platform counts. Report coverage failure if fewer than 60 primary dates in any year. No target interpolation, bias correction or additional fitted model.",
+  "scope": "All previous OISST and 2026 AMSR2 outcomes have been viewed; new 2023-2025 AMSR2 acquisition is underway. iQuam SST targets have not been read; only one monthly variable/attribute inventory and official directory names have been inspected. Quality control uses Reynolds and CMC SST references and in situ data may overlap OISST inputs; this is a third measurement pathway, not statistically independent held-out truth or mechanism identification. Known observation times, depths and grid representation differ. Source versions are fixed to highest file-version suffix in the official directory before SST acquisition; no outcome-driven source selection.",
+  "input_sha256": {
+    "data/processed/confirmation/locked_forecasts.npz": "456e910b868f12e9ee9a5e983d1753a71fbcbdd8beec20b94de6ce237a4dd97c",
+    "paper/confirmation/frozen_protocol.json": "cf6a462d4d55ecd80915925cea8bba313680f11402a708d9764bc8715a761502"
+  },
+  "software_sha256": {
+    "src/data/download_iquam.py": "3fe9275d669813c3661547439cb6213b607eb95b1bcea08ecd9980e4147cd1eb"
+  }
+}

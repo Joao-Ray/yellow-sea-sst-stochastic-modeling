@@ -1,0 +1,22 @@
+{
+  "name": "AMSR2 independent-instrument matched observation verification",
+  "design_version": 1,
+  "date_start": "2026-01-01",
+  "date_end": "2026-08-31",
+  "provider": "Remote Sensing Systems",
+  "product": "RSS GCOM-W1 AMSR2 daily AS-ECV v8.2",
+  "dataset_doi": "10.56236/RSS-bq",
+  "url_template": "https://data.remss.com/amsr2/ocean/L3/v08.2/daily/{year}/RSS_AMSR2_ocean_L3_daily_{date}_v08.2.nc",
+  "primary_pass": "descending",
+  "secondary_pass": "ascending",
+  "horizons": [1, 7, 30],
+  "minimum_daily_cells": 20,
+  "minimum_scoring_days": 120,
+  "quality_rule": "finite SST in [-3,35] degrees Celsius; time in [0,24) hours UTC; land/coast/sea_ice/noobs masks all zero; exact common grid; fixed 2010 ocean mask",
+  "spatial_transfer": "grid forecast = OISST grid observation at origin d-h + frozen regional forecast(d) - regional OISST observation at origin d-h; no fitted spatial coefficient; same transfer applied to frozen anomaly-persistence baseline; raw grid persistence also scored",
+  "score_weighting": "cosine-latitude weighted loss across common observed cells within each target UTC day, then equal weight per day; no spatial pseudo-replication",
+  "bootstrap_replicates": 1000,
+  "bootstrap_block_days": [30, 60],
+  "random_seed": 20261004,
+  "scope": "Independent instrument observations, not a fully statistically independent product: RSS v8.2 instrument drift characterization used Reynolds SST. Prior OISST 2026 scores already viewed; this external-observation protocol is frozen before viewing AMSR2 2026 targets. Retrospective forecasts with fixed spatial projection; evaluates observed offshore grid cells, not unobserved coast or full-domain means. No retuning, bias correction, or interval recalibration. Regional interval radii at grid cells are diagnostic only."
+}

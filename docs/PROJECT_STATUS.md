@@ -1,0 +1,83 @@
+# Project status — 2026-10-04
+
+**Complete exploratory research version.** Source, configuration, tests,
+reproducible acquisition, actual backtest outputs, figures, a readable Chinese
+report, and a Chinese manuscript draft are implemented and verified.
+See [completion notes](COMPLETION_zh.md) for deliverables and limitations.
+
+## Complete study
+
+- 2010–2025 NOAA OISST: 192 audited monthly subsets, approximately 47.7 MiB.
+- Three domains have 5,844 valid daily means, no gaps or interpolation.
+- Main domain: Marine Regions IHO Yellow Sea MRGID 4303 (includes Bohai),
+  651 ocean grid centers; original rectangle 795; polygon interior 493.
+- Fixed first-day ocean mask, explicit polygon membership, 80% coverage gate.
+- Three disjoint test periods: 2017–2019, 2020–2022, 2023–2025. Training,
+  parameter selection, interval calibration, and testing are time-separated.
+- Eight models, three horizons, three domains and three periods: 216 score rows.
+- Calendar seasonal cycle, harmonic seasonality, linear-trend alternatives,
+  AR order selection, standardized ridge regression, paired block intervals,
+  held-out empirical interval radii, yearly scores and residual diagnostics.
+- 15/30/60-day block sensitivity, with effective length at least the horizon.
+- Self-contained HTML report, Markdown report, five figures and manuscript.
+
+## Selected descriptive findings
+
+IHO domain / 2023–2025:
+
+| Horizon | Anomaly persistence RMSE (°C) | Trend ridge RMSE (°C) | Trend ridge skill |
+|---:|---:|---:|---:|
+| 1 day | 0.1643 | 0.1279 | 22.2% |
+| 7 days | 0.6121 | 0.5546 | 9.4% |
+| 30 days | 0.9240 | 0.7905 | 14.4% |
+
+The trend AR 30-day RMSE is 0.7873 °C, empirical coverage 96.3%, versus
+90.8% for its original Gaussian interval. Earlier main-domain 30-day tests
+include negative trend-model skill. Improvement is period-dependent.
+
+These are exploratory results after the original pilot test was examined.
+Regions and training periods overlap, block intervals assume approximate
+stationarity, multiple comparisons are not corrected, and empirical intervals
+do not guarantee future coverage. The source does not claim universal model
+superiority, a unique marine definition, or publication acceptance.
+
+## Verification
+
+- 70 local unit/regression tests passed; style/static and diff checks passed.
+- Full observed research workflow ran, including all nine region/period cases.
+- Synthetic NetCDF-to-report demo and the original observed pilot remain usable.
+- All scientific figures were visually reviewed.
+- Original PSL/NCEI gridded spot checks matched to 1e-5 °C, including missingness.
+- A netCDF4/NumPy binary-size RuntimeWarning remains in this macOS environment;
+  IO and numeric checks passed and the warning is not suppressed.
+
+Raw SST and boundary geometry remain local and ignored by Git. Generated
+aggregate score tables, figures and a manuscript are included for review. Reproduction
+records every acquisition URL/checksum, geometry checksum, runtime version,
+config, model parameters, and output checksums.
+
+## Frozen 2026 temporal validation
+
+A new January-August 2026 window (243 valid days) was acquired only after
+config and fitted parameters were committed publicly in d0f6f17. The overall
+method at each horizon uses only 2020-2021 selection scores; fits end in 2019
+and empirical interval calibration ends in 2022. The selected 1-day trend
+ridge has 21.1% skill, 7-day trend AR 2.4%, and 30-day trend AR -16.2%.
+The 7/30-day paired-block intervals include zero. No parameters, selection
+or interval radii changed after seeing new scores. This is a new temporal
+window of the same OISST product, not independent instrumental observations
+or a live prospective forecast. The manuscript now integrates both stages.
+
+See [validation protocol and reproduction](TEMPORAL_VALIDATION_zh.md) and
+[the published aggregate outputs](../paper/validation/README.md).
+
+## Independent AMSR2 instrument verification completed
+
+1 天 RMSE 2.1108℃、技能 0.4%、有效日 225；7 天 RMSE 2.2264℃、技能 1.1%、有效日 225；30 天 RMSE 2.3533℃、技能 0.7%、有效日 225。
+
+三个步长的30天块技能区间均跨零，独立观测未确认稳定预测优势。完成的是独立仪器来源的离岸格点验证。AMSR2 漂移校准存在 Reynolds SST 共同参考，不能声称完全统计独立；缺测岸区与全海域均值未获得直接外部真值。
+
+All 243 UTC dates were requested; 0 original source files were missing.
+Protocol commit a3deb64 precedes the first external acquisition. Public provenance
+retains every original URL, acquisition time, strong ETag and requested range hash.
+The final manuscript and standalone HTML integrate all three evidence stages.

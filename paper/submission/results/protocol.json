@@ -1,0 +1,1099 @@
+{
+  "config_sha256": "7893f935b933dd0d6506a1dd013dcf4b59baaa4d080c922b63e34b27e8d7ab43",
+  "config": {
+    "name": "Publication extension: spatial scale and observation-source transport of SST skill",
+    "design_version": 1,
+    "date_start": "2010-01-01",
+    "date_end": "2026-08-31",
+    "train_end": "2019-12-31",
+    "selection_end": "2021-12-31",
+    "historical_test_start": "2023-01-01",
+    "historical_test_end": "2025-12-31",
+    "temporal_test_start": "2026-01-01",
+    "horizons": [
+      1,
+      7,
+      30
+    ],
+    "harmonics": 3,
+    "spatial_ranks": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "ar_orders": [
+      1,
+      3,
+      7
+    ],
+    "trend_candidates": [
+      false,
+      true
+    ],
+    "selection_horizon": 7,
+    "minimum_external_cells": 20,
+    "bootstrap_block_days": [
+      30,
+      60
+    ],
+    "bootstrap_replicates": 1999,
+    "random_seed": 20261009,
+    "land_distance_proxy_bins_km": [
+      0,
+      50,
+      100,
+      10000
+    ],
+    "seasons": {
+      "DJF": [
+        12,
+        1,
+        2
+      ],
+      "MAM": [
+        3,
+        4,
+        5
+      ],
+      "JJA": [
+        6,
+        7,
+        8
+      ],
+      "SON": [
+        9,
+        10,
+        11
+      ]
+    },
+    "scope": "Retrospective publication extension after all original 2010-2025, OISST 2026 and AMSR2 2026 scores were viewed. The frozen original forecasts and primary external rules remain unchanged. New weighted EOF-AR spatial-increment controls are fitted to 2010-2019 only and selected on 2020-2021 seven-day gridded MSE; all new test analyses are exploratory, not an untouched confirmatory holdout. Loss decomposition is an exact diagnostic identity and cannot identify latent truth or establish a discrepancy lower bound. Grid-to-land distance uses first-day missing OISST cell centers within the acquired box, not a precise coastline or bathymetry."
+  },
+  "evaluated_utc": "2026-10-10T03:01:37.273766+00:00",
+  "source_acquisitions": [
+    {
+      "path": "data/raw/research/oisst-psl-region-20100101-20100131-9ba8354d4634.nc",
+      "sha256": "8bb9c368a74f97a12db99880eb2373355be5b880e363fe5699e6f670ab1545d4",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2010.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2010-01-01T00%3A00%3A00Z&time_end=2010-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20100201-20100228-5ac1e9780748.nc",
+      "sha256": "5f0e1801f19d1646227864816a8ccd867a79fda664445758805b39209c79c5e7",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2010.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2010-02-01T00%3A00%3A00Z&time_end=2010-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20100301-20100331-67f8e5963b73.nc",
+      "sha256": "ebf35ee73f56185cac58214dedb989fb461b73c9dfec534f7f6c6d5434aca3b8",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2010.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2010-03-01T00%3A00%3A00Z&time_end=2010-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20100401-20100430-d3a5bc41151e.nc",
+      "sha256": "78cc62e8b22bae84fef2199b9d5681325aedc07dd440ee46418279cc6f853a94",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2010.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2010-04-01T00%3A00%3A00Z&time_end=2010-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20100501-20100531-f0e5fc9b0c05.nc",
+      "sha256": "b75bc3a5ac4eada9299b8e1d54c4aee8ba39fa00ca0cf70c4dec3115149312c2",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2010.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2010-05-01T00%3A00%3A00Z&time_end=2010-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20100601-20100630-57744e0856bd.nc",
+      "sha256": "6d8fb82df96380ec5ceb4ee26c2c2e3c48e6aea90d5809261ceaf3a8207eebb0",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2010.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2010-06-01T00%3A00%3A00Z&time_end=2010-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20100701-20100731-d83ed020c506.nc",
+      "sha256": "ecb8268d73a4404178e3ac45d59af83f351fd64d8dba13d80a49603b50493a54",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2010.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2010-07-01T00%3A00%3A00Z&time_end=2010-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20100801-20100831-ee0e1172437d.nc",
+      "sha256": "f96db5a818e8e877f515e48b8b3f02c3c788cbe5d45bdf3a611c048c17a32e53",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2010.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2010-08-01T00%3A00%3A00Z&time_end=2010-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20100901-20100930-e41f8c8a5a3f.nc",
+      "sha256": "c6c6cf3f9d7ba5aed0586ed66d8f38d15d03a8c8f6bf7f995ab545e2681b3068",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2010.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2010-09-01T00%3A00%3A00Z&time_end=2010-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20101001-20101031-a0739c3e175f.nc",
+      "sha256": "e426ae2d36b4c442a9d430614af5213e4290b6379cb6c4fb0c21d9ce6483e234",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2010.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2010-10-01T00%3A00%3A00Z&time_end=2010-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20101101-20101130-7337426257a9.nc",
+      "sha256": "ad53b417670ffbeff7983a6888914f30219929b366e4408a40bd80ddc5ac7e64",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2010.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2010-11-01T00%3A00%3A00Z&time_end=2010-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20101201-20101231-4d82366dc151.nc",
+      "sha256": "233a53e3aa499beb12f4da976daba4740520c818acf6ff89a28ea3bf9b0dfd6a",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2010.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2010-12-01T00%3A00%3A00Z&time_end=2010-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20110101-20110131-a648bba0ef40.nc",
+      "sha256": "a5c0b97bacf1a19f03a56624a1e93ad5ef2276cf2cfc7b65d8a5d9af9fda6630",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2011.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2011-01-01T00%3A00%3A00Z&time_end=2011-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20110201-20110228-1024ff0b01f3.nc",
+      "sha256": "49b50e0d9ecaf4dc5f1a8a37383ff2675a77234b1b64f455a741fc0510aa2e80",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2011.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2011-02-01T00%3A00%3A00Z&time_end=2011-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20110301-20110331-9c3338df2566.nc",
+      "sha256": "c2aa1af0429d1c6a4e70bc749c5c3d6ea02116546b8a9f3da33b3e5e225aa34e",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2011.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2011-03-01T00%3A00%3A00Z&time_end=2011-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20110401-20110430-8bd7cd6bb4e9.nc",
+      "sha256": "cc6f48725531fe085ad43aa98fe822546ef628bd93d0e64afa11bab0791517cc",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2011.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2011-04-01T00%3A00%3A00Z&time_end=2011-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20110501-20110531-cca30411d638.nc",
+      "sha256": "1255e1542984acff6f86b1c050c1d963e47c65e330b4422334427a2072073240",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2011.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2011-05-01T00%3A00%3A00Z&time_end=2011-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20110601-20110630-a8d77f465e8a.nc",
+      "sha256": "f074be40c7c0a4752ff03492a95df83afb95a701ee3101ca985a31fa4b8d842f",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2011.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2011-06-01T00%3A00%3A00Z&time_end=2011-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20110701-20110731-0b514ddb3776.nc",
+      "sha256": "b0a01d54403c6a686bc948c369bdee044434adee909475d5e63435226ae2c143",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2011.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2011-07-01T00%3A00%3A00Z&time_end=2011-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20110801-20110831-603907b37c6d.nc",
+      "sha256": "20e695b2266c419926e354abc00252c690d39cffdd9864e5cc735aa8e4afd339",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2011.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2011-08-01T00%3A00%3A00Z&time_end=2011-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20110901-20110930-e3712d6da988.nc",
+      "sha256": "0246950e25e0abda6eaf667db2a0cb48b2ce0f780deb75ee36ae1485e817ea2b",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2011.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2011-09-01T00%3A00%3A00Z&time_end=2011-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20111001-20111031-01f768963246.nc",
+      "sha256": "69ce39e0a3e9ff8d6b8d94cf1a175cf3d40ad4cb86c43764ab598e0d3d0e5bb0",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2011.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2011-10-01T00%3A00%3A00Z&time_end=2011-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20111101-20111130-a25bdbb0d119.nc",
+      "sha256": "76abd00cf4153c120ec5f7690957ef9a154de8df3bf00b29ec2b499167328947",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2011.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2011-11-01T00%3A00%3A00Z&time_end=2011-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20111201-20111231-707de19e9110.nc",
+      "sha256": "f90d8ba9b3f72e0d1e8df05bcd460350f8b6c8f2c7d6cca29526131a3b5b6bd4",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2011.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2011-12-01T00%3A00%3A00Z&time_end=2011-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20120101-20120131-7402bf7f0eb4.nc",
+      "sha256": "4b15d40fb1aede677fb7f7f0e461ae1beeaee2044dee1a82f325fbdae3583fa4",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2012.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2012-01-01T00%3A00%3A00Z&time_end=2012-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20120201-20120229-14b7ee35a166.nc",
+      "sha256": "71dea51c1225d38500d4f8adcc0bfd4b86c7b281bcd4318ac3e6aee534fa120a",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2012.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2012-02-01T00%3A00%3A00Z&time_end=2012-02-29T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20120301-20120331-61925ba8641e.nc",
+      "sha256": "8e8241e3c7b7e2f062bfd376245e8b8aef03ad25eb3bd14e510b56dc8f848d69",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2012.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2012-03-01T00%3A00%3A00Z&time_end=2012-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20120401-20120430-6f4f0da82fe1.nc",
+      "sha256": "459f0c4c58acd3ef527f4f3c10d9c8784d0ba03a8ac671c2a0c7f04a51ca7247",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2012.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2012-04-01T00%3A00%3A00Z&time_end=2012-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20120501-20120531-ce1baabec506.nc",
+      "sha256": "6807fad2a110c0ec104642a226b33c690c679acb19043136d744a2d246d7c67c",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2012.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2012-05-01T00%3A00%3A00Z&time_end=2012-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20120601-20120630-bb3d189b833c.nc",
+      "sha256": "30a08bc00a57920738678443581ba87a33a14b9d3e80c43317f5d150ab5497c4",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2012.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2012-06-01T00%3A00%3A00Z&time_end=2012-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20120701-20120731-38c5c925c3c8.nc",
+      "sha256": "72d2ed92e1a171f8669eaede44252894fbc3bdb990ac9c34561e4b3e7a0b095a",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2012.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2012-07-01T00%3A00%3A00Z&time_end=2012-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20120801-20120831-f2cee7b5bf5f.nc",
+      "sha256": "daf83c99f6a5966fdf668c25c0e25a2d67c983ef078ccb2a7fc23601f4a13cdd",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2012.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2012-08-01T00%3A00%3A00Z&time_end=2012-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20120901-20120930-f8c5b01db200.nc",
+      "sha256": "0c2ec76c7525bb5130369e40f05801af57c5dc7eec5561ffe387c7c1dbd2080c",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2012.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2012-09-01T00%3A00%3A00Z&time_end=2012-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20121001-20121031-461265ca15b0.nc",
+      "sha256": "9c811a4c0d7daad7a9fd89e62eaa7f6de9673e9d369d87539b157d343f057e24",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2012.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2012-10-01T00%3A00%3A00Z&time_end=2012-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20121101-20121130-146ca81bfc81.nc",
+      "sha256": "eb9568df411dbea74ab70083a0c4e38ffa08f6e19bb6970a2df61b70c405b92b",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2012.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2012-11-01T00%3A00%3A00Z&time_end=2012-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20121201-20121231-8f7e26851957.nc",
+      "sha256": "50856a0d996039dbf4c0c95a329a11cef7a0b20eb6d5cdcd5c5151ddd9ab5ef0",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2012.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2012-12-01T00%3A00%3A00Z&time_end=2012-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20130101-20130131-d0233bb1fc06.nc",
+      "sha256": "bad44bd5468687c0bd7a6f0f248aa813d15c803fa4f162f7658eda89603151a5",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2013.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2013-01-01T00%3A00%3A00Z&time_end=2013-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20130201-20130228-36ef101b66cc.nc",
+      "sha256": "18f4d78ab67ad7a74f2c86cbe3aab73fa3714037d4ce7155c03fd453ea0e7af2",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2013.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2013-02-01T00%3A00%3A00Z&time_end=2013-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20130301-20130331-6bb8b4a34fd6.nc",
+      "sha256": "a86063c772ca474efb1159adc8fd5c2cb43b7d7d7b9915b38b1e17021e1eb520",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2013.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2013-03-01T00%3A00%3A00Z&time_end=2013-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20130401-20130430-84491325ac35.nc",
+      "sha256": "3140e8b028a4e5d37dd4c0f641e932cc180fc65370d5f0b3d056b6d33df2745c",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2013.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2013-04-01T00%3A00%3A00Z&time_end=2013-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20130501-20130531-08077c01b525.nc",
+      "sha256": "922e6e38fa7858b94bb4340f555d858ff95f338928e96ee1e3978822f550d5a5",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2013.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2013-05-01T00%3A00%3A00Z&time_end=2013-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20130601-20130630-30b708244a53.nc",
+      "sha256": "a3f3d57f58e7f23e2a8a09bc81845f5010a8da7ea98b492ca030b5fbc2377723",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2013.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2013-06-01T00%3A00%3A00Z&time_end=2013-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20130701-20130731-fb7150d71cb1.nc",
+      "sha256": "6e2fc35c2208cb28d00c2c432da8a1558ecb2c9dec7ea160cc9298cbe69d843a",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2013.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2013-07-01T00%3A00%3A00Z&time_end=2013-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20130801-20130831-c73df50c0b80.nc",
+      "sha256": "ee2e83ab9965c65f83374c5ceb3fea5bca16d1d4f01d6e39810eb41e15114f83",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2013.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2013-08-01T00%3A00%3A00Z&time_end=2013-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20130901-20130930-a64595f81eaa.nc",
+      "sha256": "32047734165d11651458eac2fdef6fe8d31f4b1d6aed91f443796d20bc83711a",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2013.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2013-09-01T00%3A00%3A00Z&time_end=2013-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20131001-20131031-f06cfd282fad.nc",
+      "sha256": "f6af9a6b26997a1a5056b9bfdf1c81e7a784339903c245aa2bf7c8916423b833",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2013.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2013-10-01T00%3A00%3A00Z&time_end=2013-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20131101-20131130-22ab2175711e.nc",
+      "sha256": "28770d2bda5efe70be1ce9aa736b71e74d785e8acdbdbec34c834ac69cc7603f",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2013.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2013-11-01T00%3A00%3A00Z&time_end=2013-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20131201-20131231-6fb07b3c7f66.nc",
+      "sha256": "fbda892f918984a71faab2debf68d920c13c753a1bcf1ed85edc1d64ba12c2b1",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2013.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2013-12-01T00%3A00%3A00Z&time_end=2013-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20140101-20140131-7b677567ebb2.nc",
+      "sha256": "041c28bb6a8f50f1c6b07900e49bb775d0799c65c073f20a161903925f7e3b2e",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2014.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2014-01-01T00%3A00%3A00Z&time_end=2014-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20140201-20140228-709f5e9be55b.nc",
+      "sha256": "b2f9633745de28812cc4539d3c25c6cccd966206f2dd2b8e797199054d6de30c",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2014.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2014-02-01T00%3A00%3A00Z&time_end=2014-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20140301-20140331-fc918c7f0b47.nc",
+      "sha256": "006ae3f41f87bde9bed042479864ddc39668fef050625e226130061b9bb66ce8",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2014.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2014-03-01T00%3A00%3A00Z&time_end=2014-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20140401-20140430-72210f42fb1c.nc",
+      "sha256": "7dbc3a1e7317d0c4c14410ac8cd35a6cbf2a77648890689e7afab2f813e3ee60",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2014.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2014-04-01T00%3A00%3A00Z&time_end=2014-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20140501-20140531-e1c5dc332747.nc",
+      "sha256": "6bdc4e44ffd32722e6fbf08da280b39636cced1efea59b0e99a5423a97139093",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2014.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2014-05-01T00%3A00%3A00Z&time_end=2014-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20140601-20140630-7276b41352c6.nc",
+      "sha256": "3720eafa6c8b912ff27eb4de6001825e612bf6cdbde2ffacf20ffb90fec084ed",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2014.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2014-06-01T00%3A00%3A00Z&time_end=2014-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20140701-20140731-07a38c18b596.nc",
+      "sha256": "e431b0a40603b9663d9eddd5a5ea0869e5719241910becf1e2cf97c7f576e310",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2014.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2014-07-01T00%3A00%3A00Z&time_end=2014-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20140801-20140831-00b1a1bb5c4a.nc",
+      "sha256": "28bb3fa9221f49f10be21c3caf40e768cb18ec94ac579cb9217b23299623d384",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2014.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2014-08-01T00%3A00%3A00Z&time_end=2014-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20140901-20140930-f02629460bf0.nc",
+      "sha256": "fe2ada9dcdb48f04eb16721d4f59eb961c1988b37a9997bb67e684cefd669124",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2014.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2014-09-01T00%3A00%3A00Z&time_end=2014-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20141001-20141031-bc4199a262f0.nc",
+      "sha256": "1e3b0965dd7c713e65f82b3159a82d6d33b48a7a35e3a9226c1c92f0055ac8cf",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2014.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2014-10-01T00%3A00%3A00Z&time_end=2014-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20141101-20141130-12ca9dce6430.nc",
+      "sha256": "d619a0550e5731e1c58abd6a7b6bd4e9bf17b24532bab6928ba0486580eec1a2",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2014.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2014-11-01T00%3A00%3A00Z&time_end=2014-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20141201-20141231-bc1b79db54cd.nc",
+      "sha256": "2546753274e9758ba17c69fb06aa26979b7cb84a60f6868f49adcfb5760fcb83",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2014.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2014-12-01T00%3A00%3A00Z&time_end=2014-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20150101-20150131-b0dcb980835d.nc",
+      "sha256": "d4fb2bad6fe73feed1117f250e83874a22bd80d068782e8971e4b240b8dfcf37",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2015.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2015-01-01T00%3A00%3A00Z&time_end=2015-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20150201-20150228-937246a85d9d.nc",
+      "sha256": "8d1cd4b22eef1bbe0fa507a03fa7d5af4ba2f8d6326ad02686d28fb79d768202",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2015.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2015-02-01T00%3A00%3A00Z&time_end=2015-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20150301-20150331-15edab6f32a3.nc",
+      "sha256": "48d45f486f92af15cb1ddd1b6929efb20cb57e43f40be6f0275b6df701c1c5c6",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2015.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2015-03-01T00%3A00%3A00Z&time_end=2015-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20150401-20150430-f088ac09c6d3.nc",
+      "sha256": "ce3e98c38393be86c16972f70567727116460717914a412ac22c84e2878de8a5",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2015.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2015-04-01T00%3A00%3A00Z&time_end=2015-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20150501-20150531-1f6e66bec632.nc",
+      "sha256": "41a1229e94520e4a11192e0501ab0a461d6fa4911e27cffdc1504ebb0ef9faf1",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2015.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2015-05-01T00%3A00%3A00Z&time_end=2015-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20150601-20150630-81a352756622.nc",
+      "sha256": "91dcda7883ab37e7f89b9407c31bf6e5d6c621101e07faaca60fa310887cbf1f",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2015.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2015-06-01T00%3A00%3A00Z&time_end=2015-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20150701-20150731-0e3630891fbf.nc",
+      "sha256": "cdb98da75b25b47b380ec1b1a8c84eb5a7ea8e618b0d1c5cca73bba5e00d6310",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2015.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2015-07-01T00%3A00%3A00Z&time_end=2015-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20150801-20150831-40943f9a8360.nc",
+      "sha256": "b628a66894b275dd220214a3306c734c3369544a99ba046f58a49b47ee62d7e7",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2015.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2015-08-01T00%3A00%3A00Z&time_end=2015-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20150901-20150930-ceb2e64f5c3a.nc",
+      "sha256": "83277ba857b62bb6f550f6f8a7c6668cd8780160f196d332c7689950e1a97b24",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2015.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2015-09-01T00%3A00%3A00Z&time_end=2015-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20151001-20151031-31d4052d680b.nc",
+      "sha256": "b9ed90d132efff161189d1ad1e33f48239c1cdd2a55c0aa95c1a4e451049089f",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2015.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2015-10-01T00%3A00%3A00Z&time_end=2015-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20151101-20151130-f964b211ab3b.nc",
+      "sha256": "5affdc0e77f251cb764f8215716229f8705cc2aec92472e928786b54e4fba664",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2015.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2015-11-01T00%3A00%3A00Z&time_end=2015-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20151201-20151231-9cf8ee30ca57.nc",
+      "sha256": "2007de4b6f872e65efdf7586760fa1d7ec22e625d1eb0db3889ac6dfa801639a",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2015.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2015-12-01T00%3A00%3A00Z&time_end=2015-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20160101-20160131-95cc041bb0de.nc",
+      "sha256": "32b146d861c902f473a87573a371eb0bbf7f51b7b25546a8b562efbfa80ca05b",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2016.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2016-01-01T00%3A00%3A00Z&time_end=2016-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20160201-20160229-d6aff61191bf.nc",
+      "sha256": "4e5e3c2ab7a3169e5f95e0dd14d1a26e35e6399b895da34b703f7fa184718ff4",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2016.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2016-02-01T00%3A00%3A00Z&time_end=2016-02-29T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20160301-20160331-23662db564f2.nc",
+      "sha256": "3dac1d576e161f1221fd7b0f0c3135fd2724774d00c48488bc6f0aa11408601b",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2016.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2016-03-01T00%3A00%3A00Z&time_end=2016-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20160401-20160430-545bffb2eeb4.nc",
+      "sha256": "79c6646a9ef73dccc434cd06574a1865242c069b6ed00a13ca572fdee79d9da2",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2016.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2016-04-01T00%3A00%3A00Z&time_end=2016-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20160501-20160531-a95e2ad0353b.nc",
+      "sha256": "ab1d11bfb49956b2eaf0fba43b3bd14f20739c33925edca6d8f62a77e9256bfd",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2016.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2016-05-01T00%3A00%3A00Z&time_end=2016-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20160601-20160630-1b11955b6852.nc",
+      "sha256": "f1677586a36368737bb496ab32942a15d241b5a704fda4bf8825ed045dbef525",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2016.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2016-06-01T00%3A00%3A00Z&time_end=2016-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20160701-20160731-571aa4d59f9c.nc",
+      "sha256": "4a28b84ed1434b5cbf925f8174186e6151c58885210dc7ec4af08ed87dc615c2",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2016.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2016-07-01T00%3A00%3A00Z&time_end=2016-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20160801-20160831-8773ee45c3b5.nc",
+      "sha256": "f955de0c0f8bfd4138f9a670623bbfcd827c4adab6155a9a08063d7dc58e49dd",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2016.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2016-08-01T00%3A00%3A00Z&time_end=2016-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20160901-20160930-7efe5ad0dbe2.nc",
+      "sha256": "93dfef6b378fe25cd412aa415898467f16181bb74bc7f2de27ef52bec94cdbaa",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2016.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2016-09-01T00%3A00%3A00Z&time_end=2016-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20161001-20161031-60f41e373339.nc",
+      "sha256": "afbae806d79e05999e251f84f14bb3127b44050d24695fbc4be15a76ce9c5386",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2016.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2016-10-01T00%3A00%3A00Z&time_end=2016-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20161101-20161130-b2342232f130.nc",
+      "sha256": "51e0e5cc15071b4a8a7406ecce9cb9d4195e434050b14fe3ba07ce238651c9a1",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2016.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2016-11-01T00%3A00%3A00Z&time_end=2016-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20161201-20161231-ecfe5f5b4918.nc",
+      "sha256": "95d0e2e5d2c45ee7f5967db6f27fac24496ea600a89c6436b3790e4699e21ea5",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2016.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2016-12-01T00%3A00%3A00Z&time_end=2016-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20170101-20170131-b3ea37e2cd6c.nc",
+      "sha256": "c8eb4c5e246f87c79d262601adc8b18a36c75335adad692c2bd9f308e86d594c",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2017.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2017-01-01T00%3A00%3A00Z&time_end=2017-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20170201-20170228-834f30f1eda8.nc",
+      "sha256": "d4c33da517f04c99af2a2b0f5cbf833073e1dacec1daba14d01770421ab22223",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2017.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2017-02-01T00%3A00%3A00Z&time_end=2017-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20170301-20170331-bdf600ecb35b.nc",
+      "sha256": "55642942b06297121c0ce0020470bf911952e410fc37479dc73a4f98e2c9afb3",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2017.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2017-03-01T00%3A00%3A00Z&time_end=2017-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20170401-20170430-b18e939f6f9a.nc",
+      "sha256": "4fef109847088b31086f9a2833082e5dbcc6125beab7e8b27ffc516070ff7e6e",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2017.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2017-04-01T00%3A00%3A00Z&time_end=2017-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20170501-20170531-5f0d159fe803.nc",
+      "sha256": "aac0bc172e40f4ee52cb83ed71bad70f49ea83be9802b8a0d85dd9d0d4bf3a27",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2017.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2017-05-01T00%3A00%3A00Z&time_end=2017-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20170601-20170630-9311de913e43.nc",
+      "sha256": "c3832e453be8ece9c7372b5cb03957ba5a83faffa025f6c2ceb156d1a7ddb5c0",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2017.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2017-06-01T00%3A00%3A00Z&time_end=2017-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20170701-20170731-a5efaff59f78.nc",
+      "sha256": "8120121d8624c7c9c3e3fca5afc62f3eb638bfc037e68facec09a0627f3b5d04",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2017.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2017-07-01T00%3A00%3A00Z&time_end=2017-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20170801-20170831-32358ebe9297.nc",
+      "sha256": "88d3b797178b250e39cb1d5de565f146c45148b8cad9213f775399af755bf5de",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2017.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2017-08-01T00%3A00%3A00Z&time_end=2017-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20170901-20170930-715d9cbfcf75.nc",
+      "sha256": "c40d875baf8dd3bb7f56c1f9ca94ade851d2ebb8d115e3502423045d6a6328a4",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2017.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2017-09-01T00%3A00%3A00Z&time_end=2017-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20171001-20171031-f0e685a3bb18.nc",
+      "sha256": "0f0852a51d075430da2097e8535170b86e73ea74fe015c5c55de711f109cd600",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2017.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2017-10-01T00%3A00%3A00Z&time_end=2017-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20171101-20171130-fc43f01851cd.nc",
+      "sha256": "c8b7b8873d142e3b46cb930c26fb6ddf67d166017b1869af0a07e8013d4b8834",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2017.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2017-11-01T00%3A00%3A00Z&time_end=2017-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20171201-20171231-b2b7d1b2c62c.nc",
+      "sha256": "f8feeafc4f756a84c8919e258869287a9d465acdebd41070ba558370acbe18e1",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2017.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2017-12-01T00%3A00%3A00Z&time_end=2017-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20180101-20180131-9d65ee8483cb.nc",
+      "sha256": "071b1d866ca0a8a7f40ec064984ae5f475788ce32a113233db30df864d107a92",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2018.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2018-01-01T00%3A00%3A00Z&time_end=2018-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20180201-20180228-58734b279715.nc",
+      "sha256": "806dcee51f158fdb08e932512846e18b0ac6751240c849dc9321806b2e3b7a3b",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2018.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2018-02-01T00%3A00%3A00Z&time_end=2018-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20180301-20180331-17490be90dd4.nc",
+      "sha256": "95fe132c2424e0f54a7899584406ad67d7f4376126e88f1bb0444d5bf232e424",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2018.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2018-03-01T00%3A00%3A00Z&time_end=2018-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20180401-20180430-821e2e4229bf.nc",
+      "sha256": "438b4598a4ccc81fb8975a37316d0fe97fc1c8a19f1dd00b3aadce268df0603d",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2018.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2018-04-01T00%3A00%3A00Z&time_end=2018-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20180501-20180531-5bd329b06173.nc",
+      "sha256": "93dc2d7fb05c3c5ed5c9afd9746055c4af68ba98a675421e1969b10178ddbe92",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2018.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2018-05-01T00%3A00%3A00Z&time_end=2018-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20180601-20180630-10ce9c46bd65.nc",
+      "sha256": "5b6c7ac2bd5869e287336af7257fd2a26a0ed46b79abb74ad9880ffb2ff7a42e",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2018.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2018-06-01T00%3A00%3A00Z&time_end=2018-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20180701-20180731-7934c8eb09e3.nc",
+      "sha256": "5d133bae1ace79382d39bbab3ba9313cb985a10cb32a78ed39725d5432e3f112",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2018.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2018-07-01T00%3A00%3A00Z&time_end=2018-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20180801-20180831-328d7b933ef2.nc",
+      "sha256": "66a7f57cc98ac1eb0d707e9fa1df19435fa6d3c669c2d1fa838d44938d722755",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2018.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2018-08-01T00%3A00%3A00Z&time_end=2018-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20180901-20180930-86052d454cd4.nc",
+      "sha256": "805959282650341e42c5046141241c0c7dd32304fc740c227e0c5c00e00840bf",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2018.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2018-09-01T00%3A00%3A00Z&time_end=2018-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20181001-20181031-3b5da0988eeb.nc",
+      "sha256": "a9976ae41ae9709773a84d78dafaad36ff0338a243a93cb5fd8dcef95378815e",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2018.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2018-10-01T00%3A00%3A00Z&time_end=2018-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20181101-20181130-ed22ae633018.nc",
+      "sha256": "9770f38dbbe693ba5134700154359d567d9af7cffda4138722136c6acc57165a",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2018.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2018-11-01T00%3A00%3A00Z&time_end=2018-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20181201-20181231-fe2033599c3b.nc",
+      "sha256": "4660d9b89d12bc1bb9a9ad5aab3b1fb5492c339194f970131eb2d9eabf3468fd",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2018.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2018-12-01T00%3A00%3A00Z&time_end=2018-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20190101-20190131-2a3eb904797b.nc",
+      "sha256": "1ad3a8c2b946d14da32ad3ec82a7e9e43c7c3824e2967da0bde7830fd171cddf",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2019.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2019-01-01T00%3A00%3A00Z&time_end=2019-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20190201-20190228-bbfcd1504fb3.nc",
+      "sha256": "d6be3bb8e9d5528d7a16303333943b31159db9ccb54a0e6ef27e356295bab3b2",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2019.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2019-02-01T00%3A00%3A00Z&time_end=2019-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20190301-20190331-8950c6d061e0.nc",
+      "sha256": "44b9723b39737ea65e043f44cc96b0f24b4913241ca3d8bbc79ef02485a52942",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2019.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2019-03-01T00%3A00%3A00Z&time_end=2019-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20190401-20190430-bea5a6b7a734.nc",
+      "sha256": "733b05765780f48b95960d164adffaf8901329d00f8e8e0d8579474ab5f544ce",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2019.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2019-04-01T00%3A00%3A00Z&time_end=2019-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20190501-20190531-3c4e7889b510.nc",
+      "sha256": "2d87510ef64298b2fb8bc188844410d4c972714ecaf3bfb36d32415304970a9f",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2019.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2019-05-01T00%3A00%3A00Z&time_end=2019-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20190601-20190630-3e136b1f89b3.nc",
+      "sha256": "672671b099431bf1c6142f1e312c7a875977fa7a0a3be8cc62e9b4a43bae9e88",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2019.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2019-06-01T00%3A00%3A00Z&time_end=2019-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20190701-20190731-94bc4e98043f.nc",
+      "sha256": "6b361fee3a3b064af7103e148fdd862307778db01cdbe43ac4502fb58bd7697c",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2019.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2019-07-01T00%3A00%3A00Z&time_end=2019-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20190801-20190831-f261c7b08255.nc",
+      "sha256": "bc86f906b48f34ec223fe300cc9edfa83f025215b1bf5e7acf538e9947ae046a",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2019.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2019-08-01T00%3A00%3A00Z&time_end=2019-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20190901-20190930-85a8647b5a57.nc",
+      "sha256": "544f598411e2c2b3b0ea2a139e2e585c9c80f7bf385f5667ce7d776a50c78159",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2019.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2019-09-01T00%3A00%3A00Z&time_end=2019-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20191001-20191031-3373549d6d62.nc",
+      "sha256": "8f29b5454e01a29453a770f32963c708fe442cf389e697907cd144600144ca8c",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2019.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2019-10-01T00%3A00%3A00Z&time_end=2019-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20191101-20191130-d203bcd7a80f.nc",
+      "sha256": "31460b0775402a27596a12fab0b0677be6e2fa1b96d6d05e56f87e02a2f2f309",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2019.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2019-11-01T00%3A00%3A00Z&time_end=2019-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20191201-20191231-5f4ae17ae844.nc",
+      "sha256": "3458f49342197d92f7a11c64388df7dfafdd853c2bae640908be0e144b0964ef",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2019.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2019-12-01T00%3A00%3A00Z&time_end=2019-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20200101-20200131-8a320800c1a6.nc",
+      "sha256": "abe6ef2f66d81f3b5b7b3c9fa5b19ee1b15a16472b7e685537dda6ecb8338e0b",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2020.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2020-01-01T00%3A00%3A00Z&time_end=2020-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20200201-20200229-7e6d01df1740.nc",
+      "sha256": "97e429b3e13675bfeb32e8230d776342235158de473a8bf449cd846938491ee7",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2020.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2020-02-01T00%3A00%3A00Z&time_end=2020-02-29T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20200301-20200331-d5459514c2aa.nc",
+      "sha256": "7b99feaf7fc0bc20e23394e4d855ae6e82baf5393ac4799ea70bdf02ccf2dcb5",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2020.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2020-03-01T00%3A00%3A00Z&time_end=2020-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20200401-20200430-bbbdde8fc1e3.nc",
+      "sha256": "3ed1694b8a2bf5451dea1eeaff7079a2a435d05a2dcc271c03f926985ec704e1",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2020.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2020-04-01T00%3A00%3A00Z&time_end=2020-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20200501-20200531-11ea3b8a7402.nc",
+      "sha256": "54b049a2eba469a7c27aadaaaed357c9ab6ca0e1398737fd38bce4be3c8f3ba7",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2020.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2020-05-01T00%3A00%3A00Z&time_end=2020-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20200601-20200630-3927881b71f7.nc",
+      "sha256": "d406ad670b0bc4706f03cdab11b5e8f3fe8248d930295b973ae35b014638bccc",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2020.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2020-06-01T00%3A00%3A00Z&time_end=2020-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20200701-20200731-05693c73e056.nc",
+      "sha256": "fab83efa2a2d402540ac2c384c4731b559a89598ba55e45dbefef6fadf7cc095",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2020.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2020-07-01T00%3A00%3A00Z&time_end=2020-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20200801-20200831-d1dfdade21a9.nc",
+      "sha256": "ed4878e283b9c7a851884ad7134f3145df574e83c34aaa710b15bd14c934159b",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2020.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2020-08-01T00%3A00%3A00Z&time_end=2020-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20200901-20200930-939a3237034a.nc",
+      "sha256": "398bc88ae42a8192b3a503d728948652e1402212098358e3a3a8e7be3c4f0fca",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2020.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2020-09-01T00%3A00%3A00Z&time_end=2020-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20201001-20201031-52be18908171.nc",
+      "sha256": "c85417ba224f922da19eabe0f6291369b01c322f30f33c34f8622738f329dcad",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2020.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2020-10-01T00%3A00%3A00Z&time_end=2020-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20201101-20201130-700e58501ca1.nc",
+      "sha256": "50b81df4dcd46c26c5a33df71e1186258efcac7971d084a89f407686974b72e7",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2020.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2020-11-01T00%3A00%3A00Z&time_end=2020-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20201201-20201231-21e49f5bb5b5.nc",
+      "sha256": "97077c814f57c36c1a760995c6470c04dade8254e2e80a348de702be381226e9",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2020.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2020-12-01T00%3A00%3A00Z&time_end=2020-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20210101-20210131-ba89c20237d3.nc",
+      "sha256": "2881ae584083e56ff252d33427e4edc929ef1f28f1823352df3062e8f4af394d",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2021.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2021-01-01T00%3A00%3A00Z&time_end=2021-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20210201-20210228-3dc6895bc5e1.nc",
+      "sha256": "5e2a3b5f71749ad5a9b2280042b9245311aa166df234a9ea8ee5117319162079",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2021.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2021-02-01T00%3A00%3A00Z&time_end=2021-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20210301-20210331-0c477dc4196d.nc",
+      "sha256": "c13351fe3537701adafa9fe2247ad6646255b21c1c3b1f91e5862c1a86aebfc4",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2021.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2021-03-01T00%3A00%3A00Z&time_end=2021-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20210401-20210430-03edc13d2c36.nc",
+      "sha256": "5896557fe9c00c8cb4faf7018d521d392609f04b6840ce647e3eb0a522bf7934",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2021.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2021-04-01T00%3A00%3A00Z&time_end=2021-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20210501-20210531-8479baefd52a.nc",
+      "sha256": "486081cde070d09e9faae81caf1e8f832620120b9d6ed1fcbfa9cce53774cea0",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2021.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2021-05-01T00%3A00%3A00Z&time_end=2021-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20210601-20210630-4da8fc415f84.nc",
+      "sha256": "9fdf39ce55ef9ddf23bc2d96cad1027ccb88028b16b89218a5771fcec1c35a30",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2021.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2021-06-01T00%3A00%3A00Z&time_end=2021-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20210701-20210731-26bcf200ad6e.nc",
+      "sha256": "3d9e59b4bf83a4c1455d88028569f826348b45ed14d56d8dcfb959699aaa360e",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2021.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2021-07-01T00%3A00%3A00Z&time_end=2021-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20210801-20210831-33898721208b.nc",
+      "sha256": "a68fd8f2d8ac9f86fb34eb21bf6216156ec3b1ad1c6cff46a91c0ba3cd46ed6c",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2021.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2021-08-01T00%3A00%3A00Z&time_end=2021-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20210901-20210930-442cb8653477.nc",
+      "sha256": "1291454236166652260369a0c56e970b9414b575738f1f341f9debba18049e45",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2021.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2021-09-01T00%3A00%3A00Z&time_end=2021-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20211001-20211031-4c61f2dc1fd9.nc",
+      "sha256": "e742751a169fec5a21a999244d84eca9b3b1cf1dcac6b1be577c6a19577b180f",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2021.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2021-10-01T00%3A00%3A00Z&time_end=2021-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20211101-20211130-bab7e2bdfa7b.nc",
+      "sha256": "5746fbdc765ce2143e283d212e0123c2dcf1df3b499009e41fe2f11ce78173a8",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2021.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2021-11-01T00%3A00%3A00Z&time_end=2021-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20211201-20211231-66701615c9a0.nc",
+      "sha256": "90f193b75798f28443a3c0f074dd0a481034f74fe91c52607ff59baf731d4e43",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2021.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2021-12-01T00%3A00%3A00Z&time_end=2021-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20220101-20220131-33a6de6bd9aa.nc",
+      "sha256": "d46001d589d60aa803b401ab3744f287b2a004141fc13a9559b647be530d9813",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2022.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2022-01-01T00%3A00%3A00Z&time_end=2022-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20220201-20220228-eae92310d39c.nc",
+      "sha256": "f98855866acfc54a19cc57bd3df46d22c25f6271b3b0238e33ff9bdf8114b4fb",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2022.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2022-02-01T00%3A00%3A00Z&time_end=2022-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20220301-20220331-c1b7336ec166.nc",
+      "sha256": "1c9855b9fc985940044f1e3e09a009f06c9f343c1ec748c7a471aab0157150e5",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2022.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2022-03-01T00%3A00%3A00Z&time_end=2022-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20220401-20220430-1c49509d9bd4.nc",
+      "sha256": "5e2da5939ac1c81d423aeb2f44afc62fb8c291c7aeae982759495e6e3c386272",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2022.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2022-04-01T00%3A00%3A00Z&time_end=2022-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20220501-20220531-5b6273a338aa.nc",
+      "sha256": "6fda43a0fb67274085252d00ec4fce64fb1a1f48b8b563239de33a73b93ab5f2",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2022.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2022-05-01T00%3A00%3A00Z&time_end=2022-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20220601-20220630-6b2240aa7e69.nc",
+      "sha256": "31cd5dcd8b5ed91e19d6edf8f6b1367fd7cba941b9eb57af7ea7c1c7919bf329",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2022.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2022-06-01T00%3A00%3A00Z&time_end=2022-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20220701-20220731-530373b9e1d0.nc",
+      "sha256": "125ff3bdfd9ebc5a2d2a50f6ab8cc2601b99500484012f69d4f1348b84d955a5",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2022.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2022-07-01T00%3A00%3A00Z&time_end=2022-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20220801-20220831-500f135729e9.nc",
+      "sha256": "d9083627372043f3a97b86173eeae0e2844ea5c8e110311c5a42e56f13786c78",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2022.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2022-08-01T00%3A00%3A00Z&time_end=2022-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20220901-20220930-eadbfc983981.nc",
+      "sha256": "3bd56b7a278d0887c02589f81cb31dfc79e9e31245be2cbbd2bfd94a43f81194",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2022.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2022-09-01T00%3A00%3A00Z&time_end=2022-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20221001-20221031-509b74501a6b.nc",
+      "sha256": "091011cd762ba57adf323a3d409b2c303b5e6a4eb4cf3c67fea9768a283b3e69",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2022.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2022-10-01T00%3A00%3A00Z&time_end=2022-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20221101-20221130-02ab8f1b4026.nc",
+      "sha256": "edcf2ef233c8813a3cdf482502b9528a49beabf035ea354d4b930fff7148cc39",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2022.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2022-11-01T00%3A00%3A00Z&time_end=2022-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20221201-20221231-7a5c7c4e2562.nc",
+      "sha256": "c2829e79577c3f7a88ffcd42021e5a307a382dee22e53da7db14eb7db047043b",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2022.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2022-12-01T00%3A00%3A00Z&time_end=2022-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20230101-20230131-c34e6c9b958f.nc",
+      "sha256": "74f96fe00adc68c89160d64cf629911b958c5227bacb1344aa50854de901d177",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2023.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2023-01-01T00%3A00%3A00Z&time_end=2023-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20230201-20230228-9c2d89cfd7b7.nc",
+      "sha256": "be7ae5f49678c3fc380d4d8c0fa060c406cbce58b3e7371138a658fb94dd3287",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2023.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2023-02-01T00%3A00%3A00Z&time_end=2023-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20230301-20230331-f855b2b351c4.nc",
+      "sha256": "35d728094dea19d938749655281cafce579a24bf1ef810c5bc430b7055c23d23",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2023.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2023-03-01T00%3A00%3A00Z&time_end=2023-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20230401-20230430-f8c78f154046.nc",
+      "sha256": "7c638aaeec63d594bae151dad3be540dc66a0f13e563b6c9da25eb5cecd69675",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2023.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2023-04-01T00%3A00%3A00Z&time_end=2023-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20230501-20230531-d4436e6b2f0b.nc",
+      "sha256": "6fdacf0645bd502e2dc58fa6d7ede4d4df1045e62f962355711f131026203c0e",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2023.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2023-05-01T00%3A00%3A00Z&time_end=2023-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20230601-20230630-8cb0cc6aee28.nc",
+      "sha256": "5c9463383d71a713bb501893572e06586d6aba55f5cb123f30552765ca23f4d0",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2023.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2023-06-01T00%3A00%3A00Z&time_end=2023-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20230701-20230731-dfe8319aa906.nc",
+      "sha256": "fc14f9d5c16f5b188f5aeb40513fc866829ceca9460b28464f44bebcbb6557ca",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2023.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2023-07-01T00%3A00%3A00Z&time_end=2023-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20230801-20230831-3ed2f98b9c76.nc",
+      "sha256": "bb7f4e92f98655a6314dfaee100552a3eee78eb86fe4a84a21edfd5cf5f147ec",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2023.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2023-08-01T00%3A00%3A00Z&time_end=2023-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20230901-20230930-6f24e3090558.nc",
+      "sha256": "3aeeeeb911e409ea79d6c22972577bfc781eeaa65ae63691483c40db8edfb2cf",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2023.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2023-09-01T00%3A00%3A00Z&time_end=2023-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20231001-20231031-c472fb51aa37.nc",
+      "sha256": "7da4fc0955bef49c6ba1c56e26d69cb71de735b63fb691b7b06b3dd2604c4a45",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2023.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2023-10-01T00%3A00%3A00Z&time_end=2023-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20231101-20231130-9ea676c6860d.nc",
+      "sha256": "e4b3d8e925d976b85a24da5f71898cbd9bf937f17a4ae478cc881d29dd993e30",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2023.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2023-11-01T00%3A00%3A00Z&time_end=2023-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20231201-20231231-3085369d8988.nc",
+      "sha256": "8962b95a374c7e3a63c34b5b9998461661f568a74d378ecb1940ec950d8f373e",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2023.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2023-12-01T00%3A00%3A00Z&time_end=2023-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20240101-20240131-0e71ad45a720.nc",
+      "sha256": "fa946f27ae9dbe24e2fdc05498d5260063cafa7ab668ea551d5e58a56ce25b5c",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2024.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2024-01-01T00%3A00%3A00Z&time_end=2024-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20240201-20240229-9d335db8aff9.nc",
+      "sha256": "c6c82cdcd665068802dd00f51307cad1a269830e1379b1a18746de38d8edc550",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2024.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2024-02-01T00%3A00%3A00Z&time_end=2024-02-29T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20240301-20240331-8c501ce5cc4a.nc",
+      "sha256": "0038611e89da98dc9789a49dbc0d1a29e6839b45aabe89e6219d98aec3ea2887",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2024.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2024-03-01T00%3A00%3A00Z&time_end=2024-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20240401-20240430-95144bb33e58.nc",
+      "sha256": "e04bdb7a29babfbf4145e12963e3970a9d0b4c7975cbbb078f00537bba45439f",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2024.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2024-04-01T00%3A00%3A00Z&time_end=2024-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20240501-20240531-586fefd11a5a.nc",
+      "sha256": "ae2fe8402b92fa9ac22dec07cecc7f056b6c48d1ff7deb6b00fcd29a90e69e5e",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2024.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2024-05-01T00%3A00%3A00Z&time_end=2024-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20240601-20240630-90e5c901ebc2.nc",
+      "sha256": "059573cf96ea4d967aa9e7e754d6821768ae1ca455c10a9afc6424630f1c812b",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2024.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2024-06-01T00%3A00%3A00Z&time_end=2024-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20240701-20240731-317daacee0e6.nc",
+      "sha256": "5fb6fbc850c2dd09666a92a38da7c317863fea76fb7c08717e6cde0164de3419",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2024.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2024-07-01T00%3A00%3A00Z&time_end=2024-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20240801-20240831-9528e0cd41e9.nc",
+      "sha256": "db299ae9a185859ea1b7a25550376d63cc5c4e6e43f8065c9554388434308776",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2024.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2024-08-01T00%3A00%3A00Z&time_end=2024-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20240901-20240930-ef03df10bdf9.nc",
+      "sha256": "f4d890ce635488b10f0d5ec8bc8f08a2c4014f261d0cdb88ba04d72f5d8c9694",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2024.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2024-09-01T00%3A00%3A00Z&time_end=2024-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20241001-20241031-fd39d87454c8.nc",
+      "sha256": "6bfb8887a8ed99fd1f4b0410e585c67e7eb443fa2115884424ea73f28f284793",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2024.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2024-10-01T00%3A00%3A00Z&time_end=2024-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20241101-20241130-3352005de12c.nc",
+      "sha256": "1859f2a1914b73677e4dedc84a774e8b02fd9130810deb282e5645b368a0cf5e",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2024.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2024-11-01T00%3A00%3A00Z&time_end=2024-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20241201-20241231-80ede3aab38c.nc",
+      "sha256": "3998eb0920b71dbfdf748ed5e35c10d3dac8ecacdf15f0e1ebc0f848dc95cd25",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2024.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2024-12-01T00%3A00%3A00Z&time_end=2024-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20250101-20250131-f1176c63eed2.nc",
+      "sha256": "d4153e4eb15434b404d8763f860e89697ce29cb8252087f20bebccb15f14cce9",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2025.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2025-01-01T00%3A00%3A00Z&time_end=2025-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20250201-20250228-1e1470967db0.nc",
+      "sha256": "e634bf8d5728bda119332a7420af3b0c562e67cbae7b50e2b7dfe4475684a610",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2025.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2025-02-01T00%3A00%3A00Z&time_end=2025-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20250301-20250331-e9cd3c5551f0.nc",
+      "sha256": "ac51c0bb0f90a50e33fe4989a77e1103d617dc1c2a41e46a8f211bc0a9347cc7",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2025.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2025-03-01T00%3A00%3A00Z&time_end=2025-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20250401-20250430-c5d11108863e.nc",
+      "sha256": "039dde164df8a83c64f3d00a4a9f21eef031a771f56814584ede280368f3a594",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2025.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2025-04-01T00%3A00%3A00Z&time_end=2025-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20250501-20250531-f2cd6ca68d69.nc",
+      "sha256": "967108c90727c3ff08cb5761ebac33daa894e053019dceb8183059250d1a2b0e",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2025.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2025-05-01T00%3A00%3A00Z&time_end=2025-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20250601-20250630-70b19a666350.nc",
+      "sha256": "6964ef7c2d6c37f7225eeef4d9ae7da498af13bf1f01c86e2967929b63bb35f6",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2025.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2025-06-01T00%3A00%3A00Z&time_end=2025-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20250701-20250731-aef9fe49a7d7.nc",
+      "sha256": "707ed93cac7a5af38ca0f40f4110442893af44e6160937199b0c19946a90d274",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2025.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2025-07-01T00%3A00%3A00Z&time_end=2025-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20250801-20250831-7140b1332bcd.nc",
+      "sha256": "402bc1fbf47a1c1d779623f0aa6712346e72202467c9d624059400f72b62a6d0",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2025.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2025-08-01T00%3A00%3A00Z&time_end=2025-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20250901-20250930-450ad66f6eea.nc",
+      "sha256": "966f7e203f45ed80d8214e6a5ae5887022602a19b48c61a3defbb6058bd5a263",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2025.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2025-09-01T00%3A00%3A00Z&time_end=2025-09-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20251001-20251031-36a0d8f51b04.nc",
+      "sha256": "4da5c736cf1335e9de18fae50c8556e15c4bed1ad5a99d92196565ef9763bf68",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2025.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2025-10-01T00%3A00%3A00Z&time_end=2025-10-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20251101-20251130-e23135ccc268.nc",
+      "sha256": "2fa7f5ea5735e14978cb1a053fc369a70cd90564893bb6c8c1734abd83bcbab1",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2025.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2025-11-01T00%3A00%3A00Z&time_end=2025-11-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/research/oisst-psl-region-20251201-20251231-609e99a670cc.nc",
+      "sha256": "f3eb25631f3e27677781aa4c3db3f0a9529b3ecc01c0ee5dd566ea671f85c6a3",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2025.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2025-12-01T00%3A00%3A00Z&time_end=2025-12-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/validation/oisst-psl-region-20260101-20260131-a9869d631bf5.nc",
+      "sha256": "8f5e1ad80f6a89ae2533686381aae2e1e05b99987964ca2bc1da01a362c69d26",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-01-01T00%3A00%3A00Z&time_end=2026-01-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/validation/oisst-psl-region-20260201-20260228-c957488c3b4b.nc",
+      "sha256": "517b4b9887b854d4c9a6271e7339cfd809935c6ed95c94dbfb90f428016a0205",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-02-01T00%3A00%3A00Z&time_end=2026-02-28T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/validation/oisst-psl-region-20260301-20260331-3a7b816386d8.nc",
+      "sha256": "022a1c9ab4c96ebc4da59ef789480edef6aa1d9f80296fd3fd4db803e2239d68",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-03-01T00%3A00%3A00Z&time_end=2026-03-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/validation/oisst-psl-region-20260401-20260430-81debfa7c444.nc",
+      "sha256": "a6c4c09cc7ddd751cc25b321a4217b31aa6466a6da6b9d11dee997b0577a1576",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-04-01T00%3A00%3A00Z&time_end=2026-04-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/validation/oisst-psl-region-20260501-20260531-d4d01e2cde4b.nc",
+      "sha256": "38f8f96daab77e0000e0f84dac2ba85b81b05686653907abea795e057ea85194",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-05-01T00%3A00%3A00Z&time_end=2026-05-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/validation/oisst-psl-region-20260601-20260630-d9a00e16cade.nc",
+      "sha256": "53cf7102f65435120f6f1a2f1388a8ccd5d837155017a8484b328791fc88c82e",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-06-01T00%3A00%3A00Z&time_end=2026-06-30T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/validation/oisst-psl-region-20260701-20260731-a401bc2d5cc8.nc",
+      "sha256": "8a7105755cc4361d35fe8b37da23a1c8b6da2922cb7c6c274047f1f6cef311cd",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-07-01T00%3A00%3A00Z&time_end=2026-07-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    },
+    {
+      "path": "data/raw/validation/oisst-psl-region-20260801-20260831-4e6de0c2ed77.nc",
+      "sha256": "30a245403061e63d000477cfe41b8dd17ccf2c219325e37cd7d77a7b3654ea35",
+      "source_url": "https://psl.noaa.gov/thredds/ncss/grid/Datasets/noaa.oisst.v2.highres/sst.day.mean.2026.nc?var=sst&north=42&south=31&east=128&west=117&horizStride=1&time_start=2026-08-01T00%3A00%3A00Z&time_end=2026-08-31T00%3A00%3A00Z&timeStride=1&accept=netcdf4&disableProjSubset=on&addLatLon=true"
+    }
+  ],
+  "locked_original_protocol_sha256": "8a11e5b9b56845936cbd72495a2f066bd2d5ae2a2a9044bc18282169ce684aa4",
+  "locked_independent_protocol_sha256": "ecc8c46b5f2653dc2e4f3e636c9206a2460bbe2c5dd15123f82ad51cdaba2f03",
+  "scope": "Retrospective publication extension after all original 2010-2025, OISST 2026 and AMSR2 2026 scores were viewed. The frozen original forecasts and primary external rules remain unchanged. New weighted EOF-AR spatial-increment controls are fitted to 2010-2019 only and selected on 2020-2021 seven-day gridded MSE; all new test analyses are exploratory, not an untouched confirmatory holdout. Loss decomposition is an exact diagnostic identity and cannot identify latent truth or establish a discrepancy lower bound. Grid-to-land distance uses first-day missing OISST cell centers within the acquired box, not a precise coastline or bathymetry.",
+  "primary_replication_tolerance_celsius": 1e-05,
+  "regional_float64_vs_locked_max_difference_celsius": 1.223076488443553e-05,
+  "regional_precision_check_tolerance_celsius": 2e-05,
+  "external_source_record": "paper/independent/provenance.json",
+  "runtime_versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "xarray": "2024.11.0",
+    "netCDF4": "1.7.4",
+    "h5py": "3.14.0",
+    "matplotlib": "3.9.2"
+  },
+  "software_sha256": {
+    "src/publication.py": "efcb91b9f16671158513cc9026fec5d8e012cf3cc5972445af7467d1e384b4ab",
+    "src/models/spatial.py": "cc7f89bd33e081f45e7372d103face4129880ed73aa702ce4fe57020e16622d4",
+    "src/evaluation/publication_stats.py": "c1a3af20b28c9a5c53001189f2613fcc0f1d0fa7fe4eda44f21129f42a32b482",
+    "src/evaluation/publication_report.py": "a4ef6ebbf1fb932ebb1f3cd5582dc2dafcb3b1a3f1b304ca2ce552ef45cb0a61",
+    "paper/submission/manuscript_en.template.md": "c51eb0d883abc1f514d07f98c61f44b34b9487dd951aa4e6e91bba3a0e566c63",
+    "paper/submission/supplement_en.template.md": "66b9b1006da22f77779a0ccbd4aa85e33398a236f507536e9b1e47133cf2979a",
+    "paper/submission/references_verified.md": "832e3a2ef81ea6c0cb20d2bdabf3714b2e3497aa9805a39b80ce0922655e1326"
+  }
+}

@@ -14,6 +14,12 @@ This directory is intentionally data-free in version control.
   fetch from the provider rather than redistributing geometry.
 - `processed/research/`: complete backtests, calibration, sensitivity, residual
   diagnostics, standalone HTML report, five figures, manuscript and checksums.
+- `raw/validation/`: eight monthly OISST subsets for the frozen 2026 test.
+- `raw/independent/`: 243 daily AMSR2 subsets, acquisition manifests and the
+  independently decoded full-file audit; source measurements remain local.
+- `processed/publication/`: retrospective spatial controls, daily paired losses,
+  exact loss identities, descriptive spatial intervals, secondary inference,
+  seasonal/interval diagnostics, generated English manuscript and supplement.
 
 Both subdirectories are ignored by Git. Recreate them using the commands in the
 repository-level README rather than committing data products.

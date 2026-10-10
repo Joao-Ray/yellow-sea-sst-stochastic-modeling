@@ -1,5 +1,33 @@
 # Yellow Sea SST Stochastic Modeling
 
+## English research manuscript and publication extension
+
+The current scientific draft is [the English manuscript](paper/submission/manuscript_en.md),
+with [supplementary information](paper/submission/supplement_en.md) and a
+[Chinese assessment of the CAS Zone 1 objective](docs/PUBLICATION_UPGRADE_zh.md).
+It studies how SST forecast skill changes with spatial aggregation, lead time
+and verification source. Original frozen results are preserved.
+
+The retrospective extension adds training-only weighted EOF–AR spatial
+increments, grid-specific persistence, exact matched-loss/relative-advantage
+accounting, seasonal interval scores and paired block/multiplicity diagnostics.
+It is not an untouched confirmatory evaluation, a new algorithm, or a claim
+that publication in a particular journal tier has been achieved.
+
+After reproducing the historical and frozen validation workflows below, run:
+
+```bash
+python -m src.publication
+```
+
+The complete existing NOAA/AMSR2 caches are required. The extension checks
+their hashes and does not download additional observational files. Outputs
+include self-contained English HTML, editable Markdown, CSV diagnostics,
+model parameters, 300 dpi PNG and SVG figures in `data/processed/publication/`.
+Reviewed aggregate outputs are in `paper/submission/`; daily outputs and raw
+provider data remain local. See `paper/submission/README.md` for the evidence
+chronology and remaining submission requirements.
+
 A reproducible research project for studying Yellow Sea sea-surface-temperature
 (SST) anomalies with stochastic-process and statistical-learning methods.
 

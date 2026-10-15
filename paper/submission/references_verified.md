@@ -6,6 +6,8 @@ Flanders Marine Institute (2018). IHO Sea Areas, version 3. Marine Regions geogr
 
 Gentemann, C. L. (2014). Three way validation of MODIS and AMSR-E sea surface temperatures. *Journal of Geophysical Research: Oceans*, 119, 2583–2598. [doi:10.1002/2013JC009716](https://doi.org/10.1002/2013JC009716).
 
+Geurts, P., Ernst, D., and Wehenkel, L. (2006). Extremely randomized trees. *Machine Learning*, 63, 3–42. [doi:10.1007/s10994-006-6226-1](https://doi.org/10.1007/s10994-006-6226-1).
+
 Gneiting, T., and Raftery, A. E. (2007). Strictly proper scoring rules, prediction, and estimation. *Journal of the American Statistical Association*, 102(477), 359–378. [doi:10.1198/016214506000001437](https://doi.org/10.1198/016214506000001437).
 
 Hannachi, A., Jolliffe, I. T., and Stephenson, D. B. (2007). Empirical orthogonal functions and related techniques in atmospheric science: A review. *International Journal of Climatology*, 27, 1119–1152. [doi:10.1002/joc.1499](https://doi.org/10.1002/joc.1499).
@@ -31,3 +33,7 @@ Wentz, F. J. (2021). AMSR-2 air–sea essential climate variables: RSS version 8
 Wentz, F. J., Meissner, T., Gentemann, C., Hilburn, K. A., and Scott, J. (2021). RSS GCOM-W1 AMSR2 daily environmental suite on 0.25 deg grid, version 8.2. Remote Sensing Systems, Santa Rosa, California. [doi:10.56236/RSS-bq](https://doi.org/10.56236/RSS-bq).
 
 Wolff, S., O’Donncha, F., and Chen, B. (2020). Statistical and machine learning ensemble modelling to forecast sea surface temperature. *Journal of Marine Systems*, 208, 103347. [doi:10.1016/j.jmarsys.2020.103347](https://doi.org/10.1016/j.jmarsys.2020.103347). [Author manuscript](https://arxiv.org/abs/1909.08573).
+
+Zhang, H., Ignatov, A., and Hinshaw, D. (2021). Evaluation of the In Situ Sea Surface Temperature Quality Control in the NOAA In Situ SST Quality Monitor (iQuam) System. *Journal of Atmospheric and Oceanic Technology*, 38(7), 1249–1263. [doi:10.1175/JTECH-D-20-0203.1](https://doi.org/10.1175/JTECH-D-20-0203.1). [NOAA author record](https://repository.library.noaa.gov/view/noaa/41843).
+
+NOAA/NESDIS/STAR (2026). In situ SST Quality Monitor (iQuam), version 2.10, monthly point observations. [Official data documentation](https://www.star.nesdis.noaa.gov/socd/sst/iquam/data.html). Accessed 15 October 2026. Exact file versions are fixed in `paper/insitu/frozen_protocol.json`; acquisition records preserve source ETags and subset hashes.

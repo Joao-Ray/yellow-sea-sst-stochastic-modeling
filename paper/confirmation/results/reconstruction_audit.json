@@ -1,0 +1,35 @@
+{
+  "verified_utc": "2026-10-15T09:14:05.602658+00:00",
+  "original_protocol_sha256": "cf6a462d4d55ecd80915925cea8bba313680f11402a708d9764bc8715a761502",
+  "files": {
+    "benchmark_selection.csv": {
+      "expected_sha256": "196e629de268c6e5953ba1122d599ff79a2ed3e010c344fa108db018d62f07e4",
+      "reconstructed_sha256": "196e629de268c6e5953ba1122d599ff79a2ed3e010c344fa108db018d62f07e4",
+      "exactly_reproduced": true
+    },
+    "benchmark_parameters.json": {
+      "expected_sha256": "da2020b0a817e040cf998e2abc273f263d4919757168f3a469a692bcb147bc1f",
+      "reconstructed_sha256": "da2020b0a817e040cf998e2abc273f263d4919757168f3a469a692bcb147bc1f",
+      "exactly_reproduced": true
+    },
+    "tree_models.joblib": {
+      "expected_sha256": "b2a2b29247f4ab96548a024a598d3846ff9cbab77241395ee4495fff25794475",
+      "reconstructed_sha256": "b2a2b29247f4ab96548a024a598d3846ff9cbab77241395ee4495fff25794475",
+      "exactly_reproduced": true
+    },
+    "locked_forecasts.npz": {
+      "expected_sha256": "456e910b868f12e9ee9a5e983d1753a71fbcbdd8beec20b94de6ce237a4dd97c",
+      "reconstructed_sha256": "456e910b868f12e9ee9a5e983d1753a71fbcbdd8beec20b94de6ce237a4dd97c",
+      "exactly_reproduced": true
+    }
+  },
+  "all_frozen_output_bytes_reproduced": true,
+  "scope": "Independent rerun of the locked fitting code with unchanged upstream inputs; external targets are not used for fitting or selection. No refitting of the archived model or replacement of original results.",
+  "runtime": {
+    "python": "3.11.16",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "numpy": "2.1.3",
+    "scikit-learn": "1.7.2",
+    "joblib": "1.5.2"
+  }
+}

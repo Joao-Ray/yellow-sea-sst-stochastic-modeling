@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
+import re
 
 import h5py
 import numpy as np
@@ -39,9 +40,41 @@ def acquire_month(stamp, url, region, directory):
             HTTPRangeFile(url, session, block_size=1048576) as stream,
         ):
             with h5py.File(stream, "r") as source:
+                attributes = readable_attributes(source.attrs)
+                # Newer official files omit version/coverage root attributes.
+                # The exact versioned source URL is frozen before acquisition;
+                # retain strict title/institution, units and scoring-date checks.
+                versioned_url = bool(
+                    re.fullmatch(
+                        r"https://star\.nesdis\.noaa\.gov/pub/socd/sst/iquam/v2\.10/"
+                        + stamp
+                        + r"-STAR-L2i_GHRSST-SST-iQuam-V2\.10-v01\.0-fv\d{2}\.0\.nc",
+                        url,
+                    )
+                )
+                version = attributes.get("product_version")
+                version = version[0] if isinstance(version, list) else version
+                coverage_start = attributes.get("time_coverage_start")
+                coverage_start = (
+                    coverage_start[0]
+                    if isinstance(coverage_start, list)
+                    else coverage_start
+                )
+                metadata_identity = (
+                    version == "V2.10"
+                    and coverage_start is not None
+                    and coverage_start.startswith(stamp)
+                )
+                filename_identity = (
+                    versioned_url
+                    and version is None
+                    and coverage_start is None
+                    and attribute(source, "title")
+                    == "iQuam2 - in situ SST quality monitor"
+                    and attribute(source, "institution") == "NOAA/NESDIS/STAR"
+                )
                 if (
-                    attribute(source, "product_version") != "V2.10"
-                    or not attribute(source, "time_coverage_start").startswith(stamp)
+                    not (metadata_identity or filename_identity)
                     or attribute(source["sst"], "units") != "kelvin"
                     or attribute(source["time"], "units") != "seconds"
                     or attribute(source["time"], "comment")
@@ -85,22 +118,28 @@ def acquire_month(stamp, url, region, directory):
                         indices = (
                             positions[(positions >= start) & (positions < stop)] - start
                         )
-                        parts.append(source[name][start:stop][indices])
+                        if name == "platform_id":
+                            # Decode only requested variable-length strings. Reading a
+                            # whole chunk would fetch unrelated global string heaps.
+                            parts.append(source[name][start + indices])
+                        else:
+                            parts.append(source[name][start:stop][indices])
                     values[name] = (
                         np.concatenate(parts)
                         if parts
                         else np.array([], dtype=source[name].dtype)
                     )
                     if name == "platform_id":
-                        values[name] = np.asarray(
-                            [
-                                v.decode("utf-8") if isinstance(v, bytes) else str(v)
-                                for v in values[name]
-                            ],
-                            dtype="U64",
-                        )
+                        identifiers = [
+                            v.decode("utf-8") if isinstance(v, bytes) else str(v)
+                            for v in values[name]
+                        ]
+                        if any(len(value) > 64 for value in identifiers):
+                            raise ValueError(
+                                "iQuam identifier exceeds lossless storage width"
+                            )
+                        values[name] = np.asarray(identifiers, dtype="U64")
                 values["source_index"] = positions
-                attributes = readable_attributes(source.attrs)
                 variables = {
                     name: readable_attributes(source[name].attrs) for name in names
                 }
@@ -116,6 +155,9 @@ def acquire_month(stamp, url, region, directory):
                 "acquired_utc": datetime.now(timezone.utc).isoformat(),
                 "subset_sha256": hashlib.sha256(partial.read_bytes()).hexdigest(),
                 "source_attributes": attributes,
+                "identity_check": "explicit version/date attributes"
+                if metadata_identity
+                else "frozen version/date filename plus title/institution; actual point UTC months checked at scoring",
                 "variable_attributes": variables,
                 "global_records": len(lat),
                 "subset_records": len(positions),

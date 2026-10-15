@@ -357,3 +357,124 @@ Reproduction proceeds through the original historical research, the frozen OISST
 Daily CSVs retain errors, masks/counts and all loss components; aggregate tables average those daily quantities. Both exact identities are checked on every matched scoring date with an absolute 10⁻¹⁰°C² threshold. The maximum observed residual in the loss decomposition is 2.13e-14°C². Altering future values in dedicated tests cannot change training parameters or an origin-restricted forecast. Further tests cover paired support, multiplicity adjustment, cancellation of discrepancy loss by a negative interaction, and interval-score penalties.
 
 The generated manuscript and supplement draw tables directly from the analysis outputs. Figures are supplied in 300 dpi PNG and scalable SVG formats, with checksums. Protocol records include software hashes, provider acquisition hashes, exact model parameters, seeds and analysis scope. No reference to an open repository substitutes for an immutable archived release DOI; such a deposition should accompany final submission. Author identities, affiliations, funding, conflicts and contributor roles must be confirmed separately before submission.
+### S9. Three-year acquisition lock and stronger controls
+
+The three-year forecast lock (`paper/confirmation/frozen_protocol.json`, SHA-256 `cf6a462d4d55ecd80915925cea8bba313680f11402a708d9764bc8715a761502`) precedes the new AMSR2 acquisition. Public commit `6edc533f2cd5f7d0d6f61a0b441f6610cd54ebed` records the design and hashes at 03:34:52 UTC on 10 October 2026. The pre-existing spatial basis, regional forecasts and all seven new forecast arrays were fixed at this stage. All 1,096 external dates were obtained without source absences; insufficient valid cells still exclude individual dates from scoring. Original 2026 selected-forecast scores are reproduced to the documented 10⁻⁵°C tolerance.
+
+New control selection is restricted to the previously specified training and selection boundaries. Ridge VAR uses standardized lagged modal features, an unpenalized intercept and an L2 penalty scaled by the number of training pairs. The companion spectral radius must remain below one. Its recursively propagated retained scores enter the same spatial increment reconstruction as EOF–AR. The tree control standardizes each retained modal increment by its training standard deviation before joint fitting, so high-variance modes do not automatically dominate its split loss. Each horizon has separate training targets, while leaf size and feature fraction are selected once at seven days. Elapsed time and calendar harmonics are deterministic target features; all SST features are origin restricted. Horizon overlap and rolling origin updates do not permit reading intermediate future observations.
+
+**Table S9. Every stronger-control candidate.** Selection RMSE is in °C. Candidate settings and all fitted coefficients remain in the machine-readable results.
+
+| Family | Order | Penalty | Min leaf | Feature fraction | 7-day selection RMSE (°C) |
+| --- | --- | --- | --- | --- | --- |
+| EOF–VAR ridge | 1.0 | 0.0001 | — | — | 0.8553 |
+| EOF–VAR ridge | 1.0 | 0.001 | — | — | 0.8557 |
+| EOF–VAR ridge | 1.0 | 0.01 | — | — | 0.8605 |
+| EOF–VAR ridge | 1.0 | 0.1 | — | — | 0.9478 |
+| EOF–VAR ridge | 3.0 | 0.0001 | — | — | 0.8675 |
+| EOF–VAR ridge | 3.0 | 0.001 | — | — | 0.8679 |
+| EOF–VAR ridge | 3.0 | 0.01 | — | — | 0.8709 |
+| EOF–VAR ridge | 3.0 | 0.1 | — | — | 0.8840 |
+| EOF–VAR ridge | 7.0 | 0.0001 | — | — | 0.8601 |
+| EOF–VAR ridge | 7.0 | 0.001 | — | — | 0.8603 |
+| EOF–VAR ridge | 7.0 | 0.01 | — | — | 0.8619 |
+| EOF–VAR ridge | 7.0 | 0.1 | — | — | 0.8709 |
+| EOF–ExtraTrees | — | — | 5.0 | 0.5 | 0.8331 |
+| EOF–ExtraTrees | — | — | 5.0 | 1.0 | 0.8345 |
+| EOF–ExtraTrees | — | — | 20.0 | 0.5 | 0.8363 |
+| EOF–ExtraTrees | — | — | 20.0 | 1.0 | 0.8365 |
+| EOF–ExtraTrees | — | — | 50.0 | 0.5 | 0.8415 |
+| EOF–ExtraTrees | — | — | 50.0 | 1.0 | 0.8421 |
+
+**Table S10. New nighttime nine-comparison family, both block choices.** Pointwise skill bounds are percentages and are not family-wise confidence bounds. Holm-adjusted p values are listed independently. The seed, number of replicates, primary pass and baseline were fixed before acquisition; this family is separate from Table S2.
+
+| Model | Lead (d) | Block (d) | 95% skill interval (%) | Raw p | Holm p (9 tests) |
+| --- | --- | --- | --- | --- | --- |
+| EOF–AR | 1 | 30 | [0.40, 1.29] | 0.0015 | 0.0105 |
+| EOF–VAR ridge | 1 | 30 | [0.23, 0.98] | 0.0030 | 0.0150 |
+| EOF–ExtraTrees | 1 | 30 | [0.25, 0.64] | 0.0010 | 0.0090 |
+| EOF–AR | 7 | 30 | [0.19, 5.37] | 0.0470 | 0.1410 |
+| EOF–VAR ridge | 7 | 30 | [-0.73, 4.50] | 0.1580 | 0.1580 |
+| EOF–ExtraTrees | 7 | 30 | [0.79, 3.13] | 0.0020 | 0.0120 |
+| EOF–AR | 30 | 30 | [1.09, 13.08] | 0.0300 | 0.1200 |
+| EOF–VAR ridge | 30 | 30 | [-0.14, 12.13] | 0.0625 | 0.1410 |
+| EOF–ExtraTrees | 30 | 30 | [4.33, 10.79] | 0.0010 | 0.0090 |
+| EOF–AR | 1 | 60 | [0.29, 1.38] | 0.0055 | 0.0385 |
+| EOF–VAR ridge | 1 | 60 | [0.13, 1.06] | 0.0195 | 0.0975 |
+| EOF–ExtraTrees | 1 | 60 | [0.21, 0.69] | 0.0025 | 0.0200 |
+| EOF–AR | 7 | 60 | [-0.42, 5.81] | 0.1025 | 0.3075 |
+| EOF–VAR ridge | 7 | 60 | [-1.48, 4.94] | 0.2540 | 0.3075 |
+| EOF–ExtraTrees | 7 | 60 | [0.58, 3.34] | 0.0145 | 0.0870 |
+| EOF–AR | 30 | 60 | [0.40, 13.99] | 0.0550 | 0.2200 |
+| EOF–VAR ridge | 30 | 60 | [-1.32, 13.13] | 0.1145 | 0.3075 |
+| EOF–ExtraTrees | 30 | 60 | [3.96, 11.10] | 0.0020 | 0.0180 |
+
+![Figure S3. Annual nighttime external skill.](annual_external_skill.png)
+
+**Figure S3.** Annual skill is descriptive and compares identical dates/cells against grid-specific anomaly persistence. A pooled improvement can coexist with a negative year. No annual significance claim or retrospective exclusion of an unfavourable year is made.
+
+![Figure S4. Pointwise uncertainty for the three-year external comparison.](primary_external_intervals.png)
+
+**Figure S4.** Paired pointwise 95% intervals from 30- and 60-day calendar blocks. Multiplicity-adjusted tests appear in Table S10; a positive interval need not imply adjusted significance.
+
+![Figure S5. External coverage by UTC month.](external_coverage_calendar.png)
+
+**Figure S5.** All acquired dates enter the denominator for the fraction of dates meeting the minimum-20-cell gate. Domain weight fractions use the fixed cosine-latitude mask. The new three full years and the separate January–August 2026 window are shown without imputing missing observations.
+
+**Table S11. Change in thirty-day squared-loss advantage between matched OISST and AMSR2, 2023–2025.** The baseline is grid-specific anomaly persistence. All entries are °C² and use identical date/cell support. The difference between external and analysis advantage equals the signed discrepancy perturbation; positive product discrepancy alone does not determine ranking.
+
+| Pass | Model | Analysis advantage (°C²) | External advantage (°C²) | Discrepancy perturbation (°C²) |
+| --- | --- | --- | --- | --- |
+| ascending | EOF–AR | 0.2902 | 0.7938 | 0.5035 |
+| ascending | EOF–ExtraTrees | 0.5091 | 0.6940 | 0.1849 |
+| ascending | EOF–VAR ridge | 0.2757 | 0.7096 | 0.4340 |
+| ascending | Regional projection | -0.1300 | 0.2025 | 0.3324 |
+| descending | EOF–AR | 0.2495 | 0.6256 | 0.3761 |
+| descending | EOF–ExtraTrees | 0.5038 | 0.6453 | 0.1415 |
+| descending | EOF–VAR ridge | 0.2214 | 0.5428 | 0.3214 |
+| descending | Regional projection | -0.1294 | 0.0544 | 0.1838 |
+
+### S10. In situ matching, weighting and dependence
+
+The iQuam protocol (`paper/insitu/frozen_protocol.json`, SHA-256 `4eac347075875db867689e80369b43b04d289efcf0dc7d6cff85966dceb4ddcf`) was publicly committed at 03:55:21 UTC on 10 October 2026 in `16fa9b784692c9bf2eacdf5513433865a3e602db`, before reading iQuam SST values. Only a variable/attribute inventory and official source filenames had been inspected. For each month, the highest file-version suffix visible at that time was fixed in the protocol; subsequent retrieval does not select a replacement version after seeing temperatures.
+
+The point match retains quality level 5, finite SST from −2 to 35°C, buoy platform types 2/3/4/6/8, valid nonempty identifiers and thermometric observations (provider `sst_flags` bit 0 equals zero). Bit 1 distinguishes nighttime from daytime. The time origin is exactly seconds since 1 January 1981 00:00:00 UTC, and values must belong to the recorded source month and evaluation window. The nearest spherical fixed-cell centre must lie within 20 km. This is a point-to-grid-support rule; it does not assert that a point lies inside an exact coastline or that measurement time and depth match the daily analysis. No interpolation, depth correction, diurnal adjustment or SST bias correction is fitted.
+
+Let eₚₖd be a collocated error for record k from platform identity p on date d, with platform type included in the identity. Daily loss is L(d)=P(d)⁻¹Σₚ[nₚd⁻¹Σₖeₚₖd²], where P(d) counts sampled platforms and nₚd counts a platform's records that date. RMSE is the square root of the equally weighted date mean of L(d). Absolute and signed errors follow the same nested weighting. This retains within-platform squared variation, rather than replacing it with a squared platform-mean error. Repeated hourly records cannot dominate other platforms or count as independent replicates. Platform support and every annual result are retained in CSV files.
+
+The 36 source months yield 1,036 nighttime dates, 124,481 records and 25 platform-type/identifier combinations. Annual nighttime date counts are 362, 365, 309; the sample meets the frozen 60-date-per-year coverage gate. The thirty-day tree RMSE is 1.2917°C, compared with 1.4696°C for grid anomaly persistence (skill 12.11%). October 2025 has no accepted nighttime buoy records; complete source acquisition does not imply complete monthly sampling. All models, annual results and matched OISST losses are retained in the supplement. This comparison concerns the sampled buoy locations and dates. Quality-control reference dependence, possible assimilation overlap, repeated platforms and support mismatch preclude a statistically independent truth claim; no additional significance claim is made.
+
+![Figure S6. Quality-screened buoy point support.](buoy_support.png)
+
+**Figure S6.** Displayed points are the unique coordinates of accepted nighttime/daytime observations, with fixed ocean-cell centres for context. Identical coordinates are plotted once; all temporal records are retained for scoring. Map density does not measure effective independent sample size. The scoring scheme balances platforms within dates and dates within the sample, not geographical area.
+
+**Table S12. Annual nighttime buoy scores for the nonlinear spatial control and persistence.** Values are descriptive; shared quality-control references and possible OISST assimilation overlap preclude an independent-truth interpretation.
+
+| Year | Model | Lead (d) | Dates | RMSE (°C) | Bias (°C) | Skill (%) |
+| --- | --- | --- | --- | --- | --- | --- |
+| 2023 | EOF–ExtraTrees | 1 | 362 | 0.7174 | -0.0218 | 0.76 |
+| 2023 | Grid anomaly persistence | 1 | 362 | 0.7229 | -0.0127 | 0.00 |
+| 2023 | EOF–ExtraTrees | 7 | 362 | 0.9818 | -0.1083 | 3.16 |
+| 2023 | Grid anomaly persistence | 7 | 362 | 1.0138 | -0.0272 | 0.00 |
+| 2023 | EOF–ExtraTrees | 30 | 362 | 1.0678 | -0.1707 | 15.11 |
+| 2023 | Grid anomaly persistence | 30 | 362 | 1.2579 | -0.0653 | 0.00 |
+| 2024 | EOF–ExtraTrees | 1 | 365 | 0.7461 | -0.0304 | 0.80 |
+| 2024 | Grid anomaly persistence | 1 | 365 | 0.7521 | 0.0144 | 0.00 |
+| 2024 | EOF–ExtraTrees | 7 | 365 | 0.9741 | -0.2162 | 3.57 |
+| 2024 | Grid anomaly persistence | 7 | 365 | 1.0102 | 0.0055 | 0.00 |
+| 2024 | EOF–ExtraTrees | 30 | 365 | 1.4380 | -0.4340 | 11.51 |
+| 2024 | Grid anomaly persistence | 30 | 365 | 1.6250 | -0.0094 | 0.00 |
+| 2025 | EOF–ExtraTrees | 1 | 309 | 0.8569 | -0.3609 | 0.81 |
+| 2025 | Grid anomaly persistence | 1 | 309 | 0.8640 | -0.3563 | 0.00 |
+| 2025 | EOF–ExtraTrees | 7 | 309 | 1.0991 | -0.3940 | 4.67 |
+| 2025 | Grid anomaly persistence | 7 | 309 | 1.1530 | -0.3686 | 0.00 |
+| 2025 | EOF–ExtraTrees | 30 | 309 | 1.3474 | -0.4401 | 10.54 |
+| 2025 | Grid anomaly persistence | 30 | 309 | 1.5061 | -0.4407 | 0.00 |
+
+### S11. Additional reproduction and integrity
+
+The original frozen protocols and primary tables are preserved. With historical NOAA inputs and the original frozen records in place, `python -m src.confirmation prepare` verifies and retains existing locked forecast bytes; it refuses to overwrite an existing lock. `python -m src.confirmation acquire --workers 4` obtains or verifies every 2023–2025 AMSR2 date. `python -m src.confirmation_evaluation` requires all dates to be acquired or explicitly recorded absent and scores the frozen arrays. `python -m src.insitu acquire --workers 3` verifies or acquires every fixed iQuam source month; `python -m src.insitu evaluate` uses the same frozen arrays. `python -m src.publication_delivery` assembles the integrated manuscript and reviewed aggregates without fitting or selecting models again.
+
+For reconstruction from upstream caches, `python -m src.confirmation_rebuild --output-dir data/processed/confirmation_rebuild --install-exact` repeats the original fixed fitting/selection calculation in a new directory and installs missing archived outputs only when every frozen SHA-256 matches. It cannot overwrite a conflicting archive. On 15 October 2026, in the recorded software/platform environment, the independent rerun reproduced all four output files byte for byte: candidate selection, benchmark parameters, serialized tree models and the complete 1,339-date forecast cube. This is a post-outcome computational replication, not a new prospective freeze; the original forecasts and outcomes remain unchanged. The reconstruction audit accompanies the reviewed results.
+
+HTTP range responses require exact byte counts, explicit range bounds and a stable strong ETag. Interrupted bodies are retried and are never cached as valid bytes. An extraction optimization decodes only requested variable-length platform identifiers; comparison with the original method on the same May 2024 source gives identical values for all ten stored arrays and the same subset SHA-256. The audit records both software hashes. Newer official files omit old root version/date attributes; compatibility checks instead require the already frozen versioned filename, provider title/institution, identical units and actual point UTC-month filtering. These transport/format changes do not alter the frozen geographic subset, source selection or matching rules. Source URL/ETag, verified byte-range hashes, acquisition timestamps, subset hashes and source metadata accompany every local input. Freeze chronology, score replication and exact loss identities are checked separately from the geophysical dependencies of the observing products.

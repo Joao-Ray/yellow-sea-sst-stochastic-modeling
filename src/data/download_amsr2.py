@@ -27,7 +27,23 @@ class HTTPRangeFile(io.RawIOBase):
         headers = {"Range": f"bytes={start}-{end}", "Accept-Encoding": "identity"}
         if self.identity:
             headers["If-Match"] = self.identity
-        with self.session.get(self.url, headers=headers, timeout=60) as response:
+        # Requests' adapter does not retry a truncated response body after headers.
+        # Retry only transport failures; identity/range checks below remain strict.
+        import requests
+
+        for attempt in range(3):
+            try:
+                response = self.session.get(self.url, headers=headers, timeout=60)
+                data = response.content
+                break
+            except (
+                requests.ConnectionError,
+                requests.Timeout,
+                requests.exceptions.ChunkedEncodingError,
+            ):
+                if attempt == 2:
+                    raise
+        with response:
             response.raise_for_status()
             match = re.fullmatch(
                 r"bytes (\d+)-(\d+)/(\d+)", response.headers.get("Content-Range", "")
@@ -35,7 +51,6 @@ class HTTPRangeFile(io.RawIOBase):
             if response.status_code != 206 or not match:
                 raise ValueError("server must return an explicit HTTP byte range")
             a, b, size = map(int, match.groups())
-            data = response.content
             if a != start or b != min(end, size - 1) or len(data) != b - a + 1:
                 raise ValueError("server returned the wrong byte range")
             identity = response.headers.get("ETag")

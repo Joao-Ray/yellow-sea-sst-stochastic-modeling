@@ -302,6 +302,10 @@ def write_documents(tables, selection, spatial, config, output_dir):
         return
     manuscript = template.read_text()
     data = dynamic_text(tables, selection, spatial, config)
+    if "{{confirmation_results_text}}" in manuscript:
+        from src.evaluation.manuscript_extension import extension_text
+
+        data.update(extension_text())
     for key, value in data.items():
         manuscript = manuscript.replace("{{" + key + "}}", str(value))
     if re.search(r"\{\{\w+\}\}", manuscript):

@@ -41,14 +41,24 @@ def test_nonlinear_training_and_forecast_are_origin_restricted():
     altered[dates > "2013-12-31"] += 100
     other = fit_trees(altered, dates, "2013-12-31", 7, [0, 1, 6, 13], 5, 1.0, 12, 9)
     assert model.to_dict() == other.to_dict()
-    np.testing.assert_array_equal(
+    # Parallel tree reduction can differ by a few floating-point rounding bits.
+    # Exact per-tree parameters still prove that post-training data are excluded.
+    for first, second in zip(model.estimator.estimators_, other.estimator.estimators_):
+        np.testing.assert_array_equal(first.tree_.threshold, second.tree_.threshold)
+        np.testing.assert_array_equal(first.tree_.value, second.tree_.value)
+    np.testing.assert_allclose(
         model.estimator.predict(np.ones((1, 15))),
         other.estimator.predict(np.ones((1, 15))),
+        rtol=0,
+        atol=1e-14,
     )
     altered = scores.copy()
     altered[1494:1501] += 100
-    np.testing.assert_array_equal(
-        model.predict(scores, dates)[1500], model.predict(altered, dates)[1500]
+    np.testing.assert_allclose(
+        model.predict(scores, dates)[1500],
+        model.predict(altered, dates)[1500],
+        rtol=0,
+        atol=1e-14,
     )
 
 

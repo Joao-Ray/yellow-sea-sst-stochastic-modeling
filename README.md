@@ -1,6 +1,6 @@
 # Yellow Sea SST Stochastic Modeling
 
-## English research manuscript and publication extension
+## English research manuscript and three-year verification
 
 The current scientific draft is [the English manuscript](paper/submission/manuscript_en.md),
 with [supplementary information](paper/submission/supplement_en.md) and a
@@ -8,17 +8,40 @@ with [supplementary information](paper/submission/supplement_en.md) and a
 It studies how SST forecast skill changes with spatial aggregation, lead time
 and verification source. Original frozen results are preserved.
 
-The retrospective extension adds training-only weighted EOF–AR spatial
-increments, grid-specific persistence, exact matched-loss/relative-advantage
-accounting, seasonal interval scores and paired block/multiplicity diagnostics.
-It is not an untouched confirmatory evaluation, a new algorithm, or a claim
-that publication in a particular journal tier has been achieved.
+The initial retrospective extension adds training-only weighted EOF–AR spatial
+increments, grid-specific persistence, exact matched-loss accounting, seasonal
+interval scores and paired block/multiplicity diagnostics. A subsequent public
+forecast lock precedes acquisition of all 1,096 AMSR2 dates in 2023–2025 and
+adds coupled VAR and nonlinear ExtraTrees controls. A separate frozen protocol
+defines three-year iQuam buoy point matching. Prior OISST and 2026 AMSR2 outcomes
+were already viewed; calibration, quality-control references and possible in situ
+assimilation overlap limit independence. No journal-tier achievement is claimed.
 
 After reproducing the historical and frozen validation workflows below, run:
 
 ```bash
 python -m src.publication
 ```
+
+For the later three-year extension, preserve the original locks and use:
+
+```bash
+# Reconstruct missing forecast/model archives from the unchanged upstream caches.
+# The reconstruction directory must be new/empty; installation requires exact hashes.
+python -m src.confirmation_rebuild --install-exact
+python -m src.confirmation acquire --workers 4
+python -m src.confirmation_evaluation
+python -m src.insitu acquire --workers 3
+python -m src.insitu evaluate
+python -m src.publication_delivery
+```
+
+The source URLs, forecast hashes and nine-comparison primary family are fixed in
+`paper/confirmation/frozen_protocol.json`; buoy sources and matching rules are in
+`paper/insitu/frozen_protocol.json`. Reviewed tables and acquisition/replication
+audits appear in each stage's `results/` directory. Integrated editable English
+documents and self-contained HTML are assembled in `data/processed/submission/`.
+The initial retrospective tables remain separate from the new locked comparisons.
 
 The complete existing NOAA/AMSR2 caches are required. The extension checks
 their hashes and does not download additional observational files. Outputs

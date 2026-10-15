@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Forecast skill estimated from a regional sea surface temperature (SST) analysis need not transfer to local temperatures measured by another instrument. We examine this transfer in the Yellow–Bohai Sea using daily NOAA OISST from 2010 to August 2026 and independent-instrument AMSR2 microwave retrievals during January–August 2026. Seasonal autoregressive and regularized models were estimated, selected and calibrated in separate historical periods, then frozen before acquiring the 2026 OISST targets. Against regional OISST, the selected forecasts reduced one-day root-mean-square error (RMSE) by 21.1% relative to anomaly persistence, whereas seven-day and thirty-day skill was 2.4% and −16.2%. Matched nighttime AMSR2 verification yielded corresponding improvements of only 0.38%, 1.14% and 0.67%; all original thirty-day-block confidence intervals included zero. Exact matched-loss identities show that changing verification source can reverse thirty-day squared-loss advantage on identical dates and cells. A retrospective empirical orthogonal function–autoregressive control reduces thirty-day external RMSE by 8.9% against grid-specific anomaly persistence, requiring later independent confirmation. The diagnostics distinguish spatial aggregation, incomplete sampling and verification-source effects without assigning either product the status of error-free truth. The results support a narrowly defined gain in one-day regional analysis prediction and show why that gain cannot establish basin-wide, instrument-independent SST predictability.
+Forecast skill estimated from a regional sea surface temperature (SST) analysis need not transfer to local temperatures measured by another instrument. We examine this transfer in the Yellow–Bohai Sea using daily NOAA OISST from 2010 to August 2026, AMSR2 microwave retrievals and buoy point observations. Seasonal autoregressive and regularized models were estimated, selected and calibrated in separate historical periods, then frozen before acquiring the 2026 OISST targets. Against regional OISST, the selected forecasts reduced one-day root-mean-square error (RMSE) by 21.1% relative to anomaly persistence, whereas seven-day and thirty-day skill was 2.4% and −16.2%. Matched nighttime AMSR2 verification during January–August 2026 yielded corresponding improvements of only 0.38%, 1.14% and 0.67%; all original thirty-day-block intervals included zero. Exact matched-loss identities show that changing verification source can reverse squared-loss advantage on identical dates and cells. A subsequent forecast-locked extension to all three years 2023–2025 reduces thirty-day nighttime AMSR2 RMSE by 7.6% using a nonlinear spatial control; the nine-comparison Holm test supports the gain with both 30- and 60-day blocks. A descriptive buoy comparison covers 1,036 nighttime dates with platform-balanced daily losses. Shared calibration, quality-control references and possible assimilation overlap limit independence. These diagnostics distinguish aggregation, incomplete sampling, model representation and verification-source effects without assigning any product error-free truth or identifying a physical mechanism.
 
 **Keywords:** sea surface temperature; Yellow Sea; Bohai Sea; autoregression; forecast verification; microwave remote sensing; observational discrepancy
 
@@ -44,6 +44,16 @@ The resulting support consists of 225 nighttime dates with 46,393 cell–date pa
 
 RSS processing uses Reynolds SST information for drift calibration. The current NOAA OISST input documentation lists infrared satellite and in situ inputs rather than AMSR2, but shared reference information remains possible. We therefore use the term independent-instrument verification and do not assert full statistical independence. A complete official file for 5 February 2026 was independently decoded using the NetCDF interface; SST, measurement times and all four masks matched the range-read subsets exactly. This check addresses decoding integrity, not the geophysical accuracy of either product.
 
+### 2.4 Locked three-year extension and in situ point verification
+
+To extend beyond the partial 2026 annual cycle, we fixed seven spatial forecast series, including two stronger controls, before acquiring AMSR2 observations for all 1,096 dates of 2023–2025. Their forecast-array hash, fitted-model hashes and comparison family were publicly committed on 10 October 2026. Acquisition completed on 15 October, without changing model parameters, thresholds or bias corrections. Previous OISST outcomes and 2026 AMSR2 outcomes had already been viewed. This is therefore a pre-acquisition external-source extension conditional on prior exploration; it does not create an untouched OISST test. The original 2026 frozen comparisons remain a separate evidence stage.
+
+The same instrument version, fixed mask and quality criteria are retained. The new primary sample has 1002 nighttime dates and 209,210 cell–date pairs, with 334, 335, 333 dates in 2023, 2024 and 2025, respectively. Median nighttime valid domain weight is 35.2%. Afternoon scores and seasonal strata are descriptive sensitivities. Missing source files, failed transfers and valid-but-insufficient daily support are tracked separately; source acquisition completeness does not imply complete geophysical sampling.
+
+A separate protocol fixed all 36 monthly iQuam version-2.10 file URLs and point-matching rules before reading these in situ SST targets (NOAA/NESDIS/STAR, 2026). Best-quality (`quality_level=5`) thermometric drifting, moored, high-resolution drifter and CRW buoy records are matched to the nearest fixed ocean-cell centre within 20 km on the same UTC date. Nighttime and daytime follow the provider's flag. Kelvin values are converted to Celsius without adjustment. Losses are first averaged within platform type, identifier and UTC date, then equally across platforms within a date, and finally equally across dates. Thus hourly sampling density does not weight the comparison, and temperatures are not averaged before squared loss. A frozen minimum of 60 nighttime dates in each year defines coverage eligibility; point-support results remain descriptive.
+
+iQuam is a third measurement pathway with important dependencies: its quality control uses analysis references, including Reynolds and CMC SST (Zhang et al., 2021), and buoy measurements may overlap OISST inputs. The point observations differ in depth, timing and spatial support from a daily grid. NOAA's [provider notice](https://www.star.nesdis.noaa.gov/socd/sst/iquam/) states that SST team members have not monitored the data since 31 May 2025. Availability of later monthly files therefore does not establish continuing human review or an unchanged observing system. We retain the frozen automated quality threshold and report actual coverage, including months without accepted buoy records. We do not treat iQuam as statistically independent held-out truth or infer individual product error variances from these sources.
+
 ## 3. Methods
 
 ### 3.1 Regional forecasts and their spatial projection
@@ -56,7 +66,7 @@ The rule preserves the origin spatial field and applies the same predicted regio
 
 ### 3.2 Retrospective spatial control
 
-After viewing the original OISST and AMSR2 results, we designed a spatial extension to examine the adequacy of that projection. All new analyses are explicitly retrospective. The extension is computationally separated from the original frozen results: it estimates coefficients, seasonal fields and spatial modes only on 2010–2019, selects candidates only on 2020–2021, and evaluates them on 2023–2025 and January–August 2026. This restriction prevents future values from entering fitted parameters; it does not make the new evaluation an untouched confirmatory test.
+After viewing the original OISST and AMSR2 results, we designed an initial spatial extension to examine the adequacy of that projection. This initial analysis is explicitly retrospective. It is computationally separated from the original frozen results: it estimates coefficients, seasonal fields and spatial modes only on 2010–2019, selects candidates only on 2020–2021, and evaluates them on 2023–2025 and January–August 2026. This restriction prevents future values from entering fitted parameters; it does not make the initial evaluation an untouched confirmatory test. Its specification was subsequently retained for the forecast-locked three-year external extension described below.
 
 For each cell, three annual harmonics represent the seasonal cycle, with and without a linear trend. Cosine-latitude weighting is applied before estimating empirical orthogonal functions (EOFs), following standard spatial decomposition principles (Hannachi et al., 2007). Candidate ranks are 1, 3, 5 and 10; autoregressive orders are 1, 3 and 7. Candidates with unstable retained-mode autoregressions are excluded. The retained anomalies are propagated autoregressively, while unresolved origin anomalies persist. Specifically, with seasonal field C(d), origin anomaly a(o), retained weighted EOF reconstruction operator B and modal scores z,
 
@@ -89,6 +99,14 @@ A secondary analysis uses 1,999 centered circular-block replicates to estimate t
 The previously calibrated 95% symmetric regional intervals are evaluated using empirical coverage, width and the interval score of Gneiting and Raftery (2007). The score penalizes both excess width and observations outside the interval; lower values are preferable. A nominal interval level is not a coverage guarantee under distribution shift or serial dependence. No 2026 interval radius is recalibrated.
 
 Seasonal diagnostics use DJF, MAM, JJA and SON, with no imputation of the unavailable 2026 SON period. Training-only lagged correlations are calculated from regional residuals after removal of the estimated seasonal cycle and trend. Product discrepancies are also stratified by the distance to the nearest initially missing OISST cell centre within the acquired box. This is a grid-to-land proxy, not an exact coastline distance or a bathymetric classification; offshore sampling and missing coastal observations remain explicit limitations.
+
+### 3.5 Stronger controls and the new comparison family
+
+All controls use the same OISST history and retain the already selected rank-10 EOF basis and seasonal field. The first new control is a coupled ridge vector autoregression (VAR) on retained modal scores. Orders 1, 3 and 7 and penalties 0.0001, 0.001, 0.01 and 0.1 are fitted on 2010–2019; unstable companion matrices are excluded. The selected order-one model has penalty 0.0001 and spectral radius 0.9458. It propagates all retained scores together, allowing cross-mode linear associations omitted by separate autoregressions.
+
+The second control estimates modal increments directly with multi-output extremely randomized trees (Geurts et al., 2006). Its 47 predictors comprise ten modal states at origin lags 0, 1, 6 and 13 days, three known target-date sine/cosine pairs and elapsed time. Each candidate has 200 trees; minimum leaf sizes 5, 20 and 50 and feature fractions 0.5 and 1.0 define six candidates. Increment targets are standardized using training data alone. Separate one-, seven- and thirty-day estimators use targets ending no later than 31 December 2019. Seven-day complete-grid loss during 2020–2021 selects the common leaf/feature specification (5 and 0.5); it is retained at every horizon. No SST after an individual forecast origin enters that forecast. Atmospheric predictors are not included.
+
+New primary inference comprises three spatial models (EOF–AR, coupled VAR and ExtraTrees) at three horizons, each against grid-specific anomaly persistence on pooled nighttime AMSR2 losses for 2023–2025. The nine comparisons were specified before acquisition. We use 1,999 paired circular calendar-block replicates, seed 20261010, with 30- and 60-day blocks. Holm correction applies separately to each nine-comparison family for the two block choices. Reported 95% intervals are pointwise, not simultaneous, and need not agree with multiplicity-adjusted tests. Annual, seasonal, afternoon and buoy analyses are descriptive. This family is distinct from the earlier six-comparison secondary analysis and is not enlarged or reduced after viewing results. The known origin histories and deterministic calendar features make these stronger same-input controls; the comparison does not establish superiority to forcing-informed or operational ocean forecasts.
 
 ## 4. Results
 
@@ -186,6 +204,62 @@ The seasonal RMSE and bias table separates three complete historical test years 
 
 **Figure 4.** Seasonal RMSE for the frozen regional forecast, its anomaly-persistence baseline and the retrospective spatial control. SON is unavailable in 2026. The 2026 DJF sample contains January and February only, whereas the historical DJF sample includes December; comparisons across these rows are descriptive.
 
+### 4.5 Three complete years and stronger spatial controls
+
+The locked ExtraTrees control reduces thirty-day nighttime AMSR2 RMSE from 2.0985 to 1.9387°C, a 7.62% improvement over grid-specific anomaly persistence. Pointwise 95% skill intervals are [4.33, 10.79]% and [3.96, 11.10]% for 30- and 60-day blocks. The corresponding nine-comparison Holm p values are 0.0090 and 0.0180. Annual thirty-day tree skills are 6.38%, 7.52%, 8.73% in 2023, 2024 and 2025. This provides support across two block choices and three annual point estimates for a specific sampled-instrument comparison, conditional on the prior exploration.
+
+The EOF–AR thirty-day point skill is 7.37%, but its adjusted tests do not provide the same support. Seven-day results are less stable: EOF–AR and VAR have negative annual skill in 2024; the tree comparison's adjusted 60-day-block p value is 0.0870. Neither a positive pooled estimate nor a pointwise interval alone establishes multiplicity-adjusted superiority.
+
+The tree control's thirty-day full-grid OISST improvement is 12.94%, compared with 14.71% on nighttime matched OISST and 7.62% on exactly the same AMSR2 cells. The OISST outcomes were previously viewed and these percentages are descriptive. Their differences show why improved model representation does not remove verification-source dependence.
+
+**Table 5. Locked three-year nighttime AMSR2 comparisons.** Skill is relative to grid-specific anomaly persistence. Intervals are pointwise percentages using 60-day blocks; adjusted p values refer to the pre-acquisition nine-comparison family. The supplement reports both block choices and every model/horizon.
+
+| Model | Lead (d) | RMSE (°C) | Skill (%) | 95% interval (%) | Holm p |
+| --- | --- | --- | --- | --- | --- |
+| EOF–AR | 1 | 1.6467 | 0.83 | [0.29, 1.38] | 0.0385 |
+| EOF–ExtraTrees | 1 | 1.6531 | 0.44 | [0.21, 0.69] | 0.0200 |
+| EOF–VAR ridge | 1 | 1.6505 | 0.60 | [0.13, 1.06] | 0.0975 |
+| EOF–AR | 7 | 1.7590 | 2.79 | [-0.42, 5.81] | 0.3075 |
+| EOF–ExtraTrees | 7 | 1.7745 | 1.94 | [0.58, 3.34] | 0.0870 |
+| EOF–VAR ridge | 7 | 1.7738 | 1.97 | [-1.48, 4.94] | 0.3075 |
+| EOF–AR | 30 | 1.9437 | 7.37 | [0.40, 13.99] | 0.2200 |
+| EOF–ExtraTrees | 30 | 1.9387 | 7.62 | [3.96, 11.10] | 0.0180 |
+| EOF–VAR ridge | 30 | 1.9649 | 6.37 | [-1.32, 13.13] | 0.3075 |
+
+![Figure 5. Three-year errors across verification targets.](multiyear_sources.png)
+
+**Figure 5.** All models use identical date/cell support within each panel. Complete-grid OISST, matched nighttime OISST, the same nighttime AMSR2 cells and afternoon AMSR2 are distinct targets. Scores retain equal date weights and the frozen quality gate. The new external years were acquired after forecasts were locked, whereas their OISST outcomes were already known.
+
+### 4.6 Buoy point-support verification
+
+The 36 source months yield 1,036 nighttime dates, 124,481 records and 25 platform-type/identifier combinations. Annual nighttime date counts are 362, 365, 309; the sample meets the frozen 60-date-per-year coverage gate. The thirty-day tree RMSE is 1.2917°C, compared with 1.4696°C for grid anomaly persistence (skill 12.11%). October 2025 has no accepted nighttime buoy records; complete source acquisition does not imply complete monthly sampling. All models, annual results and matched OISST losses are retained in the supplement. This comparison concerns the sampled buoy locations and dates. Quality-control reference dependence, possible assimilation overlap, repeated platforms and support mismatch preclude a statistically independent truth claim; no additional significance claim is made.
+
+**Table 6. Descriptive nighttime buoy verification.** Skill is relative to grid-specific anomaly persistence on the same platform-day support. These values carry no additional significance claim and do not establish full-basin or statistically independent validation.
+
+| Model | Lead (d) | Dates | RMSE (°C) | Bias (°C) | Skill (%) |
+| --- | --- | --- | --- | --- | --- |
+| EOF–AR | 1 | 1036 | 0.7634 | -0.1467 | 1.82 |
+| EOF–ExtraTrees | 1 | 1036 | 0.7713 | -0.1260 | 0.79 |
+| EOF–VAR ridge | 1 | 1036 | 0.7723 | -0.1658 | 0.68 |
+| Regional persistence projection | 1 | 1036 | 0.7791 | -0.1056 | -0.20 |
+| Regional projection | 1 | 1036 | 0.7655 | -0.1048 | 1.55 |
+| Grid anomaly persistence | 1 | 1036 | 0.7775 | -0.1056 | 0.00 |
+| Raw grid persistence | 1 | 1036 | 0.8110 | -0.1125 | -4.31 |
+| EOF–AR | 7 | 1036 | 1.0431 | -0.3415 | 1.23 |
+| EOF–ExtraTrees | 7 | 1036 | 1.0156 | -0.2315 | 3.83 |
+| EOF–VAR ridge | 7 | 1036 | 1.0962 | -0.4437 | -3.81 |
+| Regional persistence projection | 7 | 1036 | 1.0537 | -0.1172 | 0.22 |
+| Regional projection | 7 | 1036 | 1.0284 | -0.1128 | 2.62 |
+| Grid anomaly persistence | 7 | 1036 | 1.0560 | -0.1175 | 0.00 |
+| Raw grid persistence | 7 | 1036 | 1.4526 | -0.1652 | -37.55 |
+| EOF–AR | 30 | 1036 | 1.4303 | -0.6217 | 2.67 |
+| EOF–ExtraTrees | 30 | 1036 | 1.2917 | -0.3439 | 12.11 |
+| EOF–VAR ridge | 30 | 1036 | 1.5102 | -0.7522 | -2.76 |
+| Regional persistence projection | 30 | 1036 | 1.5324 | -0.1676 | -4.27 |
+| Regional projection | 30 | 1036 | 1.4551 | -0.1162 | 0.99 |
+| Grid anomaly persistence | 30 | 1036 | 1.4696 | -0.1576 | 0.00 |
+| Raw grid persistence | 30 | 1036 | 4.0416 | -0.3509 | -175.01 |
+
 ## 5. Discussion
 
 ### 5.1 What regional skill establishes
@@ -204,25 +278,25 @@ These identities are algebraic diagnostics rather than an identification model f
 
 Short-range surface persistence and seasonal subsurface memory represent different scales of predictability. The daily lag diagnostics in this study do not observe subsurface heat storage, mixed-layer depth, surface fluxes or horizontal advection. The physical reemergence evidence of Liu et al. (2026) motivates extending the research to those variables, but cannot be used to retrospectively explain an autoregressive gain without a heat-budget analysis. Our findings accordingly locate the predictive signal in the specified statistical targets without identifying its causal source.
 
-The most informative next confirmation would combine a full subsequent annual cycle, retained issue-time forecasts and independent in situ observations, including coastal sites. It should test the current spatial specification without changing rank, order or quality thresholds after outcomes are inspected. A multivariate comparison using atmospheric forcing or an operational ocean forecast would address the present benchmark limitation. These extensions would test whether the observed one-day analysis gain and the spatial-control behaviour survive both observing-system and environmental changes.
+The locked three-year extension improves annual coverage and introduces coupled linear and nonlinear controls; its positive thirty-day ExtraTrees result strengthens a specific same-input, sampled-instrument conclusion. It does not identify the physical cause of forecast skill. A further confirmation should retain issue-time forecasts into a subsequent period, include measurements excluded from analysis assimilation and shared-reference quality control where feasible, and test atmospheric-forcing or operational ocean-forecast controls. Such evidence would address observational dependence, mechanism and broader generalization that the present extension leaves unresolved.
 
 ### 5.4 Limits of the present evidence
 
-The external record covers eight months, excludes much of the coastal domain and retains less than half the basin weight on a typical scoring date. Only five cell–date pairs across both passes fall in the less-than-50-km land-distance proxy bin; this explicitly precludes a nearshore performance conclusion. Quality-conditioned sample availability can covary with environmental conditions. Equal daily weighting and common-support model comparisons address fairness within the observed sample, but not missingness outside it. The gridded land-distance proxy is intentionally coarse and cannot support a coastal contamination threshold or bathymetric mechanism claim.
+The original frozen external record covers eight months; the extension adds three complete years but still excludes much of the coastal domain and samples only part of the basin on a typical date. In the original eight-month land-distance diagnostic, only five cell–date pairs across both passes fall in the less-than-50-km proxy bin; this finding is not extrapolated to the new years or to buoy coverage. Quality-conditioned availability can covary with environmental conditions. Equal daily weighting and common-support comparisons address fairness within each sample, but not missingness outside it. The coarse land-distance proxy cannot support a coastal contamination threshold or bathymetric mechanism claim.
 
-OISST and AMSR2 have different analysis, footprint and acquisition characteristics. Shared reference calibration further limits independence. A full-file decoding audit verifies data extraction but does not reduce those scientific differences. Finally, the baseline suite is focused on transparent univariate and spatial statistical controls. The evidence does not support a state-of-the-art forecasting claim against forcing-informed systems, nor a marine heatwave detection or forecasting claim, because neither was tested.
+OISST, AMSR2 and iQuam have different analysis, footprint, depth and acquisition characteristics. Shared reference calibration, analysis-based in situ quality control and possible assimilation overlap limit independence. A full-file decoding audit verifies extraction but does not reduce these scientific dependencies. The strengthened controls remain statistical and share the historical OISST input. The evidence does not support a state-of-the-art claim against forcing-informed systems, nor marine heatwave forecasting, because neither was tested. The block analysis assumes approximately stationary losses; pooling complete years improves seasonal exposure but does not prove stationarity under trend or observing-system changes.
 
 ## 6. Conclusions
 
-The Yellow–Bohai Sea experiment identifies a clear gain in frozen one-day regional OISST prediction, uncertain seven-day performance and an unfavourable thirty-day point estimate. Independent-instrument verification yields much smaller relative gains, with no consistent support across the original block specifications. Complete-grid, matched-grid and regional evaluations demonstrate why target definition must accompany any reported SST forecast skill. Exact loss and relative-advantage accounting expose observational discrepancy effects while preserving their signed interaction and avoiding an error-floor interpretation. The resulting evidence supports a limited regional analysis forecast and a reproducible framework for testing whether its skill transfers across spatial scales and observational sources.
+The Yellow–Bohai Sea experiment identifies a clear gain in frozen one-day regional OISST prediction, uncertain seven-day performance and an unfavourable thirty-day regional point estimate. Original independent-instrument verification yields much smaller gains. The locked three-year extension supplies evidence for a thirty-day nonlinear spatial improvement against sampled nighttime AMSR2, while preserving horizon- and model-specific uncertainty. Buoy comparisons provide a separate point-support assessment with explicit quality-control and assimilation dependencies. Complete-grid, matched-grid and regional evaluations show why target definition must accompany forecast skill. Exact loss and relative-advantage accounting expose observational discrepancy effects while retaining their signed interaction. The evidence supports specific statistical forecasts and a reproducible transfer test; it does not establish full-basin, instrument-independent predictability, a causal mechanism or superiority to forcing-informed systems.
 
 ## Acknowledgements
 
-We acknowledge Remote Sensing Systems for AMSR2 data production, JAXA for source observations, and the NASA AMSR-E Science Team and Earth Science MEaSUREs Program for their support of the data programme. NOAA PSL supplied OISST subsets, and NOAA/NCEI provides the underlying SST collection. Marine Regions supplied the geographical definitions. These acknowledgements refer to provider contributions and do not imply funding or endorsement of the present study.
+We acknowledge Remote Sensing Systems for AMSR2 data production, JAXA for source observations, and the NASA AMSR-E Science Team and Earth Science MEaSUREs Program for their support of the data programme. NOAA PSL supplied OISST subsets, NOAA/NCEI provides the underlying SST collection, and NOAA/NESDIS/STAR supplies iQuam with contributions from its in situ data providers. Marine Regions supplied the geographical definitions. These acknowledgements refer to provider contributions and do not imply funding or endorsement of the present study.
 
 ## Data and code availability
 
-NOAA OISST, RSS AMSR2 and Marine Regions geographical definitions are publicly available from the providers cited below. Acquisition manifests, frozen protocols, original metrics, new spatial parameters, aggregate diagnostic tables, figure sources and analysis code are available in the [project repository](https://github.com/Joao-Ray/yellow-sea-sst-stochastic-modeling). Large provider files are referenced through acquisition URLs and checksums rather than represented as original measurements produced by this study. The accompanying supplementary information gives the exact temporal boundaries, arithmetic choices and reproduction procedure. This manuscript is a research draft; authorship and submission declarations are maintained separately until confirmed by the responsible researchers.
+NOAA OISST, RSS AMSR2, NOAA iQuam and Marine Regions geographical definitions are publicly available from the providers cited below. Acquisition manifests, frozen protocols, original metrics, new spatial parameters, aggregate diagnostic tables, figure sources and analysis code are available in the [project repository](https://github.com/Joao-Ray/yellow-sea-sst-stochastic-modeling). Large provider files are referenced through acquisition URLs and checksums rather than represented as original measurements produced by this study. The accompanying supplementary information gives the exact temporal boundaries, arithmetic choices and reproduction procedure. This manuscript is a research draft; authorship and submission declarations are maintained separately until confirmed by the responsible researchers.
 
 
 ## References
@@ -234,6 +308,8 @@ Castro, S. L., Wick, G. A., Jackson, D. L., and Emery, W. J. (2008). Error chara
 Flanders Marine Institute (2018). IHO Sea Areas, version 3. Marine Regions geographical dataset. [doi:10.14284/323](https://doi.org/10.14284/323). Study polygon: Yellow Sea, MRGID 4303, including Bohai.
 
 Gentemann, C. L. (2014). Three way validation of MODIS and AMSR-E sea surface temperatures. *Journal of Geophysical Research: Oceans*, 119, 2583–2598. [doi:10.1002/2013JC009716](https://doi.org/10.1002/2013JC009716).
+
+Geurts, P., Ernst, D., and Wehenkel, L. (2006). Extremely randomized trees. *Machine Learning*, 63, 3–42. [doi:10.1007/s10994-006-6226-1](https://doi.org/10.1007/s10994-006-6226-1).
 
 Gneiting, T., and Raftery, A. E. (2007). Strictly proper scoring rules, prediction, and estimation. *Journal of the American Statistical Association*, 102(477), 359–378. [doi:10.1198/016214506000001437](https://doi.org/10.1198/016214506000001437).
 
@@ -260,3 +336,7 @@ Wentz, F. J. (2021). AMSR-2 air–sea essential climate variables: RSS version 8
 Wentz, F. J., Meissner, T., Gentemann, C., Hilburn, K. A., and Scott, J. (2021). RSS GCOM-W1 AMSR2 daily environmental suite on 0.25 deg grid, version 8.2. Remote Sensing Systems, Santa Rosa, California. [doi:10.56236/RSS-bq](https://doi.org/10.56236/RSS-bq).
 
 Wolff, S., O’Donncha, F., and Chen, B. (2020). Statistical and machine learning ensemble modelling to forecast sea surface temperature. *Journal of Marine Systems*, 208, 103347. [doi:10.1016/j.jmarsys.2020.103347](https://doi.org/10.1016/j.jmarsys.2020.103347). [Author manuscript](https://arxiv.org/abs/1909.08573).
+
+Zhang, H., Ignatov, A., and Hinshaw, D. (2021). Evaluation of the In Situ Sea Surface Temperature Quality Control in the NOAA In Situ SST Quality Monitor (iQuam) System. *Journal of Atmospheric and Oceanic Technology*, 38(7), 1249–1263. [doi:10.1175/JTECH-D-20-0203.1](https://doi.org/10.1175/JTECH-D-20-0203.1). [NOAA author record](https://repository.library.noaa.gov/view/noaa/41843).
+
+NOAA/NESDIS/STAR (2026). In situ SST Quality Monitor (iQuam), version 2.10, monthly point observations. [Official data documentation](https://www.star.nesdis.noaa.gov/socd/sst/iquam/data.html). Accessed 15 October 2026. Exact file versions are fixed in `paper/insitu/frozen_protocol.json`; acquisition records preserve source ETags and subset hashes.

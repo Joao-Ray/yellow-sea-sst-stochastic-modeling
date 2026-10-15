@@ -60,6 +60,26 @@ def test_byte_ranges_cross_blocks_and_cache_without_changing_identity():
         ]
 
 
+def test_truncated_transport_is_retried_but_only_verified_bytes_are_recorded():
+    import requests
+
+    class TruncatedOnce(Session):
+        failed = False
+
+        def get(self, url, headers, timeout):
+            if headers["Range"] == "bytes=4-7" and not self.failed:
+                self.failed = True
+                raise requests.exceptions.ChunkedEncodingError("incomplete body")
+            return super().get(url, headers, timeout)
+
+    session = TruncatedOnce()
+    with HTTPRangeFile("url", session, block_size=4) as stream:
+        assert stream.read() == b"0123456789"
+        assert session.failed
+        assert len(stream.records) == 3
+        assert all(r["etag"] == '"stable"' for r in stream.records)
+
+
 @pytest.mark.parametrize(
     "corrupt",
     [

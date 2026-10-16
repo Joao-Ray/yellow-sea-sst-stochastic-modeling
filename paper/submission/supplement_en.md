@@ -536,7 +536,7 @@ The two new groups add either three heat features or twelve heat/wind features t
 
 The source-region cell forecast is the origin OISST field plus the new regional predicted increment. All eighteen new family/group/horizon forecasts are evaluated with the unchanged nighttime AMSR2 flags, cosine-latitude weights and minimum-20-cell gate on the same dates. No newly estimated spatial pattern, SST bias correction, model selection or p value is introduced. The additional projection check was added after the local design record and is explicitly descriptive. Its matched OISST and AMSR2 aggregate and annual scores are archived alongside the full daily series.
 
-A further descriptive diagnostic projects every source-region forecast onto the origin OISST spatial offsets and evaluates the same 1,002 nighttime AMSR2 dates. Across all twelve forcing-versus-SST-only contrasts, 8 positive point estimates span -0.07% to 1.06%. No additional fitting, selection or significance claim is made. These regional-increment projections are distinct from the previously locked nonlinear spatial model.
+A further descriptive diagnostic projects every source-region forecast onto the origin OISST spatial offsets and evaluates the same 1,002 nighttime AMSR2 dates. Across all twelve forcing-versus-SST-only contrasts, point-estimated gains range from -0.07% to 1.06%; 8 of the twelve estimates are positive. No additional fitting, selection or significance claim is made. These regional-increment projections are distinct from the previously locked nonlinear spatial model.
 
 #### Reproduction and computational safeguards
 

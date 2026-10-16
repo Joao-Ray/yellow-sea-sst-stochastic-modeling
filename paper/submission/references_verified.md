@@ -2,7 +2,7 @@ Banzon, V., Smith, T. M., Chin, T. M., Liu, C., and Hankins, W. (2016). A long-t
 
 Castro, S. L., Wick, G. A., Jackson, D. L., and Emery, W. J. (2008). Error characterization of infrared and microwave satellite sea surface temperature products for merging and analysis. *Journal of Geophysical Research: Oceans*, 113, C03010. [doi:10.1029/2006JC003829](https://doi.org/10.1029/2006JC003829).
 
-Flanders Marine Institute (2018). IHO Sea Areas, version 3. Marine Regions geographical dataset. [doi:10.14284/323](https://doi.org/10.14284/323). Study polygon: Yellow Sea, MRGID 4303, including Bohai.
+Flanders Marine Institute (2018). IHO Sea Areas, version 3. Marine Regions geographical dataset. [doi:10.14284/323](https://doi.org/10.14284/323). Study polygons: Yellow Sea, MRGID 4303, including Bohai; Eastern China Sea, MRGID 4302, using its northern intersection with the cached SST box.
 
 Gentemann, C. L. (2014). Three way validation of MODIS and AMSR-E sea surface temperatures. *Journal of Geophysical Research: Oceans*, 119, 2583–2598. [doi:10.1002/2013JC009716](https://doi.org/10.1002/2013JC009716).
 

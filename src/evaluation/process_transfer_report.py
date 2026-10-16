@@ -94,13 +94,17 @@ def text_fields(root=None):
         .supported.all()
     )
     source_both = both.loc["yellow_bohai"]
+    support_sentence = (
+        "No source contrast retains a positive gain and a Holm-adjusted p value below 0.05"
+        if source_both.sum() == 0
+        else f"{int(source_both.sum())} source contrasts retain a positive gain and a Holm-adjusted p value below 0.05"
+    )
     text = (
         f"The forcing ablation uses all 1,096 dates in 2023–2025. Across the twelve Yellow–Bohai "
         f"family/group/horizon contrasts, {int(source.rmse_skill.gt(0).sum())} have a positive point estimate, "
         f"with RMSE changes relative to matched SST-only controls ranging from "
         f"{100 * source.rmse_skill.min():.2f}% to {100 * source.rmse_skill.max():.2f}% "
-        f"(positive denotes improvement). {int(source_both.sum())} source contrasts retain a positive gain "
-        f"and a Holm-adjusted p value below 0.05 under both block lengths in the full "
+        f"(positive denotes improvement). {support_sentence} under both block lengths in the full "
         f"36-comparison exploratory family. The adjustment does not erase the prior viewing of outcomes; "
         f"these are conditional exploratory diagnostics, not new confirmatory discoveries."
     )
@@ -190,7 +194,7 @@ def text_fields(root=None):
             "unchanged-scaler transfer. At thirty days in 2023–2025, calibrated SST-only RMSE is "
             f"{one(aligned, period='2023-2025', family='ridge', group='sst', horizon_days=30).rmse:.4f}°C for ridge and "
             f"{one(aligned, period='2023-2025', family='trees', group='sst', horizon_days=30).rmse:.4f}°C for trees. "
-            f"The large raw-transfer penalty is reduced, but {worse} of six calibrated SST-only family/lead "
+            f"The large raw-transfer penalty is reduced, but {'all six' if worse == 6 else str(worse) + ' of six'} calibrated SST-only family/lead "
             "point estimates remain worse than local anomaly persistence in these three years. "
             "Joint calibration does not identify which distributional component or physical process "
             "causes the remaining gap. No new significance test or model selection is attached."
@@ -222,8 +226,8 @@ def text_fields(root=None):
             f"A further descriptive diagnostic projects every source-region forecast onto the "
             f"origin OISST spatial offsets and evaluates the same {int(external.n_days.min()):,} "
             f"nighttime AMSR2 dates. Across all twelve forcing-versus-SST-only contrasts, "
-            f"{sum(x > 0 for x in comparisons)} positive point estimates span "
-            f"{100 * min(comparisons):.2f}% to {100 * max(comparisons):.2f}%. "
+            f"point-estimated gains range from {100 * min(comparisons):.2f}% to {100 * max(comparisons):.2f}%; "
+            f"{sum(x > 0 for x in comparisons)} of the twelve estimates are positive. "
             f"No additional fitting, selection or significance claim is made. These regional-increment "
             f"projections are distinct from the previously locked nonlinear spatial model."
         )

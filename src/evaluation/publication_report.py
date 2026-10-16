@@ -306,6 +306,10 @@ def write_documents(tables, selection, spatial, config, output_dir):
         from src.evaluation.manuscript_extension import extension_text
 
         data.update(extension_text())
+    if "{{process_results_text}}" in manuscript:
+        from src.evaluation.process_transfer_report import text_fields
+
+        data.update(text_fields())
     for key, value in data.items():
         manuscript = manuscript.replace("{{" + key + "}}", str(value))
     if re.search(r"\{\{\w+\}\}", manuscript):

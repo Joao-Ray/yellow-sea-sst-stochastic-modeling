@@ -60,6 +60,27 @@ def main():
             "chronology_audit.json",
             "report_en.md",
         ],
+        "process_transfer": [
+            "metrics.csv",
+            "annual_metrics.csv",
+            "seasonal_metrics.csv",
+            "selection.csv",
+            "parameters.json",
+            "forcing_inference.csv",
+            "skill.csv",
+            "transfer_summary.csv",
+            "provenance.json",
+            "sst_provenance.json",
+            "evaluation_audit.json",
+            "report_en.md",
+            "external_metrics.csv",
+            "external_annual_metrics.csv",
+            "external_audit.json",
+            "alignment_metrics.csv",
+            "alignment_annual_metrics.csv",
+            "alignment_audit.json",
+            "reconstruction_audit.json",
+        ],
     }.items():
         source = Path("data/processed") / stage
         target = Path("paper") / stage / "results"
@@ -107,6 +128,9 @@ def main():
         "insitu_protocol_sha256": sha256("paper/insitu/frozen_protocol.json"),
         "assembly_software_sha256": sha256(__file__),
         "document_software_sha256": sha256("src/evaluation/manuscript_extension.py"),
+        "process_document_software_sha256": sha256(
+            "src/evaluation/process_transfer_report.py"
+        ),
         "scope": "Documents assembled from completed locked evaluations; no fitting, tuning or recalibration. Original primary records preserved.",
     }
     (reviewed / "assembly_audit.json").write_text(json.dumps(record, indent=2) + "\n")

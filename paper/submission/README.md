@@ -1,22 +1,25 @@
 # English scientific manuscript
 
-Research draft, reviewed 15 October 2026. The intended research standard is
+Research draft, reviewed 16 October 2026. The intended research standard is
 CAS Zone 1; this label is an objective, not an achieved publication rating.
 
-- `manuscript_en.md`: integrated English scientific manuscript, five main figures
-  and six main tables, followed by verified primary references.
+- `manuscript_en.md`: integrated English scientific manuscript, six main figures
+  and seven main tables, followed by verified primary references.
 - `supplement_en.md`: detailed chronology, acquisition/decoding audit, spatial
   selection, dependence/interval diagnostics and complete comparisons.
-- `*.png` / `*.svg`: eleven scientific figures, 300 dpi and vector formats.
+- `*.png` / `*.svg`: fourteen scientific figures, 300 dpi and vector formats.
 - `results/`: reviewed aggregate tables and exact spatial parameters.
 - `extension_design.json`: local retrospective design record; not a public
   preregistration or an untouched holdout.
 - `../confirmation/`: publicly locked three-year external experiment, coupled VAR
   and nonlinear controls, complete comparisons and byte-exact reconstruction audit.
 - `../insitu/`: frozen source versions and descriptive buoy point-support checks.
+- `../process_transfer/`: retrospective past-heat/wind ablations, unchanged-parameter
+  transfer to 230 northern Eastern China Sea cells, complete failures and source provenance.
 - `references_verified.md`: checked bibliography and primary-source links.
 - `*.template.md`: reproducible manuscript templates. Results are filled
-  directly from `python -m src.publication` output tables.
+  directly from reviewed output tables. After the new analysis stages,
+  `python -m src.publication_delivery` assembles all manuscripts without refitting.
 
 ## Evidence hierarchy
 
@@ -30,6 +33,11 @@ CAS Zone 1; this label is an objective, not an achieved publication rating.
    nine-comparison family, Holm adjusted separately per block choice.
 6. Source/matching-locked 2023–2025 iQuam buoy description; shared QC references
    and possible analysis input overlap prevent an independent-truth claim.
+7. Retrospective forcing and adjacent-shelf extension, with a distinct 36-contrast
+   exploratory family; further matched-satellite projection scores are descriptive.
+   Full Eastern China Sea coverage and 2026 forcing beyond March were not acquired.
+   An additional locally calibrated transfer reference was added after inspecting
+   raw transfer failures and remains descriptive.
 
 The frozen model files and original primary metrics remain unchanged. The
 initial extension has training-only parameters and selection-only tuning, which

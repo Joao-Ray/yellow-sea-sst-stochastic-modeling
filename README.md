@@ -330,3 +330,35 @@ passes, raw grid persistence, daily coverage, product differences and paired
 See [independent validation](docs/INDEPENDENT_VALIDATION_zh.md),
 [public results and audited sources](paper/independent/README.md), and the
 [integrated seven-figure manuscript](paper/manuscript_zh.md).
+
+
+## 2026-10-16: past-forcing information and adjacent-shelf transfer
+
+The new retrospective extension uses 128 audited NCEP/NCAR R1 variable/year
+subsets (eight fields, 2010–2025) and a fixed, non-overlapping northern Eastern
+China Sea destination of 230 ocean cells within the existing OISST box. This is
+not full Eastern China Sea validation. The chosen reanalysis ended on 17 March
+2026, so complete-year forcing comparisons stop in 2025; no missing 2026 weather
+is filled or replaced. SST-only January–August 2026 transfer remains separate.
+
+```bash
+python -m src.process_transfer prepare
+python -m src.process_transfer acquire --workers 3
+python -m src.process_transfer evaluate
+python -m src.process_external
+python -m src.process_alignment
+python -m src.process_transfer deliver
+python -m src.publication_delivery
+```
+
+Every family/group/horizon is retained. Source 2020–2021 seven-day errors select
+hyperparameters; all coefficients and scaling use 2010–2019 targets only. Direct
+transfer copies the source fit unchanged; destination-local references use the
+same source-selected hyperparameters. All forcing windows end by origin minus
+one day. The new 36-contrast block/Holm analysis is exploratory; additional
+matched-satellite scores are descriptive. Past reanalysis is not an operational
+weather forecast, an independent heat-flux observation or a causal heat budget.
+
+[Design and complete reviewed results](paper/process_transfer/README.md),
+[integrated English manuscript](paper/submission/manuscript_en.md), and
+[remaining evidence gaps for the CAS Zone 1 objective](docs/PUBLICATION_UPGRADE_zh.md).

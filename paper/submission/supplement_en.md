@@ -478,3 +478,92 @@ The original frozen protocols and primary tables are preserved. With historical 
 For reconstruction from upstream caches, `python -m src.confirmation_rebuild --output-dir data/processed/confirmation_rebuild --install-exact` repeats the original fixed fitting/selection calculation in a new directory and installs missing archived outputs only when every frozen SHA-256 matches. It cannot overwrite a conflicting archive. On 15 October 2026, in the recorded software/platform environment, the independent rerun reproduced all four output files byte for byte: candidate selection, benchmark parameters, serialized tree models and the complete 1,339-date forecast cube. This is a post-outcome computational replication, not a new prospective freeze; the original forecasts and outcomes remain unchanged. The reconstruction audit accompanies the reviewed results.
 
 HTTP range responses require exact byte counts, explicit range bounds and a stable strong ETag. Interrupted bodies are retried and are never cached as valid bytes. An extraction optimization decodes only requested variable-length platform identifiers; comparison with the original method on the same May 2024 source gives identical values for all ten stored arrays and the same subset SHA-256. The audit records both software hashes. Newer official files omit old root version/date attributes; compatibility checks instead require the already frozen versioned filename, provider title/institution, identical units and actual point UTC-month filtering. These transport/format changes do not alter the frozen geographic subset, source selection or matching rules. Source URL/ETag, verified byte-range hashes, acquisition timestamps, subset hashes and source metadata accompany every local input. Freeze chronology, score replication and exact loss identities are checked separately from the geophysical dependencies of the observing products.
+
+
+### S12. Retrospective physical-information and geographical-transfer controls
+
+The local design in `paper/process_transfer/design_record.json` records the configuration, acquisition-based scope amendments and software hashes. It is not a prospective public freeze: earlier OISST and external forecast scores were known. The complete source/destination evaluation uses fixed non-overlapping ocean centres, not an error-selected subregion. The destination is only the northern Eastern China Sea intersection with the original acquired box. Figure S7 shows the unsampled extent of the destination polygon as well as the evaluated cells. Original frozen forecasts and protocols retain their checksums.
+
+All eight NCEP/NCAR R1 fields use the official daily-averages surface-Gaussian archive. Original response hashes and cropped-file hashes are retained for 128 variable/year files. The regional Gaussian weights are sums of the original SST ocean weights assigned by spherical nearest centre. Coarse cells may contain land and do not resolve the coastline. Net heat input is constructed from four separately directed radiation fields to avoid ambiguity in net-radiation sign conventions. Upward turbulent fluxes are subtracted. Provider values are retained without clipping small negative directed radiation artifacts. The feature is a reanalysis diagnostic, not an observed ocean heat budget. Magnitude is computed after daily regional u/v averaging and must not be interpreted as the average scalar speed, stress or resolved mixing energy.
+
+For a target d and lead h, SST features stop at d−h and the 1/7/30-day forcing windows stop at d−h−1. Target calendar harmonics and the elapsed-time feature are known at origin. Source and destination features share the same ordered definitions. Source training means and standard deviations are retained unchanged for transfer. Labels used to estimate a direct h-day increment end by 2019; no increment ending in selection or evaluation enters fitting. Separate source 2020–2021 seven-day selection is applied to each family and feature group, after which all three horizons use the source-selected hyperparameter. In this run every group selects the largest enumerated ridge penalty (10) and minimum tree leaf (50); the inference is conditional on this finite grid and does not exclude different behaviour under stronger regularization or another representation. Destination-local models are not independently tuned. The 2022 interval-calibration year from the original study is not reused to calibrate these new point predictions.
+
+The two new groups add either three heat features or twelve heat/wind features to the 17-feature SST design. Ridge uses a fitted intercept; ExtraTrees uses 200 estimators, all features, fixed seed 20261016 and minimum leaf sizes selected from 5/20/50. Missing values are rejected rather than interpolated. The original regional forecasts and locked spatial ExtraTrees model are distinct from these new direct regional models and are not replaced by them.
+
+**Table S13. All twelve source-region forcing contrasts.** Gains are percentages relative to the same family fitted with SST/calendar only. Sixty-day block intervals are pointwise; Holm p values adjust over all 36 source/local/transfer contrasts. Both block lengths, all 36 comparisons and every annual and seasonal score are archived in CSV files. Positive intervals alone do not establish multiplicity-adjusted support or remove hindsight.
+
+| family | group | horizon_days | Gain (%) | 60-d pointwise CI (%) | Holm p (36) |
+| --- | --- | --- | --- | --- | --- |
+| ridge | sst_heat | 1 | -1.05 | [-2.29, -0.18] | 0.7560 |
+| ridge | sst_heat | 7 | -1.24 | [-4.13, 1.11] | 1.0000 |
+| ridge | sst_heat | 30 | -1.10 | [-3.51, 0.47] | 1.0000 |
+| ridge | sst_heat_wind | 1 | -0.19 | [-2.48, 1.62] | 1.0000 |
+| ridge | sst_heat_wind | 7 | -0.52 | [-5.86, 3.95] | 1.0000 |
+| ridge | sst_heat_wind | 30 | -2.43 | [-6.75, 0.52] | 1.0000 |
+| trees | sst_heat | 1 | 0.10 | [-0.27, 0.42] | 1.0000 |
+| trees | sst_heat | 7 | 0.19 | [-0.49, 0.79] | 1.0000 |
+| trees | sst_heat | 30 | -0.50 | [-1.43, 0.72] | 1.0000 |
+| trees | sst_heat_wind | 1 | 1.34 | [0.53, 2.09] | 0.1760 |
+| trees | sst_heat_wind | 7 | 0.04 | [-0.79, 0.93] | 1.0000 |
+| trees | sst_heat_wind | 30 | -0.46 | [-2.35, 1.87] | 1.0000 |
+
+![Figure S7. Evaluated domains and training seasonal diagnostics.](process_domains_and_seasonality.png)
+
+**Figure S7.** Panel (a) shows only the evaluated fixed SST ocean-cell centres in colour; grey outlines are the official IHO sea-area polygons, including the unscored Eastern China Sea extent. The other panels show monthly averages of reanalysis net heat input (brown) and daily SST tendency (blue), estimated from 2010–2019 alone. Separate axes have different units and the curves do not constitute a heat-budget closure, regression estimate or causal test. No mixed-layer depth or advection is observed.
+
+**Table S14. Every SST-only geographical-transfer score.** January–August 2026 and the three complete years remain separate. Direct transfer uses the identical source fit/scaler; destination-local references use destination training observations with source-selected hyperparameters. RMSE is °C. Negative skill values are retained.
+
+| Period | Family | Lead (d) | Source RMSE | Transfer RMSE | Local-fit RMSE | Local persistence RMSE | Transfer skill (%) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 2023-2025 | ridge | 1 | 0.1429 | 0.2084 | 0.1531 | 0.1584 | -31.59 |
+| 2023-2025 | ridge | 7 | 0.5506 | 1.0692 | 0.5696 | 0.5924 | -80.47 |
+| 2023-2025 | ridge | 30 | 0.8101 | 2.1815 | 0.8481 | 0.9711 | -124.65 |
+| 2023-2025 | trees | 1 | 0.1509 | 0.1641 | 0.1609 | 0.1584 | -3.61 |
+| 2023-2025 | trees | 7 | 0.5911 | 0.6570 | 0.6075 | 0.5924 | -10.90 |
+| 2023-2025 | trees | 30 | 0.9519 | 1.4497 | 1.0829 | 0.9711 | -49.29 |
+| 2026-Jan-Aug | ridge | 1 | 0.1361 | 0.2139 | 0.1720 | 0.1820 | -17.49 |
+| 2026-Jan-Aug | ridge | 7 | 0.5748 | 1.0200 | 0.6304 | 0.6873 | -48.41 |
+| 2026-Jan-Aug | ridge | 30 | 0.7441 | 1.9562 | 0.7541 | 1.1599 | -68.65 |
+| 2026-Jan-Aug | trees | 1 | 0.1404 | 0.1822 | 0.1807 | 0.1820 | -0.10 |
+| 2026-Jan-Aug | trees | 7 | 0.5744 | 0.6987 | 0.6470 | 0.6873 | -1.66 |
+| 2026-Jan-Aug | trees | 30 | 0.7313 | 1.3844 | 0.7899 | 1.1599 | -19.35 |
+
+![Figure S8. Direct transfer and destination-local fitting across forcing groups.](regional_transfer.png)
+
+**Figure S8.** All groups and both families are retained at all three leads, including the additional training-calibrated reference added after inspecting the raw transfer failures. Lower RMSE is better. The horizontal benchmark uses destination-local training climatology, while direct transfer uses no destination-fitted coefficients. These are descriptive OISST comparisons on an adjacent shelf subregion, not independent-instrument or full-basin geographical validation.
+
+#### Additional matched-satellite diagnostic
+
+The source-region cell forecast is the origin OISST field plus the new regional predicted increment. All eighteen new family/group/horizon forecasts are evaluated with the unchanged nighttime AMSR2 flags, cosine-latitude weights and minimum-20-cell gate on the same dates. No newly estimated spatial pattern, SST bias correction, model selection or p value is introduced. The additional projection check was added after the local design record and is explicitly descriptive. Its matched OISST and AMSR2 aggregate and annual scores are archived alongside the full daily series.
+
+A further descriptive diagnostic projects every source-region forecast onto the origin OISST spatial offsets and evaluates the same 1,002 nighttime AMSR2 dates. Across all twelve forcing-versus-SST-only contrasts, 8 positive point estimates span -0.07% to 1.06%. No additional fitting, selection or significance claim is made. These regional-increment projections are distinct from the previously locked nonlinear spatial model.
+
+#### Reproduction and computational safeguards
+
+With the original OISST cache in place, run `python -m src.process_transfer prepare`, `python -m src.process_transfer acquire --workers 3`, `python -m src.process_transfer evaluate`, `python -m src.process_external`, `python -m src.process_alignment` and `python -m src.process_transfer deliver`. Boundary geometry is acquired directly from Marine Regions, validated by identifier/name/bounds/axis order and retained locally. Provider geometry is not redistributed. The forcing downloader verifies the R1 product identifier, field units, exact daily calendar and finite cropped values. Raw response and subset hashes are kept separately. No 2026 forcing window is silently shortened: that entire new forcing comparison is excluded because the chosen product ceased production in March. No replacement reanalysis was selected after examining scores.
+
+Future-perturbation tests confirm that changing SST after the origin or weather on/after the origin cannot change an individual feature row; changing post-training labels cannot change training scaling or coefficients; changing post-selection outcomes cannot change the source hyperparameter; prediction on destination features cannot mutate the source scaler or coefficients. Original locked-file hashes are checked before and after the new experiment. These checks establish the stated computational information restrictions, not observational independence or measured operational latency.
+
+
+#### Post-outcome calibration reference: explicit destination-training information
+
+After the unchanged-source failures had been inspected, an additional descriptive location/scale reference was added (`python -m src.process_alignment`). Source regression/tree coefficients and source-selected hyperparameters are retained. For destination features Xd, z = (Xd−mean_d)/sd_d uses only destination 2010–2019 feature statistics. If the source predictor produces an increment u(z), the calibrated destination increment is mean_delta_d + sd_delta_d [u(z)−mean_delta_s]/sd_delta_s. Source and destination increment moments use only targets ending by 2019 and the complete training feature rows. No local regression or tree coefficients are used. The destination scaler is retrieved from the training statistics already stored with the local-reference model, independently of its fitted predictor.
+
+This reference uses destination training histories to estimate calibration parameters. It is neither unchanged-scaler transfer nor a destination-data-free forecast. All feature groups, families, leads and annual scores are retained; no extra tuning, p value or selection is attached. The joint feature/increment calibration cannot separate individual causes of geographical shift, and its addition after seeing raw failures is recorded rather than treated as preregistered evidence. Tests verify that future labels cannot alter its increment moments, that changing local regression coefficients cannot alter its forecasts, and that an affine copy of a source series yields the corresponding affine-calibrated forecast.
+
+**Table S15. SST-only transfer with destination-training calibration.** All numbers are °C. Raw transfer and local-fit references reproduce Table S14; the extra calibrated column uses destination training location/scale. Both periods, families and all leads are retained.
+
+| Period | Family | Lead (d) | Raw transfer RMSE | Training-calibrated RMSE | Local-fit RMSE | Local persistence RMSE |
+| --- | --- | --- | --- | --- | --- | --- |
+| 2023-2025 | ridge | 1 | 0.2084 | 0.1738 | 0.1531 | 0.1584 |
+| 2023-2025 | ridge | 7 | 1.0692 | 0.6676 | 0.5696 | 0.5924 |
+| 2023-2025 | ridge | 30 | 2.1815 | 1.0360 | 0.8481 | 0.9711 |
+| 2023-2025 | trees | 1 | 0.1641 | 0.1683 | 0.1609 | 0.1584 |
+| 2023-2025 | trees | 7 | 0.6570 | 0.6171 | 0.6075 | 0.5924 |
+| 2023-2025 | trees | 30 | 1.4497 | 1.0504 | 1.0829 | 0.9711 |
+| 2026-Jan-Aug | ridge | 1 | 0.2139 | 0.1796 | 0.1720 | 0.1820 |
+| 2026-Jan-Aug | ridge | 7 | 1.0200 | 0.6735 | 0.6304 | 0.6873 |
+| 2026-Jan-Aug | ridge | 30 | 1.9562 | 0.8704 | 0.7541 | 1.1599 |
+| 2026-Jan-Aug | trees | 1 | 0.1822 | 0.1849 | 0.1807 | 0.1820 |
+| 2026-Jan-Aug | trees | 7 | 0.6987 | 0.6718 | 0.6470 | 0.6873 |
+| 2026-Jan-Aug | trees | 30 | 1.3844 | 0.9772 | 0.7899 | 1.1599 |

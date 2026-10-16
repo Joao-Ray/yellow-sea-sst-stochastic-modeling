@@ -1,0 +1,290 @@
+[
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202301-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "88b1cdabfeceecec1c5be9f237adce3f5935c2d0dd517532342436901da0962e",
+    "source_etag": "\"12929ae6-61c59de15f35d\"",
+    "acquired_utc": "2026-10-15T08:57:02.101379+00:00",
+    "acquired_bytes": 90348262,
+    "subset_records": 16000
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202302-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "96641dda0e133bc7436dc276de31d9c39c787135195f9509fb6e051dbd5511d4",
+    "source_etag": "\"115c7248-61c59de605a3d\"",
+    "acquired_utc": "2026-10-15T08:57:02.330952+00:00",
+    "acquired_bytes": 85750344,
+    "subset_records": 22739
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202303-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "ea98b7ccc8fd28a4a732535bf39c4a0a9823a87ca88d814d5a758a2ae3749af4",
+    "source_etag": "\"12eed5e9-61c59dead9f7d\"",
+    "acquired_utc": "2026-10-15T08:57:24.835962+00:00",
+    "acquired_bytes": 92198377,
+    "subset_records": 26172
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202304-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "1972353404f226166b42f2af338114b210533cc4eb654b5523daa75824db9b8b",
+    "source_etag": "\"13031800-61c59def9b40d\"",
+    "acquired_utc": "2026-10-15T09:01:00.443808+00:00",
+    "acquired_bytes": 91428864,
+    "subset_records": 22167
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202305-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "f255022c0b335164f2a09de525482bbabf6d8d565d0953e8ceaacc50bc43389f",
+    "source_etag": "\"154e4aa7-61c59df4b0475\"",
+    "acquired_utc": "2026-10-10T04:06:07.480013+00:00",
+    "acquired_bytes": 100551335,
+    "subset_records": 30354
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202306-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "d9c553146084bf73cec6baeb3c283d3e0f896e426bba885fb21fa2a95e731e32",
+    "source_etag": "\"16069ad2-61c59dfa01d9c\"",
+    "acquired_utc": "2026-10-15T09:01:48.661357+00:00",
+    "acquired_bytes": 104241874,
+    "subset_records": 21362
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202307-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "4c9a310c67ed54f3ef4a8c5d3cd57324ae10dc9068b28970ef18d91d84a97b4f",
+    "source_etag": "\"170f706b-61c59dff0413c\"",
+    "acquired_utc": "2026-10-10T04:05:22.773351+00:00",
+    "acquired_bytes": 110063723,
+    "subset_records": 18507
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202308-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "c680e8f23f8cf9be6e7172b8b5476370409984eaef55ea6b9fc00bc1a6839801",
+    "source_etag": "\"16e12d1e-61c59e056dadc\"",
+    "acquired_utc": "2026-10-10T04:05:49.370302+00:00",
+    "acquired_bytes": 106954752,
+    "subset_records": 23903
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202309-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "00cd065a9338d14b685bf5de73d863c72cf15fa71e78574ad17bc4996b3bb0d2",
+    "source_etag": "\"15c773b5-61c59e0b1109c\"",
+    "acquired_utc": "2026-10-15T09:02:05.646049+00:00",
+    "acquired_bytes": 102200245,
+    "subset_records": 18489
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202310-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "fbcbee9a1e60ce7f9be8f809953d268bbd3491ba54de0a817e3794f2c4adbde8",
+    "source_etag": "\"1630e799-61c59e11715cb\"",
+    "acquired_utc": "2026-10-15T09:06:34.748147+00:00",
+    "acquired_bytes": 104857600,
+    "subset_records": 13165
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202311-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "a3e1b8e7f913247f492cbf7c8741afb0dc92161acd7db2b2a32fe069f2c5e3fc",
+    "source_etag": "\"148a2e3d-61c59e172070b\"",
+    "acquired_utc": "2026-10-15T09:06:08.472254+00:00",
+    "acquired_bytes": 98184765,
+    "subset_records": 12421
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202312-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "f47873421cc5ce03ee138f87539290c1408e0fd34f5b89e1d5a3685d9a98f60f",
+    "source_etag": "\"14c1a16e-61c59e1b84b53\"",
+    "acquired_utc": "2026-10-15T09:06:02.322260+00:00",
+    "acquired_bytes": 98673006,
+    "subset_records": 14033
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202401-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "6e90568635f99ca95594fbdef4e4e7a06402c9d62519eb024bb4ffa7c883bc9c",
+    "source_etag": "\"143e5921-61c59e1fffecb\"",
+    "acquired_utc": "2026-10-10T04:12:36.224303+00:00",
+    "acquired_bytes": 96360737,
+    "subset_records": 14534
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202402-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "2fc25e6192fe933a970c3c52eaf336b266f2a20e101f362cebcc0cdfe63a289b",
+    "source_etag": "\"12a3ed34-61c59e254dd5b\"",
+    "acquired_utc": "2026-10-10T04:11:28.795442+00:00",
+    "acquired_bytes": 89386292,
+    "subset_records": 11359
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202403-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "52afccd32cd8230190d49eea9ea81052eac00a9210780008c9645400819ab0bb",
+    "source_etag": "\"13ebb357-61c59e29cdef3\"",
+    "acquired_utc": "2026-10-10T04:08:45.062332+00:00",
+    "acquired_bytes": 97235799,
+    "subset_records": 15512
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202404-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "24304b33b36d74ae944184f36d6dfd2dc8601d7666f3a406b78ee6fb151e6982",
+    "source_etag": "\"12e2d0dc-61c59e2e86aca\"",
+    "acquired_utc": "2026-10-10T04:14:45.865718+00:00",
+    "acquired_bytes": 91410652,
+    "subset_records": 16748
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202405-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "0fd6b26f8644f880fc74e3d403d1ba29b81119b10c171bc248b7b387e3be7719",
+    "source_etag": "\"1650cb3f-61c59e3441f5a\"",
+    "acquired_utc": "2026-10-10T04:23:21.034343+00:00",
+    "acquired_bytes": 108003328,
+    "subset_records": 16262
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202406-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv05.0.nc",
+    "subset_sha256": "fb6b1f10dca5f33dee6603eb58baeb471bbf6d2b054990f0bc24562000d86352",
+    "source_etag": "\"1538054a-61d70023d186a\"",
+    "acquired_utc": "2026-10-10T04:24:52.349396+00:00",
+    "acquired_bytes": 101188938,
+    "subset_records": 15279
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202407-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "4d6f9b464ceef25a6c4d3349d6daa5f41e7a94543b5acb069562c4c4f6fddc69",
+    "source_etag": "\"16beb6ce-61fcf6d4a2485\"",
+    "acquired_utc": "2026-10-10T04:31:19.993050+00:00",
+    "acquired_bytes": 108967630,
+    "subset_records": 16119
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202408-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "f7d37200062e4f7d2cf36ae0e1c401911d11b91fe4c0049acc5d1e41079d9ea9",
+    "source_etag": "\"175e69f6-6223f3f56949f\"",
+    "acquired_utc": "2026-10-10T04:25:18.122622+00:00",
+    "acquired_bytes": 111045110,
+    "subset_records": 16724
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202409-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "1db6420f9187a9f79c8807fad2545c29d719e0ff8f2603edf68b252a0dad0ead",
+    "source_etag": "\"22c4fc45-62dd7c919cea4\"",
+    "acquired_utc": "2026-10-15T09:13:01.794848+00:00",
+    "acquired_bytes": 163577856,
+    "subset_records": 14899
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202410-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "20df03e25e66bcd83e11bb8c1b1902ac7b118ca668bb6c78ae629adc65465c38",
+    "source_etag": "\"1de84e7c-62dd870431322\"",
+    "acquired_utc": "2026-10-15T09:12:36.974772+00:00",
+    "acquired_bytes": 143654912,
+    "subset_records": 15190
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202411-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "subset_sha256": "dfe1c43c200ada9667cacfc1aefb1f5212ea29804128945469e66ee845989140",
+    "source_etag": "\"1cccb64d-62dc639c58083\"",
+    "acquired_utc": "2026-10-15T09:11:45.292320+00:00",
+    "acquired_bytes": 136314880,
+    "subset_records": 13603
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202412-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv02.0.nc",
+    "subset_sha256": "3cece9b534e3f9e7756fb8c19f742a26f5725b2665c18d7ffcf90dd18cb5408c",
+    "source_etag": "\"1cb4600e-62e53e8a9abfd\"",
+    "acquired_utc": "2026-10-15T09:11:34.372860+00:00",
+    "acquired_bytes": 138412032,
+    "subset_records": 13498
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202501-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv03.0.nc",
+    "subset_sha256": "9239b7e9d6f23444451e2176171ba0c99a7b890dc8fc55ccfda96dd319f6b6e1",
+    "source_etag": "\"1bfcfd0d-645414d2592d5\"",
+    "acquired_utc": "2026-10-15T09:11:34.371019+00:00",
+    "acquired_bytes": 134217728,
+    "subset_records": 13506
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202502-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "subset_sha256": "7e5cd64c1a333d71c17acc13fdf730d7eda875dc206b95cddc3b640cbf703592",
+    "source_etag": "\"190234c5-630ac81ce6b3a\"",
+    "acquired_utc": "2026-10-15T09:11:40.789196+00:00",
+    "acquired_bytes": 119537664,
+    "subset_records": 13222
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202503-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "subset_sha256": "ccd34a76ddee7135eac36f8f3b6c697e763d970876677d028ed2ecec9ad5ba8f",
+    "source_etag": "\"1ad47389-63239ea1b03fb\"",
+    "acquired_utc": "2026-10-15T09:15:10.571445+00:00",
+    "acquired_bytes": 128974848,
+    "subset_records": 9981
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202504-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "subset_sha256": "115a933b0bd80f3cdba74502261e906690a1f6aaaf8f805f4e4fe44631165bb3",
+    "source_etag": "\"1bfa03f1-6346dc95797a4\"",
+    "acquired_utc": "2026-10-15T09:15:16.148943+00:00",
+    "acquired_bytes": 134217728,
+    "subset_records": 13077
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202505-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "subset_sha256": "b7571b630d3f116628b83b4aeee3bf6c6d9260f28a029a05e39903add966833e",
+    "source_etag": "\"1f4abf26-65c1fb8ab778a\"",
+    "acquired_utc": "2026-10-15T09:15:39.472198+00:00",
+    "acquired_bytes": 146800640,
+    "subset_records": 12182
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202506-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv00.0.nc",
+    "subset_sha256": "88d4939be951f0573284aa62ece8390b32587ef0cd756d966b8802f4d72059ef",
+    "source_etag": "\"1cef4545-638decd112804\"",
+    "acquired_utc": "2026-10-15T09:15:54.472882+00:00",
+    "acquired_bytes": 137363456,
+    "subset_records": 10968
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202507-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "subset_sha256": "74f14f6b121f4f64ffae690501e79fdcb116b213e949ff2ae38b814d6edab978",
+    "source_etag": "\"1ed83786-65c25a38fdca0\"",
+    "acquired_utc": "2026-10-15T09:16:26.827328+00:00",
+    "acquired_bytes": 145752064,
+    "subset_records": 10730
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202508-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "subset_sha256": "04254278f89bec7181558d126dd2c68b82ec2347ec33a83ac1c491086bd38602",
+    "source_etag": "\"1ba9e9b5-65bfd77a79318\"",
+    "acquired_utc": "2026-10-15T09:16:56.580177+00:00",
+    "acquired_bytes": 133169152,
+    "subset_records": 10147
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202509-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "subset_sha256": "d797028a5e8f96d7282b482f9985c2902e069d42df7815952fe37e9d42a572d5",
+    "source_etag": "\"f281f8c-65bfb1ecc2e1a\"",
+    "acquired_utc": "2026-10-15T09:17:19.983577+00:00",
+    "acquired_bytes": 78643200,
+    "subset_records": 1147
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202510-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv01.0.nc",
+    "subset_sha256": "c8fc47d3cdf9dac44a423e819a079ed1529d554a57c34e93f99384eed949599f",
+    "source_etag": "\"ea50607-65c273e755270\"",
+    "acquired_utc": "2026-10-15T09:17:06.967144+00:00",
+    "acquired_bytes": 74448896,
+    "subset_records": 585
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202511-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv06.0.nc",
+    "subset_sha256": "1707a094cc42d2ece62ae4ebf29fe9c7d7dce1c48a58ed3247a13e34db5ba7c3",
+    "source_etag": "\"1297a41a-6472ee6a34425\"",
+    "acquired_utc": "2026-10-15T09:17:21.349774+00:00",
+    "acquired_bytes": 60817408,
+    "subset_records": 5771
+  },
+  {
+    "source_url": "https://star.nesdis.noaa.gov/pub/socd/sst/iquam/v2.10/202512-STAR-L2i_GHRSST-SST-iQuam-V2.10-v01.0-fv06.0.nc",
+    "subset_sha256": "fac1ba8bc1e4200cc693a0276d277d11aa81a3bf339cb11574ab5c266bc0e34a",
+    "source_etag": "\"1a624ba3-64964ad8c36b6\"",
+    "acquired_utc": "2026-10-15T09:18:50.717164+00:00",
+    "acquired_bytes": 125829120,
+    "subset_records": 14744
+  }
+]

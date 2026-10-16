@@ -1,0 +1,19 @@
+{
+  "original_inputs_unchanged": true,
+  "original_input_sha256": {
+    "paper/validation/frozen_protocol.json": "8a11e5b9b56845936cbd72495a2f066bd2d5ae2a2a9044bc18282169ce684aa4",
+    "paper/independent/frozen_protocol.json": "ecc8c46b5f2653dc2e4f3e636c9206a2460bbe2c5dd15123f82ad51cdaba2f03",
+    "paper/confirmation/frozen_protocol.json": "cf6a462d4d55ecd80915925cea8bba313680f11402a708d9764bc8715a761502",
+    "paper/insitu/frozen_protocol.json": "4eac347075875db867689e80369b43b04d289efcf0dc7d6cff85966dceb4ddcf",
+    "data/processed/confirmation/locked_forecasts.npz": "456e910b868f12e9ee9a5e983d1753a71fbcbdd8beec20b94de6ce237a4dd97c",
+    "data/processed/confirmation/tree_models.joblib": "b2a2b29247f4ab96548a024a598d3846ff9cbab77241395ee4495fff25794475"
+  },
+  "destination_local_hyperparameters_selected_on_source_only": true,
+  "forcing_latest_input": "origin minus one day",
+  "source_destination_ocean_cells_overlap": 0,
+  "forcing_inference_family_size": 36,
+  "n_forecast_rows": 79626,
+  "all_evaluation_rows_finite": true,
+  "forcing_2026_evaluated": false,
+  "retrospective": true
+}

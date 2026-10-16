@@ -1,0 +1,8 @@
+{
+  "frozen_protocol_sha256": "4eac347075875db867689e80369b43b04d289efcf0dc7d6cff85966dceb4ddcf",
+  "public_freeze_commit": "16fa9b784692c9bf2eacdf5513433865a3e602db",
+  "scoring_software_sha256": "ec9dc6504082e3bdedc45e370cf8c092d44ae29df2dc1a1069eae0328145e245",
+  "source_months": 36,
+  "primary_annual_coverage_gate_passed": true,
+  "scope": "All previous OISST and 2026 AMSR2 outcomes have been viewed; new 2023-2025 AMSR2 acquisition is underway. iQuam SST targets have not been read; only one monthly variable/attribute inventory and official directory names have been inspected. Quality control uses Reynolds and CMC SST references and in situ data may overlap OISST inputs; this is a third measurement pathway, not statistically independent held-out truth or mechanism identification. Known observation times, depths and grid representation differ. Source versions are fixed to highest file-version suffix in the official directory before SST acquisition; no outcome-driven source selection."
+}

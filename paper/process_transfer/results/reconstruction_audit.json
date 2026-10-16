@@ -1,0 +1,36 @@
+{
+  "reason": "Repeat after report/delivery and ingestion metadata edits so the final software hashes identify the executed files; no model candidate, selection period or scoring rule changed.",
+  "all_scientific_outputs_reproduced_to_atol_1e_10": true,
+  "results": {
+    "predictions.csv": {
+      "before_sha256": "90c92f617eec98ac32486819eb02ac830d21d47341c3ab63352b1a168aee81ec",
+      "after_sha256": "f75c879b472a752f4c4f1eb63e34e70d7c7d5908cfed6bdbfc0f865b7ac2c586",
+      "max_absolute_numeric_difference": 2.4868995751603507e-14,
+      "rows": 79626
+    },
+    "metrics.csv": {
+      "before_sha256": "fcab2a1a806eead54196d54075b622305d3769df6477bd57d520a72f2be29335",
+      "after_sha256": "da39673fbb833d35d58e1ac8bcf1b63513f5d5ec8d24f59d70f78ce6cf3ff47f",
+      "max_absolute_numeric_difference": 1.1102230246251565e-16,
+      "rows": 96
+    },
+    "forcing_inference.csv": {
+      "before_sha256": "0ed8506f91e56c844b404c22f777e8d36dcbe1f55cb17f7a91ee4d0cec580bde",
+      "after_sha256": "04bde9a90d5aba6853ef83ce44d6d1435813b5aa08d77f9af2884e61e3fc64c7",
+      "max_absolute_numeric_difference": 9.020562075079397e-16,
+      "rows": 72
+    },
+    "external_metrics.csv": {
+      "before_sha256": "71c8a9ccbf9de41ce53c88a02bcce3ff0e72ab82d03119f6afc19610caeb13ed",
+      "after_sha256": "12c1998fc50739f365592ffb5a565cd0b240acd179ddce608c82c246e9063068",
+      "max_absolute_numeric_difference": 4.440892098500626e-16,
+      "rows": 42
+    },
+    "alignment_metrics.csv": {
+      "before_sha256": "a63bf8bf034f5dc54360409fada260d3a212526c20a9b0d4bf653eddc633fc55",
+      "after_sha256": "ce8efe0f5104beef351bc2b36214ea2732c08ed0e4ec9a28a346fdef799074b8",
+      "max_absolute_numeric_difference": 3.3306690738754696e-16,
+      "rows": 24
+    }
+  }
+}

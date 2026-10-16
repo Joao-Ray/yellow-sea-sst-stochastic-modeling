@@ -1,0 +1,23 @@
+{
+  "month": "202405",
+  "source_etag": "\"1650cb3f-61c59e3441f5a\"",
+  "arrays_exactly_equal": {
+    "lat": true,
+    "lon": true,
+    "time": true,
+    "sst": true,
+    "quality_level": true,
+    "platform_type": true,
+    "platform_id": true,
+    "iquam_flags": true,
+    "sst_flags": true,
+    "source_index": true
+  },
+  "original_subset_sha256": "0fd6b26f8644f880fc74e3d403d1ba29b81119b10c171bc248b7b387e3be7719",
+  "optimized_subset_sha256": "0fd6b26f8644f880fc74e3d403d1ba29b81119b10c171bc248b7b387e3be7719",
+  "original_acquired_bytes": 108003328,
+  "optimized_acquired_bytes": 108003328,
+  "frozen_acquisition_software_sha256": "3fe9275d669813c3661547439cb6213b607eb95b1bcea08ecd9980e4147cd1eb",
+  "current_acquisition_software_sha256": "d9eafa76f53d0bb5bfe070173f92e2ea2557b876688753bddc1a2a61b1e66e77",
+  "change": "Transport retries and selected variable-length identifiers only; geographic SST, flags, times, indices and IDs unchanged; original frozen scientific protocol remains unchanged."
+}

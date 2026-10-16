@@ -1,0 +1,26 @@
+{
+  "evaluated_utc": "2026-10-16T09:01:03.711276+00:00",
+  "scope": "Complete reconstruction after delivery-only filtering change. CSV numerical equality, not model archive byte identity or independent scientific confirmation.",
+  "max_absolute_difference_by_csv": {
+    "external_metrics.csv": 0,
+    "external_benchmark_daily_scores.csv": 0,
+    "annual_metrics.csv": 4.440892098500626e-16,
+    "external_benchmark_metrics.csv": 0,
+    "benchmark_annual_metrics.csv": 0,
+    "predictions.csv": 1.865174681370263e-14,
+    "metrics.csv": 1.1102230246251565e-16,
+    "descriptive_intervals.csv": 4.440892098500626e-16,
+    "external_daily_scores.csv": 3.608224830031759e-15,
+    "external_benchmark_annual_metrics.csv": 0,
+    "external_annual_metrics.csv": 9.71445146547012e-17,
+    "seasonal_metrics.csv": 1.1102230246251565e-16,
+    "benchmark_metrics.csv": 0,
+    "decay_reference_intervals.csv": 1.942890293094024e-16,
+    "external_decay_intervals.csv": 0,
+    "selection.csv": 0,
+    "benchmark_predictions.csv": 0
+  },
+  "tolerance": 1e-10,
+  "all_previous_protected_files_unchanged": true,
+  "all_numerical_outputs_reproduced": true
+}

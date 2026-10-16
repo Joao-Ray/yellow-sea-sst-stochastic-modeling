@@ -1,0 +1,13 @@
+{
+  "evaluated_utc": "2026-10-16T09:01:03.148268+00:00",
+  "software_sha256": "6768bf3cc426cda02ae65b435c35224fa62c988c015a055307e93ce93af073ac",
+  "identity": "L(delta)=A+2B delta+delta^2 on identical cells and weights",
+  "all_model_common_support_identity_max_abs_error": 8.881784197001252e-14,
+  "n_checked_model_target_dates": 77544,
+  "input_sha256": {
+    "data/processed/anomaly_transfer/predictions.csv": "059d5b789ed2508dfa9ba7516d393bf65747777482bd68e5686657cdb6c68bd2",
+    "data/processed/anomaly_transfer/external_daily_scores.csv": "00983c8879023bef4358fc1c9a206ae22a474632e00c972d47ff7b3758178b00",
+    "data/processed/anomaly_transfer/benchmark_predictions.csv": "b6ca21e63252f88d48c0ce2e9a103afe10fb0644f5aabc164c3a0765eedafba3"
+  },
+  "scope": "Descriptive reference scores, algebraically reconstructed from audited common-support losses. No additional measurements, fitting, p values or instrument-independence claim."
+}

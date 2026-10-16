@@ -310,6 +310,12 @@ def write_documents(tables, selection, spatial, config, output_dir):
         from src.evaluation.process_transfer_report import text_fields
 
         data.update(text_fields())
+    if "{{anomaly_results_text}}" in manuscript:
+        from src.evaluation.anomaly_transfer_report import (
+            text_fields as anomaly_text_fields,
+        )
+
+        data.update(anomaly_text_fields())
     for key, value in data.items():
         manuscript = manuscript.replace("{{" + key + "}}", str(value))
     if re.search(r"\{\{\w+\}\}", manuscript):

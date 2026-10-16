@@ -567,3 +567,64 @@ This reference uses destination training histories to estimate calibration param
 | 2026-Jan-Aug | trees | 1 | 0.1822 | 0.1849 | 0.1807 | 0.1820 |
 | 2026-Jan-Aug | trees | 7 | 0.6987 | 0.6718 | 0.6470 | 0.6873 |
 | 2026-Jan-Aug | trees | 30 | 1.3844 | 0.9772 | 0.7899 | 1.1599 |
+
+
+### S13. Expanded grids, climatology-assisted transfer and simple memory controls
+
+The local design and separate benchmark record in `paper/anomaly_transfer/` were made after the raw-transfer failures and upper-edge selections were known. They are not public prospective locks. This phase does not alter any original forecast, protocol, prior process-transfer result or statistical family. Both representations, all three feature groups and all source-selected families/leads are retained. There is no destination hyperparameter search. The full-period forcing groups stop at 2025; January–August 2026 is SST-only.
+
+Following inspection of the raw-transfer failures and candidate-boundary choices, we added an explicitly retrospective sensitivity. Ridge penalties span 0.01–1,000,000 (nine logarithmic values) and minimum tree leaf sizes are 5, 20, 50, 100, 200, 400 and 800 (200 trees). Each representation, family and feature group is selected only by source seven-day RMSE over 2020–2021, retaining all choices for evaluation at 1, 7 and 30 days. All fits end in 2019. Raw-feature models retain the original feature definitions and random seed, permitting exact selection-score checks at the old candidates.
+
+For the second representation, a regional three-harmonic seasonal cycle with linear trend C_r(t) and residual standard deviation sigma_r are estimated on 2010–2019 alone. SST state is a_r(t) = [T_r(t) − C_r(t)] / sigma_r. Models predict a_r(t+h)−a_r(t), using the same lag/calendar layout; weather drivers are likewise normalized by their own regional training cycle and residual scale before delayed trailing windows are formed. Transfer keeps the source increment predictor and source feature scaler, and decodes C_d(t+h)+sigma_d[a_d(t)+u_s(X_d)]. The destination seasonal/trend coefficients and scales require destination 2010–2019 history. This is climatology-assisted transfer, not a data-free or zero-shot forecast. Origin SST histories are also local.
+
+Fixed descriptive references are training climatology alone and no-intercept AR(1) decay: C_d(t+h)+sigma_d phi^h a_d(t), with phi fitted by least squares on consecutive training anomalies only. Source and destination phi are 0.965144 and 0.952303; each uses 3,651 training pairs. We report both destination phi and unchanged source phi, and reject rather than clip unstable training coefficients. No decay value is chosen using validation or test scores. Pointwise paired 30/60-day block intervals (1,999 resamples) are descriptive; no new p values or confirmatory family is introduced. Neither this expansion nor its simple controls convert previously viewed outcomes into an untouched holdout.
+
+Training cycles are evaluated at future calendar dates using fixed coefficients, not refitted to evaluation outcomes. Origin and lagged SST values are locally observed inputs. Weather windows end at least one calendar day before the origin. Feature construction is verified against perturbations beyond these cutoffs. Local-reference fits share source-selected hyperparameters, rather than destination-optimized choices. All twelve source choices and every validation candidate score are archived, including ridge effective degrees of freedom and median tree leaf counts.
+
+**Table S16. All source-selected configurations.** Selection RMSE is °C for seven-day source forecasts in 2020–2021. A lower-edge heat/wind anomaly-tree choice remains, preventing a claim that every candidate-boundary issue is resolved. Raw ridge choices become interior without changing value.
+
+| representation | family | group | Value | 2020 RMSE | 2021 RMSE | Pooled RMSE | Lower edge | Upper edge |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| raw | ridge | sst | 10 | 0.5263 | 0.5239 | 0.5251 | False | False |
+| raw | trees | sst | 100 | 0.5423 | 0.5763 | 0.5596 | False | False |
+| raw | ridge | sst_heat | 10 | 0.5196 | 0.5224 | 0.5210 | False | False |
+| raw | trees | sst_heat | 100 | 0.5476 | 0.5758 | 0.5619 | False | False |
+| raw | ridge | sst_heat_wind | 10 | 0.5123 | 0.5099 | 0.5111 | False | False |
+| raw | trees | sst_heat_wind | 100 | 0.5382 | 0.5712 | 0.5549 | False | False |
+| seasonal_anomaly | ridge | sst | 10000 | 0.5159 | 0.5362 | 0.5261 | False | False |
+| seasonal_anomaly | trees | sst | 200 | 0.5134 | 0.5265 | 0.5200 | False | False |
+| seasonal_anomaly | ridge | sst_heat | 1000 | 0.5267 | 0.5220 | 0.5243 | False | False |
+| seasonal_anomaly | trees | sst_heat | 200 | 0.5152 | 0.5256 | 0.5204 | False | False |
+| seasonal_anomaly | ridge | sst_heat_wind | 1000 | 0.5165 | 0.5107 | 0.5136 | False | False |
+| seasonal_anomaly | trees | sst_heat_wind | 5 | 0.5161 | 0.5145 | 0.5153 | True | False |
+
+![Figure S9. Source-only expanded candidate curves.](expanded_source_selection.png)
+
+**Figure S9.** Stars mark each representation/family/group choice based only on pooled 2020–2021 RMSE. Dotted lines show the former upper grid value. Both axes use their plotted units; hyperparameter axes are logarithmic. Curves do not show destination or test outcomes. No uncertainty or repeated-validation stability is inferred from a single pooled selection.
+
+**Table S17. All SST-only destination transfer comparisons.** RMSE is °C. Gain and pointwise 95% paired 60-day block intervals compare the anomaly model with destination-local AR(1), not source AR(1), raw transfer or climatology. They are unadjusted descriptive intervals, not simultaneous coverage or a new confirmatory test. Both 30/60-day choices are archived in `decay_reference_intervals.csv`. Three full years have 1,096 dates; January–August 2026 has 243.
+
+| Period | Family | Lead (d) | Raw transfer | Anomaly transfer | Local AR(1) | Source AR(1) transfer | Gain vs local AR(1) (%) | 60-d pointwise CI (%) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2023-2025 | ridge | 1 | 0.2084 | 0.1564 | 0.1609 | 0.1590 | 2.83 | [1.58, 4.24] |
+| 2023-2025 | ridge | 7 | 1.0692 | 0.5588 | 0.5685 | 0.5623 | 1.70 | [-1.04, 4.70] |
+| 2023-2025 | ridge | 30 | 2.1815 | 0.8419 | 0.8605 | 0.8390 | 2.17 | [-9.71, 10.93] |
+| 2023-2025 | trees | 1 | 0.1614 | 0.1561 | 0.1609 | 0.1590 | 3.00 | [1.98, 3.90] |
+| 2023-2025 | trees | 7 | 0.6311 | 0.5595 | 0.5685 | 0.5623 | 1.58 | [0.13, 2.91] |
+| 2023-2025 | trees | 30 | 1.3667 | 0.8415 | 0.8605 | 0.8390 | 2.22 | [-7.02, 8.15] |
+| 2026-Jan-Aug | ridge | 1 | 0.2139 | 0.1773 | 0.1809 | 0.1805 | 1.96 | [0.59, 2.95] |
+| 2026-Jan-Aug | ridge | 7 | 1.0200 | 0.6259 | 0.6161 | 0.6273 | -1.59 | [-2.67, -0.50] |
+| 2026-Jan-Aug | ridge | 30 | 1.9562 | 0.9179 | 0.8028 | 0.8448 | -14.34 | [-18.70, -2.50] |
+| 2026-Jan-Aug | trees | 1 | 0.1812 | 0.1752 | 0.1809 | 0.1805 | 3.11 | [1.56, 4.61] |
+| 2026-Jan-Aug | trees | 7 | 0.6899 | 0.6058 | 0.6161 | 0.6273 | 1.67 | [-1.27, 3.98] |
+| 2026-Jan-Aug | trees | 30 | 1.4178 | 0.8255 | 0.8028 | 0.8448 | -2.83 | [-8.10, 0.90] |
+
+Climatology-only destination RMSE is 0.9410°C in 2023–2025 and 0.7356°C in January–August 2026 at every lead, since it ignores the forecast origin. Full annual and seasonal outcomes, destination-local fits, all forcing groups, baseline metrics and satellite projections accompany the aggregate CSVs. At thirty days the source AR(1) transfer is slightly better than either SST-only complex anomaly model over the three full years; this point-estimate comparison is distinct from the local-AR(1) intervals tabulated above. No interval against source AR(1) or climatology is inferred from an interval against another reference.
+
+#### Satellite common-support reference reconstruction
+
+Every regional model is projected as the observed origin OISST spatial field plus a uniform predicted regional increment. For a given date/lead/target on the same normalized visible-cell weights, squared loss of an increment delta has the exact form A + 2 B delta + delta² and bias B + delta. Recovering A and B from an already audited regional projection allows identical-support scoring of fixed climatology and AR(1) projections. Before scoring them, this quadratic is checked against every directly computed new-model daily loss (maximum discrepancy below 1e-10°C²). This is algebraic reuse of identical observations, not a new measurement or independently estimated truth. `external_reference_audit.json` records the actual discrepancy and input hashes. `external_benchmark_metrics.csv` retains both matched OISST and AMSR2, both periods and all leads; `external_decay_intervals.csv` compares new source models to projected source-local AR(1) with descriptive 30/60-day pointwise intervals.
+
+#### Reconstruction and completeness
+
+With prior caches intact, run `python -m src.anomaly_transfer prepare`, `python -m src.anomaly_transfer evaluate`, `python -m src.anomaly_transfer external`, `python -m src.anomaly_benchmarks`, `python -m src.anomaly_reference_external`, `python -m src.anomaly_transfer deliver` and `python -m src.publication_delivery`. No new external values are required. The design verifies aggregated input hashes; evaluation reproduces every original narrow-grid validation score and preserves the prior frozen files and complete process-transfer outputs. Numerical reconstruction checks every scientific CSV to 1e-10 tolerance; tree parallelism can change floating-point sums and serialized model bytes. The record does not claim cross-platform byte identity. Local data packages include full predictions, daily losses and the model archive; reviewed repository tables omit large daily files. New pointwise intervals are explicitly separate from the old six-, nine- and thirty-six-comparison families.

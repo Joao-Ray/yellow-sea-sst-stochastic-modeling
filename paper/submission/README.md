@@ -3,11 +3,11 @@
 Research draft, reviewed 16 October 2026. The intended research standard is
 CAS Zone 1; this label is an objective, not an achieved publication rating.
 
-- `manuscript_en.md`: integrated English scientific manuscript, six main figures
-  and seven main tables, followed by verified primary references.
+- `manuscript_en.md`: integrated English scientific manuscript, seven main figures
+  and eight main tables, followed by verified primary references.
 - `supplement_en.md`: detailed chronology, acquisition/decoding audit, spatial
   selection, dependence/interval diagnostics and complete comparisons.
-- `*.png` / `*.svg`: fourteen scientific figures, 300 dpi and vector formats.
+- `*.png` / `*.svg`: sixteen scientific figures, 300 dpi and vector formats.
 - `results/`: reviewed aggregate tables and exact spatial parameters.
 - `extension_design.json`: local retrospective design record; not a public
   preregistration or an untouched holdout.
@@ -16,6 +16,8 @@ CAS Zone 1; this label is an objective, not an achieved publication rating.
 - `../insitu/`: frozen source versions and descriptive buoy point-support checks.
 - `../process_transfer/`: retrospective past-heat/wind ablations, unchanged-parameter
   transfer to 230 northern Eastern China Sea cells, complete failures and source provenance.
+- `../anomaly_transfer/`: expanded source grids, climatology-assisted anomaly transfer,
+  fixed climatology/AR(1) controls and complete partial-year failures; descriptive only.
 - `references_verified.md`: checked bibliography and primary-source links.
 - `*.template.md`: reproducible manuscript templates. Results are filled
   directly from reviewed output tables. After the new analysis stages,
@@ -38,6 +40,10 @@ CAS Zone 1; this label is an objective, not an achieved publication rating.
    Full Eastern China Sea coverage and 2026 forcing beyond March were not acquired.
    An additional locally calibrated transfer reference was added after inspecting
    raw transfer failures and remains descriptive.
+
+8. Retrospective expanded-grid and climatology-assisted anomaly sensitivity; local
+   destination history is required, and simple anomaly decay/climatology controls
+   prevent a general complexity or zero-shot-transfer claim. No new p values.
 
 The frozen model files and original primary metrics remain unchanged. The
 initial extension has training-only parameters and selection-only tuning, which

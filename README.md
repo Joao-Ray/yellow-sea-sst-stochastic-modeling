@@ -362,3 +362,19 @@ weather forecast, an independent heat-flux observation or a causal heat budget.
 [Design and complete reviewed results](paper/process_transfer/README.md),
 [integrated English manuscript](paper/submission/manuscript_en.md), and
 [remaining evidence gaps for the CAS Zone 1 objective](docs/PUBLICATION_UPGRADE_zh.md).
+
+
+### Expanded source grids and climatology-assisted transfer (16 October 2026)
+
+The retrospective sensitivity retains raw and training-seasonal-anomaly representations,
+all groups/leads and both periods. Source-only selection uses expanded ridge/tree grids.
+Training-only climatology and local/source AR(1) controls test whether complexity helps:
+three-year thirty-day anomaly-transfer RMSE is about 0.841°C, matched by source AR(1)
+at 0.839°C; partial 2026 destination scores favour climatology alone at that lead.
+Destination training climatology/scales require local history. These are neither zero-shot
+results nor a new independent-instrument confirmation. No new p values are added.
+
+[Design and reviewed results](paper/anomaly_transfer/README.md) ·
+[Chinese findings and reproduction](docs/ANOMALY_TRANSFER_zh.md).
+The integrated paper now has seven main figures and eight main tables; supplementary
+information has nine figures and seventeen tables. Original frozen evidence is preserved.

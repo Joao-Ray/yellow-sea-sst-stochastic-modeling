@@ -122,6 +122,10 @@ Ridge penalties {0.01, 0.1, 1, 10} and ExtraTrees minimum leaves {5, 20, 50} are
 
 Forcing increments are compared against their matched SST-only family and fitting mode, rather than only a persistence benchmark. Thirty- and sixty-day paired calendar blocks and Holm adjustment cover all 36 contrasts: two forcing groups × two families × three leads × three domain/fitting contexts. All are exploratory after earlier outcomes were viewed. Additional source-region AMSR2 projection scores are descriptive and involve no new selection or testing. Geographic transfer is evaluated against OISST only and does not add independent-instrument destination validation. After raw transfer failures were viewed, a separate descriptive reference calibrated destination feature and increment location/scale using 2010–2019 histories, retaining source regression/tree coefficients. This locally calibrated reference has no additional selection or significance test and is not included in the original 36 contrasts.
 
+### 3.7 Expanded source selection and climatology-assisted transfer
+
+{{anomaly_methods_text}}
+
 ## 4. Results
 
 ### 4.1 Frozen temporal skill and external transfer
@@ -206,6 +210,8 @@ The seasonal RMSE and bias table separates three complete historical test years 
 
 ### 4.7 Past-forcing information and adjacent-shelf transfer
 
+This first finite-grid extension is retained in full. Section 4.8 reports the subsequent expanded-grid and anomaly-normalization sensitivity; its improved scores do not replace these earlier failures.
+
 {{process_results_text}}
 
 **Table 7. SST-only transfer without destination parameter fitting, 2023–2025.** All RMSE values are °C on the same 1,096 dates. Local fits and the local anomaly-persistence reference have destination training information; direct transfer retains source coefficients and scaling. The northern Eastern China Sea covers 230 cells, not the full basin. Full forcing, annual, seasonal and 2026 results accompany the supplement.
@@ -215,6 +221,18 @@ The seasonal RMSE and bias table separates three complete historical test years 
 ![Figure 6. Past-forcing information relative to matched SST-only controls.](past_forcing_ablation.png)
 
 **Figure 6.** Positive values indicate RMSE reduction after adding past heat or heat/wind features. Each panel retains both model families and all leads. Bars are pointwise 95% intervals from 60-day blocks; they are not simultaneous intervals or evidence of causality. Adjusted p values for the 36 exploratory contrasts are archived separately.
+
+### 4.8 Anomaly normalization, candidate sensitivity and simple decay controls
+
+{{anomaly_results_text}}
+
+**Table 8. Expanded-grid SST-only transfer and simple decay references, 2023–2025.** RMSE is °C on 1,096 common dates. Raw and anomaly models use source-selected hyperparameters, without destination optimization. Anomaly transfer uses destination training climatology/scale; local AR(1) also estimates its decay coefficient locally, whereas source AR(1) transfers the source coefficient. Complete partial-year and pointwise interval results appear in Supplementary Table S17.
+
+{{anomaly_transfer_table}}
+
+![Figure 7. Climatology-assisted transfer and fixed simple controls.](anomaly_transfer_controls.png)
+
+**Figure 7.** Both families and all leads are retained for three full years and a separate eight-month period. Every climate/trend, scale and decay coefficient uses 2010–2019 only. The expanded candidate search is source-only, but the design follows inspection of earlier outcomes. These are retrospective same-product destination comparisons. Lines connect the three evaluated leads and do not interpolate daily skill. No new significance claim is attached.
 
 ## 5. Discussion
 
@@ -242,9 +260,11 @@ The original frozen external record covers eight months; the extension adds thre
 
 OISST, AMSR2 and iQuam have different analysis, footprint, depth and acquisition characteristics. Shared reference calibration, analysis-based in situ quality control and possible assimilation overlap limit independence. A full-file decoding audit verifies extraction but does not reduce these scientific dependencies. The spatial controls share the historical OISST input; the new regional ablations additionally use coarse past reanalysis. They do not close a heat budget: missing advection, entrainment, mixed-layer depth and SST feedback prevent causal attribution. A lack of added skill from coarse past reanalysis does not imply that atmospheric heat exchange is physically unimportant; it tests the chosen information and representation, without future atmospheric forcing. Neither state-of-the-art operational forcing-informed systems nor marine heatwave forecasts were evaluated. Adjacent northern Eastern China Sea transfer is narrower than full-basin or cross-regime validation. The block analysis assumes approximately stationary losses; pooling complete years improves seasonal exposure but does not prove stationarity under trend or observing-system changes.
 
+The later climatology-assisted transfer sensitivity reduces raw regional-transfer penalties, but a one-parameter source anomaly-decay reference performs similarly at thirty days over 2023–2025, and training climatology alone is stronger in the partial 2026 destination sample. This bounds any claim that complexity explains the apparent transfer improvement. Destination seasonal/trend estimates and residual scales require local history; their use cannot establish data-free transfer. The daily decay coefficients describe this fitted statistical reference and are not independently identified mixed-layer relaxation times.
+
 ## 6. Conclusions
 
-The Yellow–Bohai Sea experiment identifies a clear gain in frozen one-day regional OISST prediction, uncertain seven-day performance and an unfavourable thirty-day regional point estimate. Original independent-instrument verification yields much smaller gains. The locked three-year extension supplies evidence for a thirty-day nonlinear spatial improvement against sampled nighttime AMSR2, while preserving horizon- and model-specific uncertainty. Buoy comparisons provide a separate point-support assessment with explicit quality-control and assimilation dependencies. Retrospective past-forcing ablations and unchanged-parameter transfer to the adjacent northern Eastern China Sea further test the limits of same-product generalization, without identifying a causal mechanism or establishing full-basin transfer. Complete-grid, matched-grid and regional evaluations show why target definition must accompany forecast skill. Exact loss and relative-advantage accounting expose observational discrepancy effects while retaining their signed interaction. The evidence supports specific statistical forecasts and a reproducible transfer test; it does not establish full-basin, instrument-independent predictability, a causal mechanism or superiority to forcing-informed systems.
+The Yellow–Bohai Sea experiment identifies a clear gain in frozen one-day regional OISST prediction, uncertain seven-day performance and an unfavourable thirty-day regional point estimate. Original independent-instrument verification yields much smaller gains. The locked three-year extension supplies evidence for a thirty-day nonlinear spatial improvement against sampled nighttime AMSR2, while preserving horizon- and model-specific uncertainty. Buoy comparisons provide a separate point-support assessment with explicit quality-control and assimilation dependencies. Retrospective past-forcing ablations and unchanged-parameter transfer to the adjacent northern Eastern China Sea further test the limits of same-product generalization, without identifying a causal mechanism or establishing full-basin transfer. A further retrospective anomaly-normalized sensitivity substantially reduces transfer errors but does not establish a uniform advantage over training climatology or simple anomaly decay. Complete-grid, matched-grid and regional evaluations show why target definition must accompany forecast skill. Exact loss and relative-advantage accounting expose observational discrepancy effects while retaining their signed interaction. The evidence supports specific statistical forecasts and a reproducible transfer test; it does not establish full-basin, instrument-independent predictability, a causal mechanism or superiority to forcing-informed systems.
 
 ## Acknowledgements
 

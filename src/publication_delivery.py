@@ -60,6 +60,30 @@ def main():
             "chronology_audit.json",
             "report_en.md",
         ],
+        "anomaly_transfer": [
+            "metrics.csv",
+            "annual_metrics.csv",
+            "seasonal_metrics.csv",
+            "selection.csv",
+            "parameters.json",
+            "climatology_parameters.json",
+            "descriptive_intervals.csv",
+            "decay_reference_intervals.csv",
+            "benchmark_metrics.csv",
+            "benchmark_annual_metrics.csv",
+            "benchmark_audit.json",
+            "evaluation_audit.json",
+            "external_metrics.csv",
+            "external_annual_metrics.csv",
+            "external_audit.json",
+            "external_benchmark_metrics.csv",
+            "external_benchmark_annual_metrics.csv",
+            "external_reference_audit.json",
+            "external_decay_intervals.csv",
+            "reconstruction_audit.json",
+            "transfer_summary.csv",
+            "report_en.md",
+        ],
         "process_transfer": [
             "metrics.csv",
             "annual_metrics.csv",
@@ -130,6 +154,9 @@ def main():
         "document_software_sha256": sha256("src/evaluation/manuscript_extension.py"),
         "process_document_software_sha256": sha256(
             "src/evaluation/process_transfer_report.py"
+        ),
+        "anomaly_document_software_sha256": sha256(
+            "src/evaluation/anomaly_transfer_report.py"
         ),
         "scope": "Documents assembled from completed locked evaluations; no fitting, tuning or recalibration. Original primary records preserved.",
     }

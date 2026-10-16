@@ -1,3 +1,24 @@
+# Current research status — 16 October 2026
+
+The integrated English draft now includes seven main and nine supplementary figures,
+eight main and seventeen supplementary tables. Latest local verification: 105 tests pass
+(with the known unsuppressed netCDF4/NumPy import warning). No journal submission,
+main-branch merge or CAS Zone 1 acceptance is claimed.
+
+The newest retrospective sensitivity expands source-validation grids and compares
+climatology-assisted anomaly transfer with training climatology and one-parameter
+local/source AR(1) controls. It reduces raw-transfer penalties, but does not establish a
+uniform complexity advantage. Destination training history is required; partial 2026
+thirty-day destination scores favour climatology alone. Every group and failed case is
+retained. See [latest Chinese findings](ANOMALY_TRANSFER_zh.md) and
+[full evidence assessment](PUBLICATION_UPGRADE_zh.md).
+
+The original frozen experiments, publicly locked three-year AMSR2 extension,
+point-support buoy description and prior raw process/transfer records remain intact.
+The sections below retain the earlier completion history.
+
+---
+
 # Project status — 2026-10-04
 
 **Complete exploratory research version.** Source, configuration, tests,

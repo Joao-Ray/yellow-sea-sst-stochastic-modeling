@@ -1,0 +1,23 @@
+{
+  "name": "Pre-scoring locked northern ECS observation-source verification",
+  "date_start": "2023-01-01",
+  "date_end": "2026-08-31",
+  "primary_end": "2025-12-31",
+  "train_end": "2019-12-31",
+  "domain": "northern_ecs",
+  "horizons": [1, 7, 30],
+  "primary_models": ["anomaly_ridge", "anomaly_trees"],
+  "primary_baselines": ["projected_source_ar1", "grid_source_ar1", "grid_climatology"],
+  "primary_family_size": 18,
+  "minimum_satellite_cells": 20,
+  "minimum_primary_days_per_year": 120,
+  "minimum_buoy_days_per_year": 60,
+  "bootstrap_block_days": [30, 60],
+  "bootstrap_replicates": 1999,
+  "bootstrap_seed": 20261021,
+  "buoy_max_distance_km": 20,
+  "buoy_exclude_within_source_km": 20,
+  "buoy_quality_level": 5,
+  "buoy_platform_types": [2, 3, 4, 6, 8],
+  "scope": "Designed after all earlier source-region and destination OISST results were known. Satellite and buoy files already cover the destination and were acquired during earlier stages; no prior destination instrument scores were produced. This locks forecast arrays, source versions and scoring rules publicly before scoring this subset, not before data acquisition. It is a conditional geographical instrument extension, not a blind holdout, live prospective forecast, full-basin or independent-latent-truth validation. Primary inference retains 2 anomaly models x 3 leads x 3 fixed simple baselines on 2023-2025 nighttime AMSR2, Holm-adjusted as 18 comparisons separately for 30/60-day blocks. Inadequate coverage suppresses inference without changing thresholds. All other models, matched OISST, afternoon, partial 2026 and buoy comparisons are descriptive. No tuning, calibration or outcome-based exclusion."
+}

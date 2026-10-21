@@ -1,4 +1,4 @@
-"""Download final NOAA OISST v2.1 AVHRR-only daily NetCDF files."""
+"""Download final NOAA OISST v2.1 daily files from its legacy AVHRR directory."""
 
 from __future__ import annotations
 
@@ -19,6 +19,19 @@ BASE_URL = (
 )
 FIRST_AVAILABLE_DATE = date(1981, 9, 1)
 LOGGER = logging.getLogger(__name__)
+
+
+def validate_netcdf(path: Path) -> None:
+    """Reject empty downloads and HTML error pages before accepting a file."""
+    with path.open("rb") as handle:
+        signature = handle.read(8)
+    if not (
+        signature[:4] in {b"CDF\x01", b"CDF\x02", b"CDF\x05"}
+        or signature == b"\x89HDF\r\n\x1a\n"
+    ):
+        raise ValueError(
+            f"{path} is not a NetCDF/HDF5 file; use --overwrite to replace invalid cached files"
+        )
 
 
 def parse_date(value: str) -> date:
@@ -65,9 +78,7 @@ def build_session(retries: int = 5) -> requests.Session:
         raise_on_status=False,
     )
     session = requests.Session()
-    session.headers.update(
-        {"User-Agent": "yellow-sea-sst-stochastic-modeling/0.1"}
-    )
+    session.headers.update({"User-Agent": "yellow-sea-sst-stochastic-modeling/0.1"})
     session.mount("https://", HTTPAdapter(max_retries=retry))
     return session
 
@@ -82,6 +93,7 @@ def download_file(
 ) -> str:
     """Download one file atomically, returning ``downloaded`` or ``skipped``."""
     if destination.exists() and not overwrite:
+        validate_netcdf(destination)
         LOGGER.info("Skipping existing file: %s", destination)
         return "skipped"
 
@@ -100,6 +112,7 @@ def download_file(
                 for chunk in response.iter_content(chunk_size=1024 * 1024):
                     if chunk:
                         handle.write(chunk)
+        validate_netcdf(partial)
         os.replace(partial, destination)
     except Exception:
         partial.unlink(missing_ok=True)
@@ -120,20 +133,17 @@ def download_range(
 ) -> dict[str, int]:
     """Download an inclusive date range and return action counts."""
     counts = {"downloaded": 0, "skipped": 0, "planned": 0}
-    session = build_session()
-
-    for day in iter_dates(start_date, end_date):
-        filename = f"oisst-avhrr-v02r01.{day:%Y%m%d}.nc"
-        destination = output_dir / f"{day:%Y%m}" / filename
-        url = build_url(day, base_url)
-        if dry_run:
-            LOGGER.info("Would download %s -> %s", url, destination)
-            counts["planned"] += 1
-            continue
-        action = download_file(
-            url, destination, session, overwrite=overwrite
-        )
-        counts[action] += 1
+    with build_session() as session:
+        for day in iter_dates(start_date, end_date):
+            filename = f"oisst-avhrr-v02r01.{day:%Y%m%d}.nc"
+            destination = output_dir / f"{day:%Y%m}" / filename
+            url = build_url(day, base_url)
+            if dry_run:
+                LOGGER.info("Would download %s -> %s", url, destination)
+                counts["planned"] += 1
+                continue
+            action = download_file(url, destination, session, overwrite=overwrite)
+            counts[action] += 1
 
     return counts
 

@@ -1,0 +1,9 @@
+{
+  "frozen_protocol_sha256": "cf6a462d4d55ecd80915925cea8bba313680f11402a708d9764bc8715a761502",
+  "scoring_software_sha256": "565e06a10b20117598d06103605b766ae1302a32228d2c21ff06af2b3a3867c4",
+  "maximum_loss_identity_residual": 2.842170943040401e-14,
+  "maximum_relative_advantage_identity_residual": 2.842170943040401e-14,
+  "replicated_original_2026": true,
+  "external_source_files": 1339,
+  "scope": "Designed after the original 2010-2025 OISST and 2026 OISST/AMSR2 outcomes were viewed. 2023-2025 AMSR2 targets have not been acquired or viewed. Existing EOF basis/seasonal field is retained; new parameters use 2010-2019 and hyperparameters only 2020-2021. Lock forecast bytes, model/source hashes and scoring rules publicly before acquiring these external targets. This is a pre-acquisition instrument extension conditional on prior exploration, not an untouched OISST test, latent-truth verification, mechanism identification or proof of global superiority. The primary family is three spatial models times three horizons on pooled nighttime 2023-2025 losses versus grid-specific anomaly persistence; Holm adjustment separately per block choice. Annual/seasonal and afternoon comparisons are descriptive. All scoring dates receive equal weight; no cell-level iid inference, bias correction or post-score tuning."
+}

@@ -1,0 +1,14 @@
+{
+  "annual_metrics.csv": "56c924b047f49c7834dc9536005be64de9cc5da734c81604921d0924964cbe80",
+  "buoy_support.png": "50eaf9ca1b62bde6491800a3ab5bd449c5b430b381dfa49b8f9c831edb807447",
+  "buoy_support.svg": "41cd8ccd1e1e8c0a356371f22c2161dd4d3bfdd1cf65d483d3f6f536422b1ada",
+  "chronology_audit.json": "39da9f9445b7b15d23b4089c25b59d4ef0dce4b440595b65fd5b82e13c05d1e5",
+  "compatibility_audit.json": "68c693e13a3a0b8283952f19225c66020ef31b16eceeee2f4f834901639cb1ad",
+  "coverage.csv": "bf7b4e1962030d0af3f256c793b811487c32921c8c9c07541263f926333914d0",
+  "evaluation_audit.json": "f6b8e85403eab1d46d2fa7b25052bde34f36fdccc412726edb56f517dd8995ea",
+  "extraction_audit.json": "0dd4cd7e6352aa82420b88b0ab973d53ddc5a290b82c0d905e8d0a0e0ced1cc6",
+  "metrics.csv": "356beb441bb9e6e3fe172d80b5162feb6fa9e6d2950d8e83da10e44fdf72a5a5",
+  "platform_support.csv": "55ec6eaf4c4f87467f3656b521cd008b7eda697982ee3c14bf84b3ea6e4bb09a",
+  "provenance.json": "8eb5bc703b58e894820df2f4470890c6b5e55fbaa46aac14a19dba39f1db22ca",
+  "report_en.md": "2757ac02e30131991b0fa3fcdb554b57c3bb7266ecec0df7d8b51818bb132f00"
+}

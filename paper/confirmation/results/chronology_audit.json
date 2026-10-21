@@ -1,0 +1,7 @@
+{
+  "public_freeze_commit": "6edc533f2cd5f7d0d6f61a0b441f6610cd54ebed",
+  "public_commit_utc": "2026-10-10T03:34:52+00:00",
+  "earliest_completed_source_acquisition_utc": "2026-10-10T03:36:06.767481+00:00",
+  "acquired_after_public_freeze": true,
+  "meaning": "Checks completed acquisitions; chronology is conditional on prior OISST and 2026 AMSR2 viewing and does not prove absence of all informal prior knowledge."
+}

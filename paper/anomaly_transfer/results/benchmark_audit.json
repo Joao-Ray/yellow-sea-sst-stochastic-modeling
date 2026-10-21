@@ -1,0 +1,22 @@
+{
+  "evaluated_utc": "2026-10-16T09:00:54.015916+00:00",
+  "software_sha256": "ae17e405019d5dcc6e7f8cb1fcdb737a76f16a2cab313b488db104586ef6038f",
+  "input_sha256": {
+    "data/processed/process_transfer/regional_sst.csv": "9cce9a5424dff79ef7245a5c2dc1fdbd8d9bc3c55f92dc5dd0d3803686eb4f10",
+    "data/processed/process_transfer/yellow_bohai_forcing.csv": "0c7d5648b55cb736bfaf25fe5ffabbaaf885e8d17d726077b903cd78c7914adf",
+    "data/processed/process_transfer/northern_ecs_forcing.csv": "6ea8669b7c6f2172c091426534691bf61fbcf80c4ec54151fb8b2d753c90c93d"
+  },
+  "training_phi_and_pair_count": {
+    "yellow_bohai": [
+      0.9651442216105073,
+      3651
+    ],
+    "northern_ecs": [
+      0.9523025391747575,
+      3651
+    ]
+  },
+  "training_end": "2019-12-31",
+  "intercept": 0,
+  "scope": "Fixed descriptive controls, not selected on validation or test. Local AR1 has destination training information, like destination climatology. All periods and horizons retained."
+}

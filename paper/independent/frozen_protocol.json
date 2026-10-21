@@ -1,0 +1,45 @@
+{
+  "frozen_utc": "2026-10-04T13:24:07.098786+00:00",
+  "config": {
+    "name": "AMSR2 independent-instrument matched observation verification",
+    "design_version": 1,
+    "date_start": "2026-01-01",
+    "date_end": "2026-08-31",
+    "provider": "Remote Sensing Systems",
+    "product": "RSS GCOM-W1 AMSR2 daily AS-ECV v8.2",
+    "dataset_doi": "10.56236/RSS-bq",
+    "url_template": "https://data.remss.com/amsr2/ocean/L3/v08.2/daily/{year}/RSS_AMSR2_ocean_L3_daily_{date}_v08.2.nc",
+    "primary_pass": "descending",
+    "secondary_pass": "ascending",
+    "horizons": [
+      1,
+      7,
+      30
+    ],
+    "minimum_daily_cells": 20,
+    "minimum_scoring_days": 120,
+    "quality_rule": "finite SST in [-3,35] degrees Celsius; time in [0,24) hours UTC; land/coast/sea_ice/noobs masks all zero; exact common grid; fixed 2010 ocean mask",
+    "spatial_transfer": "grid forecast = OISST grid observation at origin d-h + frozen regional forecast(d) - regional OISST observation at origin d-h; no fitted spatial coefficient; same transfer applied to frozen anomaly-persistence baseline; raw grid persistence also scored",
+    "score_weighting": "cosine-latitude weighted loss across common observed cells within each target UTC day, then equal weight per day; no spatial pseudo-replication",
+    "bootstrap_replicates": 1000,
+    "bootstrap_block_days": [
+      30,
+      60
+    ],
+    "random_seed": 20261004,
+    "scope": "Independent instrument observations, not a fully statistically independent product: RSS v8.2 instrument drift characterization used Reynolds SST. Prior OISST 2026 scores already viewed; this external-observation protocol is frozen before viewing AMSR2 2026 targets. Retrospective forecasts with fixed spatial projection; evaluates observed offshore grid cells, not unobserved coast or full-domain means. No retuning, bias correction, or interval recalibration. Regional interval radii at grid cells are diagnostic only."
+  },
+  "input_sha256": {
+    "paper/validation/frozen_protocol.json": "8a11e5b9b56845936cbd72495a2f066bd2d5ae2a2a9044bc18282169ce684aa4",
+    "data/processed/validation/predictions.csv": "5e2dbb9afb7b8fe97512b70034d03987a954fe46d20de089fca2679d7463a8a6",
+    "data/processed/research/iho_yellow_sea_daily.csv": "6f311dcfae359a85f5852ec9b42a55ccecc6b746e80533bdd899f56bf54a24ba",
+    "data/processed/research/grid_masks.csv": "19c6ab0f0c291a971f2c95350e393d556e4c104b79b5e30a2b29125167215ea6"
+  },
+  "external_targets_seen": false,
+  "previously_seen": "2010-2025 exploratory study and same-product OISST January-August 2026 results",
+  "independence_evidence": {
+    "oisst_input_documentation": "https://www.ncei.noaa.gov/products/optimum-interpolation-sst",
+    "external_instrument": "https://www.remss.com/DOI/RSS-bq.html",
+    "shared_calibration_caveat": "https://images.remss.com/papers/tech_reports/2021/AMSR-2_Air-Sea_Essential_Climate_Variables_RSS_Version_8.2.pdf"
+  }
+}

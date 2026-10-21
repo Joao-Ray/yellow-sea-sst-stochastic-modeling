@@ -1,0 +1,12 @@
+{
+  "assembled_utc": "2026-10-16T09:01:40.526001+00:00",
+  "original_temporal_protocol_sha256": "8a11e5b9b56845936cbd72495a2f066bd2d5ae2a2a9044bc18282169ce684aa4",
+  "original_instrument_protocol_sha256": "ecc8c46b5f2653dc2e4f3e636c9206a2460bbe2c5dd15123f82ad51cdaba2f03",
+  "multiyear_protocol_sha256": "cf6a462d4d55ecd80915925cea8bba313680f11402a708d9764bc8715a761502",
+  "insitu_protocol_sha256": "4eac347075875db867689e80369b43b04d289efcf0dc7d6cff85966dceb4ddcf",
+  "assembly_software_sha256": "30d2b55fc6ff2654d1f5d4db1ca7fe66cdf2362f64d845400e74d74954d05246",
+  "document_software_sha256": "65c9ba6924e041c065f80b669623a81b96378640433b8e46bb35390ef0aa4320",
+  "process_document_software_sha256": "1d0d6a6f6956e2bc2d884ce99f09f9127770cc8c4684ac9915bd503e48180f28",
+  "anomaly_document_software_sha256": "f02b3fbad8791b7ba82ac18e1d6442e9cdf06c67e06adbdc49808cb02a1191d6",
+  "scope": "Documents assembled from completed locked evaluations; no fitting, tuning or recalibration. Original primary records preserved."
+}

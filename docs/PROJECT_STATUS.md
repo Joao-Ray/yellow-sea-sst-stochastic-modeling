@@ -1,3 +1,9 @@
+# 最新状态：2026-10-26
+
+完成东海北部卫星与浮标计分，以及原始掩膜、空间匹配和平台权重的独立复核；110 项测试及独立只读审查通过。三年夜间卫星 896 天、浮标 1,051 天；逐格点简单衰减在三十天优于新增复杂区域迁移模型。当前正文 8 图 9 表，补充 10 图 19 表。详见 [本轮结果](DESTINATION_VALIDATION_zh.md) 和 [整体证据评估](PUBLICATION_UPGRADE_zh.md)。以下各节保留此前阶段历史。
+
+---
+
 # Current research status — 16 October 2026
 
 The integrated English draft now includes seven main and nine supplementary figures,

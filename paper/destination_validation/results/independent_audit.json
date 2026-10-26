@@ -1,0 +1,19 @@
+{
+  "audited_utc": "2026-10-26T09:57:46.482004+00:00",
+  "protocol_sha256": "f78bc5cf133d13508eb551cd9f0f13b9e68581c9d8f35703043a06f0b7e6bfb3",
+  "software_sha256": "b9072a85851d12e4a41695f8a1d7ca50f4b1f4c3eb36e86c73951a0562dbc2e8",
+  "satellite": {
+    "all_daily_rows_recomputed": 171366,
+    "maximum_absolute_loss_difference": 2.842170943040401e-14,
+    "method": "Raw cache masks independently reconstructed; vectorized weighted sums replace production dot products."
+  },
+  "buoys": {
+    "matched_records": 88845,
+    "all_daily_rows_recomputed": 164190,
+    "maximum_absolute_loss_difference": 4.263256414560601e-14,
+    "matching_method": "Double-precision unit-sphere KD-tree candidates followed by frozen-precision spherical reranking independently replace all-pairs search; every record and nearest-cell assignment reproduces. Stored float32 cell-angle conversion is preserved at near bisectors.",
+    "weighting_method": "Inverse platform-day count and inverse daily platform count; bincount sums independently replace hierarchical grouped averages."
+  },
+  "all_previous_files_and_locked_forecasts_unchanged": true,
+  "scope": "Independent implementation of extraction, matching and score arithmetic; not independent acquisition, a new observation source, or evidence of latent-truth independence."
+}

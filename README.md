@@ -378,3 +378,19 @@ results nor a new independent-instrument confirmation. No new p values are added
 [Chinese findings and reproduction](docs/ANOMALY_TRANSFER_zh.md).
 The integrated paper now has seven main figures and eight main tables; supplementary
 information has nine figures and seventeen tables. Original frozen evidence is preserved.
+
+
+### Destination instrument verification (26 October 2026)
+
+A public pre-scoring lock fixes thirteen methods, source versions, forecasts and
+an eighteen-comparison family before evaluating the destination subset of existing
+AMSR2/iQuam caches. Three-year nighttime support includes 896 satellite dates and
+1,051 buoy dates. At thirty days the fixed grid anomaly-decay reference has lower
+satellite and buoy RMSE than the regional anomaly-transfer models. All results,
+negative gains, coverage and multiplicity adjustments are retained.
+
+[Protocol and complete results](paper/destination_validation/README.md) ·
+[Chinese findings and audit](docs/DESTINATION_VALIDATION_zh.md).
+The integrated paper has eight main and ten supplementary figures, nine main and
+nineteen supplementary tables. This conditional geographical extension uses already
+acquired files and does not establish a new blind holdout or independent latent truth.

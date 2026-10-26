@@ -1,12 +1,16 @@
 {
-  "README.md": "9c0da3f6ff9b50f82a2d0c254a35b4129233bc1e4d4e6d0f0979615155d50b29",
+  "README.md": "c4864cf240a8f46eb3af883f5c5cf9b1cb606ae0c75c660646d7198579682ef1",
   "annual_external_skill.png": "9fb692fdc21f69bb6c3fc0c542dfb56605f014eaaa855ba0578f5e85bd9c5eca",
   "annual_external_skill.svg": "61661951c4a7907964d772d65577ca07ab814893d73f76958ec08f3148e6fd49",
   "anomaly_transfer_controls.png": "c9c0f3293e11577853e8b0408f5e73e28db5196217e40c235bab4990f179b43c",
   "anomaly_transfer_controls.svg": "92750c6eb8e71c8fa703912aaa1c30419d99f183b6ac38654fa7ecaf51662b76",
-  "assembly_audit.json": "987b1bfaf4c679ae43126fe28a427d84f850092cf28d420606a70aafba7e7e41",
+  "assembly_audit.json": "7ded09e7775ff7635a33748bbab971bb525a5981b32c05375cee9ea941af5160",
   "buoy_support.png": "50eaf9ca1b62bde6491800a3ab5bd449c5b430b381dfa49b8f9c831edb807447",
   "buoy_support.svg": "41cd8ccd1e1e8c0a356371f22c2161dd4d3bfdd1cf65d483d3f6f536422b1ada",
+  "destination_instrument_comparison.png": "95321e483b89c106621d2d1a904590eeffa6e6b5871a8465233616e3deff0d00",
+  "destination_instrument_comparison.svg": "1e67401da5ceeff77a3a4ca3870ed6cdf3a8dd13fb5472bf7dad65739b07b16d",
+  "destination_observation_coverage.png": "84befe5a92fcb559e849e096e692dee7d362e64f32666386768883d16ff99370",
+  "destination_observation_coverage.svg": "73fb9de124d6311388addfd800e327fadec65d0da7da04961800c34a5880baa5",
   "evaluation_scales.png": "ab0015a9ca0d630121b0ef6b83d5812c22088848a471b49a0a78f6bf55b0e200",
   "evaluation_scales.svg": "354aebbb4c121268b15fb5c64b9f504fdd39c0fb7b31649701708bed702251fe",
   "expanded_source_selection.png": "43e3c288800442f2c619b9529dc3645b7470a6a75493aaf647ed2d62a1e4c5ff",
@@ -16,8 +20,8 @@
   "external_coverage_calendar.svg": "d84735958025141877df7dc17598e075e22bf9dc52162d0fe7daa1c915fed8e5",
   "loss_decomposition.png": "8f6b70255a0c31ab572d99e759bff86c7f8cf652ff72d699a89320675c562859",
   "loss_decomposition.svg": "6439366896d3e88488bd9888a34025db07352f3749e3ce397f61ac6fe9614c5b",
-  "manuscript_en.md": "07d9e845d44806e0b403d51e2764d90c65b9ffff1731c6d3aa52de67a1f0d4d2",
-  "manuscript_en.template.md": "8e2dcc0074468f407c4703fd520b06d35052c4325a34721ed58b792244696963",
+  "manuscript_en.md": "37b1358eeb76d4210810b0996a7271ea139e5b78e2e840b4efe6d2476942f6d3",
+  "manuscript_en.template.md": "4f90ee3a22f6033b4d852839b072bc36fd057176b70ea7b9b251da211f6dd3ab",
   "multiyear_sources.png": "3e4cb277faf1984629f2011e5d87cde9fbf1744352ba93c0aa29df76a3e2db53",
   "multiyear_sources.svg": "b3ff44597cac4f728cdd32eafffeb95a14171b29daaaef6a46ae07b6608be622",
   "past_forcing_ablation.png": "53dfe2c31799fc4bf772f7dda70e087f6e5c36a943617c1dc3602ba4b738bc18",
@@ -51,6 +55,6 @@
   "secondary_inference.svg": "9d2d770072ee7ec79c622484d9bb497164ff126542de7e49ee7f1e9e6fa06aea",
   "spatial_modes.png": "fa7fd613876c29efd1d98085c845d29ead77059a1a00d2810c152eeae4dabc5c",
   "spatial_modes.svg": "612ef17bc6e9fc832b1806362e7587218a2174b2b423ca6e6dfdb6a161148a14",
-  "supplement_en.md": "7989f24371a9077ee020b1885ec00bea57144a0dae9d061599b79288254fcf79",
-  "supplement_en.template.md": "e574059c71924526db5cbea0fbd8de458b404d117366c6c4756d6e7aa27b3b18"
+  "supplement_en.md": "aed6afbf075336fceff7165da6b138ec5b48b226af6df543dc4eae908040c0d0",
+  "supplement_en.template.md": "7cd1a7caf32f112f48bb2a3d916cc55ee76e93138bd002f8f0a2a2bad7a1d192"
 }

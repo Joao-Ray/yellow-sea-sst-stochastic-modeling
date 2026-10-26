@@ -628,3 +628,65 @@ Every regional model is projected as the observed origin OISST spatial field plu
 #### Reconstruction and completeness
 
 With prior caches intact, run `python -m src.anomaly_transfer prepare`, `python -m src.anomaly_transfer evaluate`, `python -m src.anomaly_transfer external`, `python -m src.anomaly_benchmarks`, `python -m src.anomaly_reference_external`, `python -m src.anomaly_transfer deliver` and `python -m src.publication_delivery`. No new external values are required. The design verifies aggregated input hashes; evaluation reproduces every original narrow-grid validation score and preserves the prior frozen files and complete process-transfer outputs. Numerical reconstruction checks every scientific CSV to 1e-10 tolerance; tree parallelism can change floating-point sums and serialized model bytes. The record does not claim cross-platform byte identity. Local data packages include full predictions, daily losses and the model archive; reviewed repository tables omit large daily files. New pointwise intervals are explicitly separate from the old six-, nine- and thirty-six-comparison families.
+
+
+### S14. Destination satellite and buoy verification
+
+The publicly accessible [pre-scoring commit](https://github.com/Joao-Ray/yellow-sea-sst-stochastic-modeling/commit/0d9d318fece43baa067ae853e598e7681ce10767) contains the protocol, software, input hashes, every forecast-array fingerprint and exact source versions. The lock was remotely verified on 21 October 2026 before destination scoring began. Source files had already been acquired and earlier source-region/destination-OISST results were known. This chronology supports a fixed conditional geographical comparison, with no claim that all design or raw data were previously unviewed. In particular, the earlier process-transfer audit's acquisition wording is corrected: the rectangular satellite cache already contained destination cells, whose destination scores had not been produced. The historical audit is retained.
+
+All thirteen methods and three leads use the same source-selected regional predictions or fixed references. Projected source AR(1), local AR(1), regional climatology and anomaly persistence retain origin spatial offsets. Separate grid references fit three harmonic orders plus a linear trend on each destination cell's 2010–2019 values. Grid source/local AR(1) uses the previously estimated source/destination **regional** coefficient; this does not fit 230 separate decay parameters. Grid climatology ignores origin anomalies; grid anomaly persistence does not damp them. Grid climatology is distinct from projecting the regional climatology while preserving origin spatial offsets.
+
+**Table S18. Complete locked primary family.** Two anomaly models × three leads × three references. Positive gain favours the anomaly model. Intervals are unadjusted pointwise 95% paired intervals; both p columns are two-sided and Holm adjusted within all eighteen contrasts at their named block length. A small adjusted p with negative gain supports deterioration. Nothing is added to or removed from the older six-, nine- or thirty-six-comparison families. The use of stationary circular blocks and prior outcome-dependent design limits interpretation.
+
+| Model | Reference | Lead (d) | Gain (%) | 60-d pointwise CI (%) | Holm p, 30 d | Holm p, 60 d |
+| --- | --- | --- | --- | --- | --- | --- |
+| Anomaly ridge | Grid climatology | 1 | 28.05 | [17.10, 38.77] | 0.0090 | 0.0090 |
+| Anomaly ridge | Grid climatology | 7 | 16.01 | [6.23, 25.60] | 0.0385 | 0.0880 |
+| Anomaly ridge | Grid climatology | 30 | -8.24 | [-17.81, 1.10] | 0.3400 | 0.5400 |
+| Anomaly ridge | Grid source AR(1) | 1 | -0.17 | [-0.36, 0.00] | 0.3570 | 0.5400 |
+| Anomaly ridge | Grid source AR(1) | 7 | -2.20 | [-3.32, -1.33] | 0.0090 | 0.0090 |
+| Anomaly ridge | Grid source AR(1) | 30 | -14.03 | [-20.02, -8.51] | 0.0090 | 0.0090 |
+| Anomaly ridge | Projected source AR(1) | 1 | 0.02 | [-0.05, 0.12] | 1.0000 | 1.0000 |
+| Anomaly ridge | Projected source AR(1) | 7 | 0.02 | [-0.17, 0.24] | 1.0000 | 1.0000 |
+| Anomaly ridge | Projected source AR(1) | 30 | 0.27 | [-1.74, 2.35] | 1.0000 | 1.0000 |
+| Anomaly trees | Grid climatology | 1 | 28.14 | [17.28, 38.80] | 0.0090 | 0.0090 |
+| Anomaly trees | Grid climatology | 7 | 16.14 | [6.77, 25.19] | 0.0240 | 0.0720 |
+| Anomaly trees | Grid climatology | 30 | -8.01 | [-16.33, 0.08] | 0.2025 | 0.4005 |
+| Anomaly trees | Grid source AR(1) | 1 | -0.05 | [-0.25, 0.12] | 1.0000 | 1.0000 |
+| Anomaly trees | Grid source AR(1) | 7 | -2.05 | [-3.17, -1.13] | 0.0090 | 0.0090 |
+| Anomaly trees | Grid source AR(1) | 30 | -13.79 | [-19.52, -8.89] | 0.0090 | 0.0090 |
+| Anomaly trees | Projected source AR(1) | 1 | 0.14 | [0.04, 0.25] | 0.0800 | 0.1500 |
+| Anomaly trees | Projected source AR(1) | 7 | 0.18 | [-0.41, 0.62] | 1.0000 | 1.0000 |
+| Anomaly trees | Projected source AR(1) | 30 | 0.49 | [-0.70, 1.69] | 1.0000 | 1.0000 |
+
+**Table S19. Every nighttime buoy method, 2023–2025.** RMSE is °C on 1,051 equally weighted dates after balancing platform type/ID within each date. These values are descriptive, with no new buoy significance test. Record counts, platform support, annual/seasonal outcomes and daytime/matched-OISST metrics accompany the CSVs.
+
+| Method | 1 d RMSE | 7 d RMSE | 30 d RMSE |
+| --- | --- | --- | --- |
+| raw ridge | 0.5677 | 1.2248 | 2.5494 |
+| raw trees | 0.5740 | 0.9340 | 1.8470 |
+| Anomaly ridge | 0.5725 | 0.8884 | 1.4678 |
+| Anomaly trees | 0.5717 | 0.8918 | 1.4827 |
+| projected climatology | 1.0820 | 1.2043 | 1.5878 |
+| projected local ar1 | 0.5737 | 0.8997 | 1.5217 |
+| Projected source AR(1) | 0.5734 | 0.8915 | 1.4983 |
+| projected anomaly persistence | 0.5737 | 0.8971 | 1.4951 |
+| raw persistence | 0.5998 | 1.1745 | 3.2026 |
+| Grid climatology | 1.3750 | 1.3750 | 1.3750 |
+| Grid source AR(1) | 0.5695 | 0.8493 | 1.2113 |
+| Grid local AR(1) | 0.5702 | 0.8634 | 1.2518 |
+| Grid anomaly persistence | 0.5700 | 0.8652 | 1.2922 |
+
+![Figure S10. Monthly destination instrument support.](destination_observation_coverage.png)
+
+**Figure S10.** Satellite bars show the number of dates meeting the fixed twenty-cell gate; the line shows median visible destination weight across all nights in each month, including unscored nights. Buoy bars count dates after quality and source-proximity exclusions. Satellite coverage includes January–August 2026; the version-fixed buoy collection ends in 2025. All three primary satellite years exceed the 120-date gate, and all buoy years exceed the sixty-date gate. Passing a date-count gate does not establish full spatial coverage or missing-at-random sampling.
+
+#### Point matching and prior-support exclusion
+
+Best-quality thermometric iQuam buoy records use the same version, temperature bounds, platform types, day/night flags and UTC calendar as the earlier source-region description. A record must be within 20 km of a destination centre and **more than** 20 km from every source centre. This explicitly removes any location eligible for the previous source matching, including boundary cases. No temperature outcome enters these distances or exclusions. Repeated observations from a platform remain in its daily squared/absolute/signed loss, then platforms and dates receive equal weights. The same platform may operate in different regions or years; geographical exclusion does not create statistical independence of platforms or QC references.
+
+#### Independent implementation audit
+
+`python -m src.destination_audit` reconstructs masks directly from original satellite caches, verifies every model's daily weighted loss, and independently matches all buoy records using double-precision unit-sphere KD-tree candidates with spherical reranking at the frozen coordinate precision, instead of the production all-pairs search. It compares complete record multisets and nearest-cell assignments. The original stored float32 cell-angle conversion and stable tie order are preserved: at near bisectors, a fully double-precision alternative can select an adjacent cell, so changing precision would change the locked matching rule. Regression tests cover these cases. Inverse platform-day and daily-platform weights with independent accumulation reproduce hierarchical buoy scoring. Every satellite/buoy daily loss is required to agree within 1e-10, and all frozen arrays and earlier outputs retain their hashes. This verifies scientific arithmetic and extraction; it does not make the underlying observation sources or acquisitions independent.
+
+Reproduce with `python -m src.destination_validation prepare`, public-lock verification, `python -m src.destination_validation evaluate`, `python -m src.destination_audit`, `python -m src.destination_validation deliver`, and `python -m src.publication_delivery`. The original public protocol remains fixed. Archive hashes identify the fitted grid coefficients, source manifests, complete locked projections, daily losses and point matches; large arrays and daily point records are distributed in the local data package. The official iQuam notice about discontinued human monitoring remains applicable, and quality-control reference and potential OISST input overlap are retained as evidence boundaries.

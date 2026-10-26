@@ -17,3 +17,18 @@ Buoys use the previously locked monthly iQuam versions and quality/matching rule
 Reproduce with `python -m src.destination_validation prepare`, then verify the public lock, run `python -m src.destination_validation evaluate` and `python -m src.destination_validation deliver`. Forecast arrays and daily losses accompany the local reproducibility package.
 
 Chronology correction: a previous process-transfer audit described destination satellite observations as not acquired. The full rectangular cache already contained their cells; destination scores had not been produced. The original audit is retained, and this correction is explicitly recorded in the new protocol.
+
+
+## Completed evaluation and audit
+
+The 2023–2025 nighttime AMSR2 support has 896 dates (297/296/303 per year) and
+113,190 cell-date pairs. Nighttime buoys have 1,051 dates, 43,889 records and
+29 platform-type/ID combinations after excluding previous source matching support.
+At thirty days, anomaly ridge/trees have satellite RMSE 1.8252/1.8213°C against
+1.6006°C for fixed grid source AR(1); buoy values are 1.4678/1.4827°C against
+1.2113°C. Complex regional transfer is not supported over the spatial decay reference.
+All eighteen primary contrasts, methods, annual/seasonal and partial-year results
+are retained in `results/`. `independent_audit.json` independently checks extraction,
+matching and weighted daily scoring. Near-bisector candidate ranking preserves the
+locked float32 cell-angle conversion; exact record/cell assignments are required.
+The integrated manuscript/SI and Chinese assessment explain the inference boundaries.

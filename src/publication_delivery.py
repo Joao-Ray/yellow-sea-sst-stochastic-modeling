@@ -84,6 +84,21 @@ def main():
             "transfer_summary.csv",
             "report_en.md",
         ],
+        "destination_validation": [
+            "satellite_metrics.csv",
+            "satellite_annual_metrics.csv",
+            "satellite_seasonal_metrics.csv",
+            "satellite_coverage.csv",
+            "buoy_metrics.csv",
+            "buoy_annual_metrics.csv",
+            "buoy_seasonal_metrics.csv",
+            "buoy_coverage.csv",
+            "buoy_platform_support.csv",
+            "primary_inference.csv",
+            "evaluation_audit.json",
+            "independent_audit.json",
+            "report_en.md",
+        ],
         "process_transfer": [
             "metrics.csv",
             "annual_metrics.csv",
@@ -157,6 +172,9 @@ def main():
         ),
         "anomaly_document_software_sha256": sha256(
             "src/evaluation/anomaly_transfer_report.py"
+        ),
+        "destination_document_software_sha256": sha256(
+            "src/evaluation/destination_report.py"
         ),
         "scope": "Documents assembled from completed locked evaluations; no fitting, tuning or recalibration. Original primary records preserved.",
     }

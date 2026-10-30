@@ -30,6 +30,14 @@ def main():
     output = Path("data/processed/submission")
     output.mkdir(parents=True, exist_ok=True)
     for stage, names in {
+        "buoy_robustness": [
+            "full_metrics.csv",
+            "deletion_summary.csv",
+            "annual_metrics.csv",
+            "platform_weights.csv",
+            "evaluation_audit.json",
+            "report_en.md",
+        ],
         "confirmation": [
             "metrics.csv",
             "annual_metrics.csv",
@@ -126,6 +134,13 @@ def main():
         target.mkdir(parents=True, exist_ok=True)
         for name in names:
             shutil.copy2(source / name, target / name)
+        if stage == "buoy_robustness":
+            import gzip
+
+            (target / "deletion_metrics.csv.gz").write_bytes(
+                gzip.compress((source / "deletion_metrics.csv").read_bytes(), mtime=0)
+            )
+            (target / "deletion_metrics.csv").unlink(missing_ok=True)
         for figure in source.iterdir():
             if figure.suffix in [".png", ".svg"]:
                 shutil.copy2(figure, target / figure.name)
@@ -175,6 +190,9 @@ def main():
         ),
         "destination_document_software_sha256": sha256(
             "src/evaluation/destination_report.py"
+        ),
+        "buoy_robustness_document_software_sha256": sha256(
+            "src/evaluation/buoy_robustness_report.py"
         ),
         "scope": "Documents assembled from completed locked evaluations; no fitting, tuning or recalibration. Original primary records preserved.",
     }

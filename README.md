@@ -1,5 +1,16 @@
 # Yellow Sea SST Stochastic Modeling
 
+## Latest support check — 30 October 2026
+
+The [buoy robustness analysis](docs/BUOY_ROBUSTNESS_zh.md) reproduces every prior
+buoy daily score and retains all single-platform/whole-type exclusions. The source
+thirty-day ExtraTrees gain remains positive; destination complex transfer remains
+worse than grid anomaly decay. Three destination nighttime platforms contribute
+68.03% of score weight, so date and raw-record counts alone overstate sampling diversity.
+This retrospective check changes no frozen forecasts or primary inference.
+With all original phases available, run `python -m src.buoy_robustness`, then
+`python -m src.publication_delivery`.
+
 ## English research manuscript and three-year verification
 
 The current scientific draft is [the English manuscript](paper/submission/manuscript_en.md),

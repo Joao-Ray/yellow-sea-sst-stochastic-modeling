@@ -322,6 +322,12 @@ def write_documents(tables, selection, spatial, config, output_dir):
         )
 
         data.update(destination_text_fields())
+    if "{{buoy_robustness_source_text}}" in manuscript:
+        from src.evaluation.buoy_robustness_report import (
+            text_fields as buoy_text_fields,
+        )
+
+        data.update(buoy_text_fields())
     for key, value in data.items():
         manuscript = manuscript.replace("{{" + key + "}}", str(value))
     if re.search(r"\{\{\w+\}\}", manuscript):

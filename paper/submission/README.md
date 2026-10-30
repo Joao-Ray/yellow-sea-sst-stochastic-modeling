@@ -1,13 +1,13 @@
 # English scientific manuscript
 
-Research draft, reviewed 26 October 2026. The intended research standard is
+Research draft, reviewed 30 October 2026. The intended research standard is
 CAS Zone 1; this label is an objective, not an achieved publication rating.
 
 - `manuscript_en.md`: integrated English scientific manuscript, eight main figures
   and nine main tables, followed by verified primary references.
 - `supplement_en.md`: detailed chronology, acquisition/decoding audit, spatial
   selection, dependence/interval diagnostics and complete comparisons.
-- `*.png` / `*.svg`: eighteen scientific figures, 300 dpi and vector formats.
+- `*.png` / `*.svg`: nineteen scientific figures, 300 dpi and vector formats.
 - `results/`: reviewed aggregate tables and exact spatial parameters.
 - `extension_design.json`: local retrospective design record; not a public
   preregistration or an untouched holdout.
@@ -20,6 +20,8 @@ CAS Zone 1; this label is an objective, not an achieved publication rating.
   fixed climatology/AR(1) controls and complete partial-year failures; descriptive only.
 - `../destination_validation/`: pre-scoring-locked destination satellite/buoy checks,
   fixed spatial decay references, all primary contrasts and independent arithmetic audit.
+- `../buoy_robustness/`: retrospective platform and whole-type removals, contribution
+  weights, same-retained-date references and all alternative weighting outcomes.
 - `references_verified.md`: checked bibliography and primary-source links.
 - `*.template.md`: reproducible manuscript templates. Results are filled
   directly from reviewed output tables. After the new analysis stages,
@@ -50,6 +52,10 @@ CAS Zone 1; this label is an objective, not an achieved publication rating.
 9. Pre-scoring-locked destination instrument comparison on existing previously acquired
    files: eighteen primary satellite contrasts, descriptive buoys, fixed spatial controls
    and explicit lack of complex-model advantage. This is not a new blind holdout.
+
+10. Retrospective source/destination buoy support sensitivity: every platform/type
+    exclusion, both weighting estimands and observation targets; no new p values or
+    independent observations. Supplementary information now has 11 figures and 21 tables.
 
 The frozen model files and original primary metrics remain unchanged. The
 initial extension has training-only parameters and selection-only tuning, which

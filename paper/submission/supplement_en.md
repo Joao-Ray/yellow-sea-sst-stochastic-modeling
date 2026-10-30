@@ -182,6 +182,10 @@ Grid-to-land distance is the minimum spherical distance from an ocean cell centr
 | Nighttime | 50-100 | JJA | 84 | 3381 | 1.8442 | -0.9025 |
 | Nighttime | 50-100 | MAM | 85 | 3841 | 2.1850 | -0.8192 |
 
+#### Aggregation identity and support requirements
+
+On a given date, let eᵢ be the local forecast error and let non-negative weights wᵢ sum to one over the same set of cells. The weighted grid loss is Σwᵢeᵢ² = (Σwᵢeᵢ)² + Σwᵢ(eᵢ−Σwⱼeⱼ)². Thus the regional-mean squared error is no larger than the weighted grid loss **for that shared support and those weights**. Averaging the identity over the same dates preserves it. This identity compares a particular field forecast with its own weighted regional mean; it does not order skill ratios, since their baselines may differ. It also does not justify attributing a full-domain versus satellite-matched RMSE gap solely to aggregation when masks, normalized weights or scoring dates differ. Missing cells can change both the mean error and its variance.
+
 ### S7. Complete spatial comparison results
 
 **Table S7. All spatial evaluation metrics.** Both skill columns are fractions. Frozen anomaly projection and grid-specific anomaly persistence are different baselines. Each within-target comparison uses identical masks and dates; across-target differences may reflect spatial support as well as the source. Raw grid persistence is retained as a secondary reference.

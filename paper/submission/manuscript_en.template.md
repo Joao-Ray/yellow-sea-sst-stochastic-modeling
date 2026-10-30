@@ -144,7 +144,7 @@ Nighttime AMSR2 RMSE is 2.1108, 2.2264 and 2.3533°C for the three horizons. Imp
 
 ### 4.2 Dependence on aggregation and spatial representation
 
-Figure 1 uses four target definitions to display the same forecasting exercise. Regional-mean errors are smaller than gridded errors because local errors are averaged before squaring. The complete-grid and matched-grid comparisons retain local error contributions; the matched-grid OISST and AMSR2 panels isolate verification-source changes on a common daily mask. The full regional mean is not recomputed from the restricted external sample.
+Figure 1 shows the forecasts against four targets. When regional and grid errors use the same cells, weights and dates, averaging local errors before squaring removes their within-domain variance from the regional loss. The plotted full-region and satellite-matched samples have different support, however, so their RMSE differences cannot be attributed to aggregation alone. The matched-grid OISST and AMSR2 panels use a common daily mask to isolate the change in verification source. The full regional mean is not recomputed from the restricted external sample.
 
 ![Figure 1. Forecast errors across four target definitions.](evaluation_scales.png)
 

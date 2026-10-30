@@ -24,13 +24,13 @@ This study asks three linked questions. First, does a historical statistical mod
 
 The study domain follows the Marine Regions IHO sea-area polygon MRGID 4303 (Flanders Marine Institute, 2018). Because this polygon includes the Bohai Sea, we refer to the domain as the Yellow–Bohai Sea. OISST subsets span 31–42°N and 117–128°E at 0.25° resolution. The fixed mask contains 651 polygon-selected ocean cells present on 1 January 2010. Earlier exploratory analyses using a rectangular domain and an interior polygon subset remain in the repository.
 
-The daily record extends from 1 January 2010 to 31 August 2026, with 6,087 dates and no gaps in the fixed ocean-cell cube. Regional means use cosine-latitude weights and an 80% valid-weight requirement. The analysis is based on 200 monthly NOAA subsets, including 192 for 2010–2025 and eight for 2026. Acquisition URLs and SHA-256 checksums are preserved. This is an SST analysis, not a set of direct observations at every cell. Changes in the operational input streams also preclude treating the entire record as an invariant observing system; the NOAA product documentation provides the applicable history.
+The record spans 1 January 2010 to 31 August 2026, with 6,087 dates and no gaps in the fixed ocean-cell cube. Regional means use cosine-latitude weights and require at least 80% of the domain weight to be valid. The 200 monthly NOAA subsets comprise 192 for 2010–2025 and eight for 2026; acquisition URLs and SHA-256 checksums are retained. OISST is an analysis rather than a direct observation at every cell. Its operational inputs changed over the record, so the observing system cannot be treated as invariant; the NOAA product documentation describes that history.
 
 ### 2.2 Separation of estimation, selection and evaluation
 
 The historical exploration compared seasonal, persistence, autoregressive and regularized models across separate evaluation periods. For the frozen specification, coefficients were estimated on 2010–2019, models were selected on 2020–2021, and intervals were calibrated on 2022. The 2023–2025 historical scores were available before the 2026 temporal exercise. Selected methods, coefficients, seasonal templates and interval radii were recorded in a versioned protocol before the 2026 target files were acquired; none were refitted, reselected or recalibrated on those targets.
 
-Forecasts have lead times of 1, 7 and 30 days. A forecast valid on date d uses observations no later than origin d−h. Previous observed days become available as origins advance, as in a rolling forecasting exercise, but observations between an individual origin and its target are excluded. Selection across candidate orders and ridge penalties used seven-day RMSE. The frozen one-day method is a ridge model with seasonal harmonics and a trend; the seven-day and thirty-day methods use a seasonal-trend autoregressive model. Exact parameters and the original comparison inventory are supplied as machine-readable files.
+Forecasts have lead times of 1, 7 and 30 days. For a forecast valid on date d, the latest observation is at the origin d−h. As the origin advances, earlier observed days become available, but a forecast cannot use observations between its own origin and target. Candidate orders and ridge penalties were selected using seven-day RMSE. The frozen one-day method is a ridge model with seasonal harmonics and a trend; the seven- and thirty-day methods use a seasonal-trend autoregressive model. Exact parameters and the original comparison inventory are supplied in machine-readable files.
 
 This design tests later-date transfer of a frozen analysis-based forecast, conditional on the earlier historical exploration. It is not a fully operational issue-time experiment: the retrospective OISST archive may contain revisions, and no end-to-end acquisition latency was simulated. The 2026 interval ends in August and therefore does not represent a complete annual cycle.
 
@@ -78,7 +78,7 @@ For each cell, three annual harmonics represent the seasonal cycle, with and wit
 
 **Fᴱᴼᶠ(d|o) = C(d) + a(o) + B[ẑ(d|o) − z(o)].**  (2)
 
-The same candidate grid and seven-day area-weighted grid loss determine one spatial specification for all horizons. The selected control has rank 10, order 7 and trend inclusion true, captures 84.5% of training anomaly variance, and has selection-period seven-day RMSE of 0.8351°C. A grid-specific seasonal anomaly-persistence baseline uses the no-trend seasonal field estimated on the same training period. The spatial control is intended to diagnose target-scale effects and omitted spatial evolution, rather than to establish superiority over dynamical or multivariate machine learning forecasts.
+The same candidate grid and seven-day area-weighted grid loss determine one spatial specification for all horizons. The selected control has rank 10, order 7 and trend inclusion true, captures 84.5% of training anomaly variance, and has selection-period seven-day RMSE of 0.8351°C. A grid-specific seasonal anomaly-persistence baseline uses the no-trend seasonal field estimated on the same training period. The spatial control diagnoses target-scale effects and omitted spatial evolution; it does not establish superiority over dynamical or multivariate machine-learning forecasts.
 
 ### 3.3 Common-support errors and exact loss accounting
 
@@ -88,21 +88,21 @@ For a matched cell and date, define eᵢ=Fᵢ−Oᵢ and δᵢ=Oᵢ−Aᵢ, wher
 
 **Lᴬ(F) = Σwᵢeᵢ² + Σwᵢδᵢ² + 2Σwᵢeᵢδᵢ.**  (3)
 
-The terms describe forecast loss against matched OISST, squared product discrepancy and a signed interaction. The discrepancy is not an estimate of AMSR2 measurement error or an external error floor. The interaction can cancel or amplify the positive discrepancy term. A second decomposition writes each day's external MSE as its squared weighted mean error plus weighted spatial error variance. These identities require no independence assumptions and are checked numerically for every scored date.
+The three terms are forecast loss against matched OISST, squared product discrepancy and their signed interaction. The interaction can offset or amplify the discrepancy term, which is neither an estimate of AMSR2 measurement error nor an external error floor. A second decomposition expresses daily external MSE as the squared weighted mean error plus weighted spatial error variance. Both identities require no independence assumptions and are checked numerically for every scored date.
 
 For baseline forecast Fᵇ and model forecast Fᵐ, define Dᴼ=Lᴼ(Fᵇ)−Lᴼ(Fᵐ), with Dᴬ defined analogously. Then
 
 **Dᴬ − Dᴼ = 2Σwᵢ(Fᵇᵢ−Fᵐᵢ)δᵢ.**  (4)
 
-Equation (4) shows that the magnitude of product discrepancy alone does not determine model ranking. Its alignment with the difference between forecasts controls the change in squared-loss advantage. We use frozen regional anomaly persistence as the reference for this accounting, and report grid-specific persistence separately for the spatial-model comparison. Neither identity identifies latent true SST from two imperfect products.
+Equation (4) shows that product discrepancy alone does not determine model ranking. The change in squared-loss advantage depends on how that discrepancy aligns with the difference between forecasts. We use frozen regional anomaly persistence as the reference here and report grid-specific persistence separately for the spatial-model comparison. Neither identity recovers latent true SST from two imperfect products.
 
 ### 3.4 Uncertainty, interval scores and stratified diagnostics
 
-The original inference resamples paired daily losses with calendar blocks, retaining common support and gaps. Original confidence intervals use 1,000 replicates and 30- and 60-day block lengths. Because forecasts overlap and SST errors are persistent, neither dates nor cell–date pairs are assumed independent. Block methods follow dependence-aware resampling principles (Künsch, 1989), with approximate stationarity remaining an assumption rather than a demonstrated property of the eight-month sample.
+The original inference resamples paired daily losses in calendar blocks, preserving common support and gaps. Its confidence intervals use 1,000 replicates with 30- and 60-day blocks. Forecasts overlap and SST errors persist, so dates and cell–date pairs are not treated as independent. The block approach follows dependence-aware resampling principles (Künsch, 1989); approximate stationarity remains an assumption for the eight-month sample.
 
-A secondary analysis uses 1,999 centered circular-block replicates to estimate two-sided tests of mean squared-loss equality. Holm adjustment is applied separately for each block specification to a six-comparison family comprising three horizons for regional OISST and three for nighttime AMSR2 (Holm, 1979). The afternoon results are descriptive sensitivity checks. These secondary tests do not replace the original intervals, supply confirmatory evidence for the retrospective extensions, or eliminate sensitivity to seasonality and block choice.
+A secondary analysis uses 1,999 centered circular-block replicates for two-sided tests of equal mean squared loss. For each block length, Holm adjustment covers six comparisons: three horizons for regional OISST and three for nighttime AMSR2 (Holm, 1979). Afternoon results are descriptive. These tests supplement the original intervals; they do not confirm the retrospective extensions or remove sensitivity to seasonality and block choice.
 
-The previously calibrated 95% symmetric regional intervals are evaluated using empirical coverage, width and the interval score of Gneiting and Raftery (2007). The score penalizes both excess width and observations outside the interval; lower values are preferable. A nominal interval level is not a coverage guarantee under distribution shift or serial dependence. No 2026 interval radius is recalibrated.
+We evaluate the previously calibrated symmetric 95% regional intervals by their empirical coverage, width and interval score (Gneiting and Raftery, 2007). The score penalizes both excess width and observations outside the interval; lower values are better. Nominal coverage is not guaranteed under distribution shift or serial dependence. The interval radii are not recalibrated on 2026 data.
 
 Seasonal diagnostics use DJF, MAM, JJA and SON, with no imputation of the unavailable 2026 SON period. Training-only lagged correlations are calculated from regional residuals after removal of the estimated seasonal cycle and trend. Product discrepancies are also stratified by the distance to the nearest initially missing OISST cell centre within the acquired box. This is a grid-to-land proxy, not an exact coastline distance or a bathymetric classification; offshore sampling and missing coastal observations remain explicit limitations.
 
@@ -197,7 +197,7 @@ Contemporaneous OISST–AMSR2 RMS differences are 2.0893°C for the nighttime sa
 | 7 | 0.6665 | 4.3653 | -0.0749 | 4.9569 |
 | 30 | 1.5901 | 4.3653 | -0.4174 | 5.5380 |
 
-The squared-discrepancy term divided by total external MSE is 98.0%, 88.1%, 78.8% at 1, 7 and 30 days. These ratios are accounting comparisons, not proportions of independently attributable error; a signed interaction makes a variance-partition interpretation inappropriate. The maximum absolute numerical identity residual is 2.13e-14°C². Figure 2 shows both satellite passes and compares the frozen forecast with the spatial control.
+The ratio of squared discrepancy to total external MSE is 98.0%, 88.1%, 78.8% at 1, 7 and 30 days. Because the interaction is signed, these ratios do not partition independently attributable error. The maximum absolute residual of the numerical identity is 2.13e-14°C². Figure 2 shows both satellite passes for the frozen forecast and spatial control.
 
 ![Figure 2. Matched forecast loss, product discrepancy and signed interaction.](loss_decomposition.png)
 
@@ -216,7 +216,7 @@ The squared-discrepancy term divided by total external MSE is 98.0%, 88.1%, 78.8
 
 At thirty days, the frozen selected projection is worse than its baseline on matched OISST: Dᴼ=−0.2614°C². On exactly the same dates and cells, its advantage becomes positive against AMSR2: Dᴬ=0.0748°C². Equation (4) attributes this sign reversal to a 0.3362°C² discrepancy perturbation. The spatial control has positive thirty-day advantages on both products, but its advantage increases from 0.2682 to 0.8067°C² when the verification source changes. Thus product discrepancy does more than inflate absolute errors; it can change comparative conclusions even under identical sampling support.
 
-This accounting distinguishes two reasons a percentage skill can be small externally: a large external baseline loss can dilute a given absolute advantage, and the discrepancy interaction can change that advantage itself. Both effects are retained in the reported values; neither is removed through post hoc bias correction. Spatial maps in Figure 3 reveal where differences are sampled, while unobserved cells remain excluded rather than filled by the analysis.
+A small external percentage skill can arise because a large baseline loss dilutes an absolute advantage or because the discrepancy interaction changes the advantage itself. Both effects remain in the reported values, with no post hoc bias correction. Figure 3 maps differences where observations are available; unobserved cells are excluded.
 
 ![Figure 3. Spatially heterogeneous OISST–AMSR2 differences.](product_spatial_diagnostics.png)
 

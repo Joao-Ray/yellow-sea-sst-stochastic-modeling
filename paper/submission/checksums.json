@@ -4,7 +4,7 @@
   "annual_external_skill.svg": "61661951c4a7907964d772d65577ca07ab814893d73f76958ec08f3148e6fd49",
   "anomaly_transfer_controls.png": "c9c0f3293e11577853e8b0408f5e73e28db5196217e40c235bab4990f179b43c",
   "anomaly_transfer_controls.svg": "92750c6eb8e71c8fa703912aaa1c30419d99f183b6ac38654fa7ecaf51662b76",
-  "assembly_audit.json": "30d6067e141041c03297fdd02bdcd2c6d746cfb529e2bfcce10071e642db59da",
+  "assembly_audit.json": "d52b5b92c6262c6ccf353b52ac9fdd53948e5ce4150a36154a7b034fc622ed97",
   "buoy_platform_sensitivity.png": "bd5dee654856830248b55fa2f32bc707d7b57f9942fa4f8c3a5a458fcda52aec",
   "buoy_platform_sensitivity.svg": "5b85fa7cad904715252ae970f640627fcc1ece8e5f11018166ea6fe4b08b4993",
   "buoy_support.png": "50eaf9ca1b62bde6491800a3ab5bd449c5b430b381dfa49b8f9c831edb807447",
@@ -22,8 +22,8 @@
   "external_coverage_calendar.svg": "d84735958025141877df7dc17598e075e22bf9dc52162d0fe7daa1c915fed8e5",
   "loss_decomposition.png": "8f6b70255a0c31ab572d99e759bff86c7f8cf652ff72d699a89320675c562859",
   "loss_decomposition.svg": "6439366896d3e88488bd9888a34025db07352f3749e3ce397f61ac6fe9614c5b",
-  "manuscript_en.md": "576b81e4a4a1a3dceee41ba31261480bdf93ef0a1cced7a569f864a8c0588b34",
-  "manuscript_en.template.md": "f74ae7b3c3ba7600d9740be61bbb0bf90d3a83e62c78a64c041c783e70441661",
+  "manuscript_en.md": "b8791a55d944df14c6d05302cd4e150651b6968fd96f814ca8b2b9203b26eee8",
+  "manuscript_en.template.md": "ebe3dda4e0d5c9263c0d9b9b1ca17098f9bce1b7d1294cacc55adfb9454ad55e",
   "multiyear_sources.png": "3e4cb277faf1984629f2011e5d87cde9fbf1744352ba93c0aa29df76a3e2db53",
   "multiyear_sources.svg": "b3ff44597cac4f728cdd32eafffeb95a14171b29daaaef6a46ae07b6608be622",
   "past_forcing_ablation.png": "53dfe2c31799fc4bf772f7dda70e087f6e5c36a943617c1dc3602ba4b738bc18",
@@ -57,6 +57,6 @@
   "secondary_inference.svg": "9d2d770072ee7ec79c622484d9bb497164ff126542de7e49ee7f1e9e6fa06aea",
   "spatial_modes.png": "fa7fd613876c29efd1d98085c845d29ead77059a1a00d2810c152eeae4dabc5c",
   "spatial_modes.svg": "612ef17bc6e9fc832b1806362e7587218a2174b2b423ca6e6dfdb6a161148a14",
-  "supplement_en.md": "4d0f0ab0c60bd4a68a98aa5aa84da451f626510dd804aacd21a2ef34da687c4d",
-  "supplement_en.template.md": "a05654d8801b69106ade5f7b3e90da890dcd1bcd6c83408d5b041b556dd82ef6"
+  "supplement_en.md": "6cb85e157782e47c9170a54c7642fb41aca79a96d301ce9b00168469aec0f285",
+  "supplement_en.template.md": "2df09080721df0952fb2930b5b267bec02c4ccde8a118641c92262f4bacf6442"
 }

@@ -1,0 +1,20 @@
+{
+  "name": "Frozen 2026 temporal validation",
+  "design_version": 1,
+  "domain": "iho_yellow_sea",
+  "train_end": "2019-12-31",
+  "selection_end": "2021-12-31",
+  "calibration_end": "2022-12-31",
+  "test_start": "2026-01-01",
+  "test_end": "2026-08-31",
+  "horizons": [1, 7, 30],
+  "candidate_order": ["climatology", "persistence", "raw_persistence", "trend_seasonal", "ar_day", "ar_harmonic", "ar_harmonic_trend", "ridge_harmonic_trend"],
+  "method_selection": "minimum common-support selection-period SST RMSE separately per horizon; exact ties use candidate_order",
+  "baseline": "persistence",
+  "interval_level": 0.95,
+  "bootstrap_replicates": 1000,
+  "bootstrap_block_days": [30, 60],
+  "random_seed": 20261003,
+  "minimum_scoring_days": 200,
+  "scope": "New, previously unexamined temporal targets in the same NOAA OISST product, not an independent observational source or a prospective live forecast. Researcher has already examined 2010-2025 exploratory results. Only frozen selected methods and the baseline will be scored; no model re-selection or re-calibration on 2026. January-August is an incomplete annual cycle."
+}

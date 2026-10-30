@@ -1,0 +1,49 @@
+{
+  "date": "2026-02-05",
+  "purpose": "Post-score decoding audit prompted by large same-day product differences; no quality rule, model, score or selection changed",
+  "audited_utc": "2026-10-04T14:09:04.314145+00:00",
+  "source_url": "https://data.remss.com/amsr2/ocean/L3/v08.2/daily/2026/RSS_AMSR2_ocean_L3_daily_2026-02-05_v08.2.nc",
+  "source_etag": "\"95685e1e7397dc1:0\"",
+  "global_bytes": 19766883,
+  "complete_global_sha256": "6eb061870361ee819ab39597debde4db61aa412381f6dc3c94c892378c0a858f",
+  "independent_backend": "netCDF4 with automatic masking/scaling, compared to original h5py byte-range crop",
+  "variables": {
+    "SST": {
+      "exactly_matches_range_h5py_crop": true,
+      "dtype": "float32"
+    },
+    "time": {
+      "exactly_matches_range_h5py_crop": true,
+      "dtype": "float32"
+    },
+    "land_mask": {
+      "exactly_matches_range_h5py_crop": true,
+      "dtype": "int8"
+    },
+    "coast_mask": {
+      "exactly_matches_range_h5py_crop": true,
+      "dtype": "int8"
+    },
+    "sea_ice_mask": {
+      "exactly_matches_range_h5py_crop": true,
+      "dtype": "int8"
+    },
+    "noobs_mask": {
+      "exactly_matches_range_h5py_crop": true,
+      "dtype": "int8"
+    }
+  },
+  "pass_attributes": {
+    "long_name": "pass of orbit",
+    "standard_name": "local_solar_time_of_observation",
+    "units": "1",
+    "valid_min": 1,
+    "valid_max": 2,
+    "flag_masks": [
+      1,
+      2
+    ],
+    "flag_meanings": "ascending_approx_1:30PM_local_solar_time descending_approx_1:30AM_local_solar_time",
+    "coverage_content_type": "auxiliaryInformation"
+  }
+}

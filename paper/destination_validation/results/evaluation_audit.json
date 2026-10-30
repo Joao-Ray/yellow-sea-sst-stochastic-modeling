@@ -1,0 +1,40 @@
+{
+  "evaluation_started_utc": "2026-10-21T01:25:00.607914+00:00",
+  "evaluation_finished_utc": "2026-10-21T01:25:51.361420+00:00",
+  "protocol_sha256": "f78bc5cf133d13508eb551cd9f0f13b9e68581c9d8f35703043a06f0b7e6bfb3",
+  "public_lock": {
+    "commit": "0d9d318fece43baa067ae853e598e7681ce10767",
+    "commit_url": "https://github.com/Joao-Ray/yellow-sea-sst-stochastic-modeling/commit/0d9d318fece43baa067ae853e598e7681ce10767",
+    "protocol_sha256": "f78bc5cf133d13508eb551cd9f0f13b9e68581c9d8f35703043a06f0b7e6bfb3",
+    "verified_remote_protocol_bytes": true,
+    "verified_utc": "2026-10-21T01:24:57.455946+00:00",
+    "scope": "Public lock verified before destination scoring. Source files were acquired in earlier stages."
+  },
+  "satellite": {
+    "primary_coverage_gate_passed": true,
+    "nighttime_days_by_primary_year": {
+      "2023": 297,
+      "2024": 296,
+      "2025": 303
+    },
+    "minimum_days_per_year": 120,
+    "primary_family_size": 18,
+    "inference_suppressed": false
+  },
+  "buoys": {
+    "nighttime_days_by_year": {
+      "2023": 361,
+      "2024": 365,
+      "2025": 325
+    },
+    "nighttime_records": 43889,
+    "nighttime_platform_type_id_pairs": 29,
+    "minimum_days_per_year": 60,
+    "coverage_gate_passed": true,
+    "all_retained_points_outside_previous_source_matching_radius": true,
+    "inference": "Descriptive only; QC reference and assimilation dependencies remain."
+  },
+  "all_forecast_fingerprints_and_previous_files_unchanged": true,
+  "software_sha256": "24b454f787b5dc726d81b3111f2a75b7e9d4a9593537051954b00075675ad1b5",
+  "scope": "Designed after all earlier source-region and destination OISST results were known. Satellite and buoy files already cover the destination and were acquired during earlier stages; no prior destination instrument scores were produced. This locks forecast arrays, source versions and scoring rules publicly before scoring this subset, not before data acquisition. It is a conditional geographical instrument extension, not a blind holdout, live prospective forecast, full-basin or independent-latent-truth validation. Primary inference retains 2 anomaly models x 3 leads x 3 fixed simple baselines on 2023-2025 nighttime AMSR2, Holm-adjusted as 18 comparisons separately for 30/60-day blocks. Inadequate coverage suppresses inference without changing thresholds. All other models, matched OISST, afternoon, partial 2026 and buoy comparisons are descriptive. No tuning, calibration or outcome-based exclusion."
+}

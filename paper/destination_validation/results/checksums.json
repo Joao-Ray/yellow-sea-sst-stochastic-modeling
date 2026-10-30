@@ -1,0 +1,19 @@
+{
+  "buoy_annual_metrics.csv": "b63a633b41b817d3294c60b5c8a02a6890cb507904d04e39325a3ce4bb58839c",
+  "buoy_coverage.csv": "1f59574fdc0b271331e5b3a81e13e3db3f570bdeba704a4faf0bf48ad5f2f64a",
+  "buoy_metrics.csv": "49357c0248d75cb29e4a5f4649f79af70b2588ca9fb5ef18605efd6c9dc2b1b5",
+  "buoy_platform_support.csv": "508b82b1e02a3bd8c636902e728905dbb10cd16008d3bb1d151270e20f31c765",
+  "buoy_seasonal_metrics.csv": "815e0dd5d5dcd70e765da5718425a11198b402e96a722c3ec8dcca64f6e2bcca",
+  "destination_instrument_comparison.png": "95321e483b89c106621d2d1a904590eeffa6e6b5871a8465233616e3deff0d00",
+  "destination_instrument_comparison.svg": "1e67401da5ceeff77a3a4ca3870ed6cdf3a8dd13fb5472bf7dad65739b07b16d",
+  "destination_observation_coverage.png": "84befe5a92fcb559e849e096e692dee7d362e64f32666386768883d16ff99370",
+  "destination_observation_coverage.svg": "73fb9de124d6311388addfd800e327fadec65d0da7da04961800c34a5880baa5",
+  "evaluation_audit.json": "82c33c1f70adb38c4b1c7891981d9e25bc199c806a160606fcce1b0e6dc895f0",
+  "independent_audit.json": "4c0adb5eccb63952f7fa04e55c1ffa2af48283a7740aa6f9a432e5aaa8ec358d",
+  "primary_inference.csv": "b432bd295ec04edf4dcbfe4c0c06808b45ff2d62ed7e1c552f79932518a55a63",
+  "report_en.md": "bfec81c9bf28e8338653f03ce2a1a981834f13fcd51ca5504987e7fe8a5f9b23",
+  "satellite_annual_metrics.csv": "4eebbdc81ec48e40fb04ebe96c77079866f621abf079ae2086ea5a4d2282b5dd",
+  "satellite_coverage.csv": "54631a06694749e0cc9bab7708202b35917f023df65e91b5b3f210565514a903",
+  "satellite_metrics.csv": "7b8f448a300733d730a65a6253cb4f16da2afc1a1bfe6a835564a77b27f483b9",
+  "satellite_seasonal_metrics.csv": "1b1822a675d29e5d088aaa3491b7db875ded20d6b0d0860dfe63745bc9c30037"
+}

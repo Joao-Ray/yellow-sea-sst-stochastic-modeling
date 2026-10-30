@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-10-16T08:49:56.266422+00:00",
+  "training_end": "2019-12-31",
+  "references": [
+    "destination training harmonic/trend climatology",
+    "destination no-intercept AR(1) of training anomalies",
+    "source AR(1) coefficient with destination training climatology/scale"
+  ],
+  "scope": "Added while expanded sensitivity was being computed, after earlier outcomes were known. Fixed descriptive references, no hyperparameter selection or new p values. Reject unstable training AR(1), rather than clipping after outcome inspection."
+}

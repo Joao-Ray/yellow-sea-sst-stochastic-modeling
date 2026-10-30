@@ -1,0 +1,208 @@
+{
+  "yellow_bohai": {
+    "sst_cycle": {
+      "coefficients": [
+        14.146350980265755,
+        -6.848385253979724,
+        -7.3782783713598885,
+        0.21329735537854932,
+        0.5487709066259101,
+        0.07982438940204538,
+        -0.15208566019689185,
+        0.1250897207624559
+      ],
+      "origin": "2010-01-01",
+      "harmonics": 3,
+      "linear_trend": true,
+      "trend_celsius_per_year": 0.1250897207624559,
+      "n_training_observations": 3652,
+      "scope": "training OLS; linear extrapolation is an assumption, not an estimate of future warming"
+    },
+    "sst_residual_std": 0.7526459422651599,
+    "driver_cycles": {
+      "heat": {
+        "coefficients": [
+          -2.492253798985781,
+          -205.01811864257633,
+          88.3684598042408,
+          -28.152067204851043,
+          18.499519693151,
+          -5.822429739218973,
+          -6.821893906206112,
+          -0.681494727238834
+        ],
+        "origin": "2010-01-01",
+        "harmonics": 3,
+        "linear_trend": true,
+        "trend_celsius_per_year": -0.681494727238834,
+        "n_training_observations": 3652,
+        "scope": "training OLS; linear extrapolation is an assumption, not an estimate of future warming"
+      },
+      "u": {
+        "coefficients": [
+          0.3318530481881764,
+          1.128727188959594,
+          0.4809998417230015,
+          0.33240090561916097,
+          -0.3714515726087341,
+          0.18377738399612287,
+          -0.1453634427752245,
+          -0.01452472157741983
+        ],
+        "origin": "2010-01-01",
+        "harmonics": 3,
+        "linear_trend": true,
+        "trend_celsius_per_year": -0.01452472157741983,
+        "n_training_observations": 3652,
+        "scope": "training OLS; linear extrapolation is an assumption, not an estimate of future warming"
+      },
+      "v": {
+        "coefficients": [
+          -0.6521106755465919,
+          -3.0323088329368026,
+          0.5963438896104806,
+          0.07443159260834731,
+          -0.24946500696117474,
+          -0.2639297832950032,
+          -0.48148981859231516,
+          -0.0035990375024122735
+        ],
+        "origin": "2010-01-01",
+        "harmonics": 3,
+        "linear_trend": true,
+        "trend_celsius_per_year": -0.0035990375024122735,
+        "n_training_observations": 3652,
+        "scope": "training OLS; linear extrapolation is an assumption, not an estimate of future warming"
+      },
+      "vector_magnitude": {
+        "coefficients": [
+          4.393074909680298,
+          1.1290114592616716,
+          0.10266918836997181,
+          0.31932800841620723,
+          -0.06592809823493945,
+          0.028032579117397597,
+          -0.14506108256087252,
+          -0.018158690410803632
+        ],
+        "origin": "2010-01-01",
+        "harmonics": 3,
+        "linear_trend": true,
+        "trend_celsius_per_year": -0.018158690410803632,
+        "n_training_observations": 3652,
+        "scope": "training OLS; linear extrapolation is an assumption, not an estimate of future warming"
+      }
+    },
+    "driver_residual_stds": {
+      "heat": 99.5071141349708,
+      "u": 2.4539598940895506,
+      "v": 3.4294061189984126,
+      "vector_magnitude": 2.227189366182592
+    },
+    "training_end": "2019-12-31",
+    "scope": "Local training information: harmonic/trend coefficients and residual scales. Not destination-data-free transfer."
+  },
+  "northern_ecs": {
+    "sst_cycle": {
+      "coefficients": [
+        18.079000323121296,
+        -4.637070568868482,
+        -6.221928274107397,
+        0.1520949737404318,
+        0.38225710045275135,
+        0.1295881675484899,
+        -0.35683403061804253,
+        0.11432286561915668
+      ],
+      "origin": "2010-01-01",
+      "harmonics": 3,
+      "linear_trend": true,
+      "trend_celsius_per_year": 0.11432286561915668,
+      "n_training_observations": 3652,
+      "scope": "training OLS; linear extrapolation is an assumption, not an estimate of future warming"
+    },
+    "sst_residual_std": 0.8105904768496647,
+    "driver_cycles": {
+      "heat": {
+        "coefficients": [
+          -54.043064334425665,
+          -259.3736925882893,
+          84.43667526853886,
+          -32.22141848762193,
+          16.619814806533796,
+          -10.58861774306373,
+          -13.454509569127746,
+          -0.5161119948181755
+        ],
+        "origin": "2010-01-01",
+        "harmonics": 3,
+        "linear_trend": true,
+        "trend_celsius_per_year": -0.5161119948181755,
+        "n_training_observations": 3652,
+        "scope": "training OLS; linear extrapolation is an assumption, not an estimate of future warming"
+      },
+      "u": {
+        "coefficients": [
+          -0.5437685364877384,
+          0.9576646909853728,
+          0.8499697298913074,
+          0.6258461148506919,
+          0.010696886822433345,
+          0.20135058753292984,
+          -0.45306773368082853,
+          -0.06582206655031572
+        ],
+        "origin": "2010-01-01",
+        "harmonics": 3,
+        "linear_trend": true,
+        "trend_celsius_per_year": -0.06582206655031572,
+        "n_training_observations": 3652,
+        "scope": "training OLS; linear extrapolation is an assumption, not an estimate of future warming"
+      },
+      "v": {
+        "coefficients": [
+          -1.8366895475378693,
+          -4.015606529385054,
+          0.5463429546484257,
+          0.4703059179308722,
+          0.2571569297263499,
+          -0.13681013196777855,
+          -1.1580959643746247,
+          -0.049966104728594384
+        ],
+        "origin": "2010-01-01",
+        "harmonics": 3,
+        "linear_trend": true,
+        "trend_celsius_per_year": -0.049966104728594384,
+        "n_training_observations": 3652,
+        "scope": "training OLS; linear extrapolation is an assumption, not an estimate of future warming"
+      },
+      "vector_magnitude": {
+        "coefficients": [
+          5.983064169256402,
+          1.3904906668165675,
+          -0.5035236554421013,
+          0.1673039736711527,
+          0.2782726750162952,
+          -0.005672714700452973,
+          0.09830418925973534,
+          -0.027855952344370574
+        ],
+        "origin": "2010-01-01",
+        "harmonics": 3,
+        "linear_trend": true,
+        "trend_celsius_per_year": -0.027855952344370574,
+        "n_training_observations": 3652,
+        "scope": "training OLS; linear extrapolation is an assumption, not an estimate of future warming"
+      }
+    },
+    "driver_residual_stds": {
+      "heat": 137.58720705242703,
+      "u": 3.351431068679163,
+      "v": 3.9645141198838694,
+      "vector_magnitude": 2.65021496536151
+    },
+    "training_end": "2019-12-31",
+    "scope": "Local training information: harmonic/trend coefficients and residual scales. Not destination-data-free transfer."
+  }
+}

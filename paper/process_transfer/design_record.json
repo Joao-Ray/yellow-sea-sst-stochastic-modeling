@@ -1,0 +1,94 @@
+{
+  "recorded_utc": "2026-10-16T03:05:58.542423+00:00",
+  "config_sha256": "44bdc6e4fc574a838b7884763c89890239cab9feb943fdace155fc421c655917",
+  "config": {
+    "design_version": 1,
+    "name": "Exploratory past-forcing ablations and Yellow\u2013Bohai to Eastern China Sea transfer",
+    "date_start": "2010-01-01",
+    "date_end": "2026-08-31",
+    "forcing_end": "2025-12-31",
+    "availability_amendment": "Before reading any forcing-model test results, NOAA PSL metadata was checked on 2026-10-16: NCEP/NCAR R1 production ended 2026-03-17. Restrict the complete-year forcing ablation and associated transfer comparisons to 2023\u20132025; do not fill or splice the unavailable April\u2013August 2026 forcing. SST-only transfer may additionally report January\u2013August 2026, separately.",
+    "train_end": "2019-12-31",
+    "selection_start": "2020-01-01",
+    "selection_end": "2021-12-31",
+    "test_periods": {
+      "2023-2025": [
+        "2023-01-01",
+        "2025-12-31"
+      ],
+      "2026-Jan-Aug": [
+        "2026-01-01",
+        "2026-08-31"
+      ]
+    },
+    "horizons": [
+      1,
+      7,
+      30
+    ],
+    "selection_horizon": 7,
+    "ridge_alphas": [
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "tree_min_samples_leaf": [
+      5,
+      20,
+      50
+    ],
+    "tree_estimators": 200,
+    "feature_groups": [
+      "sst",
+      "sst_heat",
+      "sst_heat_wind"
+    ],
+    "forcing_delay_days": 1,
+    "forcing_windows_days": [
+      1,
+      7,
+      30
+    ],
+    "sst_lags_days": [
+      0,
+      1,
+      7,
+      30
+    ],
+    "source_mrgid": 4303,
+    "destination_mrgid": 4302,
+    "destination_box": {
+      "lat_min": 24,
+      "lat_max": 34,
+      "lon_min": 118,
+      "lon_max": 132
+    },
+    "evaluated_destination_box": {
+      "lat_min": 31,
+      "lat_max": 42,
+      "lon_min": 117,
+      "lon_max": 128
+    },
+    "destination_scope_amendment": "Before any new model test scores, limit the evaluated destination to the intersection of Eastern China Sea MRGID 4302 with the already cached original OISST box (31\u201342 N, 117\u2013128 E). NOAA NCSS returned HTTP 429 and CoastWatch ERDDAP timed out. This is a northern Eastern China Sea subregion, not full-basin validation. The original full destination box remains documented as a deferred acquisition target. The cache domain was selected for data availability, not model skill.",
+    "forcing_box": {
+      "north": 44,
+      "south": 22,
+      "east": 135,
+      "west": 115
+    },
+    "bootstrap_block_days": [
+      30,
+      60
+    ],
+    "bootstrap_replicates": 1999,
+    "random_seed": 20261016,
+    "scope": "Retrospective exploratory design after all original Yellow\u2013Bohai outcomes were viewed. Not a prospective or untouched holdout. Model hyperparameters selected using Yellow\u2013Bohai 2020\u20132021 seven-day errors only; parameters refitted on 2010\u20132019 for each horizon. Destination-local references use those same source-selected hyperparameters. Direct transfer copies all source coefficients and scaling without destination fitting. Physical features use reanalysis no later than origin minus one day, a conservative temporal restriction, not a verified operational latency. Daily reanalysis heat fluxes and winds are diagnostic model products, not independent flux observations or proof of causality. Original frozen protocols and results are preserved."
+  },
+  "source_files_sha256": {
+    "src/models/process_transfer.py": "d5a66566d3f8a7394ac1cc5207780d8775a6c55955350006f24b46c42ba4daf3",
+    "src/data/download_processes.py": "fdaf66f7871cd73cd409c07ab007595d8bab5fa71184c83ebb034acdcb3df3e2",
+    "/Users/jr/Documents/Codex/2026-10-02/ban/outputs/yellow-sea-sst-stochastic-modeling/src/process_transfer.py": "14977dc65f59bf1dbbd81592375f8318a7c772ca799eb3ffb505d40d0e4e1007"
+  },
+  "scope": "Local retrospective design and availability amendments; not a public prospective freeze."
+}

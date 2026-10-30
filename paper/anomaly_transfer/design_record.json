@@ -1,0 +1,75 @@
+{
+  "recorded_utc": "2026-10-16T08:46:22.821788+00:00",
+  "config": {
+    "version": 1,
+    "date_start": "2010-01-01",
+    "date_end": "2026-08-31",
+    "forcing_end": "2025-12-31",
+    "train_end": "2019-12-31",
+    "selection_start": "2020-01-01",
+    "selection_end": "2021-12-31",
+    "selection_horizon": 7,
+    "test_periods": {
+      "2023-2025": [
+        "2023-01-01",
+        "2025-12-31"
+      ],
+      "2026-Jan-Aug": [
+        "2026-01-01",
+        "2026-08-31"
+      ]
+    },
+    "representations": [
+      "raw",
+      "seasonal_anomaly"
+    ],
+    "feature_groups": [
+      "sst",
+      "sst_heat",
+      "sst_heat_wind"
+    ],
+    "horizons": [
+      1,
+      7,
+      30
+    ],
+    "ridge_alphas": [
+      0.01,
+      0.1,
+      1,
+      10,
+      100,
+      1000,
+      10000,
+      100000,
+      1000000
+    ],
+    "tree_min_samples_leaf": [
+      5,
+      20,
+      50,
+      100,
+      200,
+      400,
+      800
+    ],
+    "tree_estimators": 200,
+    "forcing_delay_days": 1,
+    "normalization_harmonics": 3,
+    "normalization_trend": true,
+    "bootstrap_replicates": 1999,
+    "bootstrap_block_days": [
+      30,
+      60
+    ],
+    "random_seed": 20261016,
+    "scope": "Retrospective sensitivity designed after inspecting raw-transfer failures and hyperparameter-boundary selection. This is neither a blind test nor a new confirmatory experiment. The finite expanded grids and both representations are retained. Select each source family/group/representation on 2020\u20132021 seven-day RMSE only; fit coefficients and all climatologies/scales on 2010\u20132019 targets. Seasonal-anomaly transfer uses destination training climatology and residual scales, together with destination origin histories, but unchanged source increment coefficients and feature scaler. Destination-local fits use source-selected hyperparameters. Every group, lead, year and context is reported, including deterioration. New block intervals are pointwise descriptive sensitivities, with no new confirmatory p values. Original frozen protocols, forecasts and all prior process-transfer results remain unchanged."
+  },
+  "config_sha256": "90cf9bbdcd22af50d065c8b9276e5a0c5dc29fefb3fa735d0ca653d98174758f",
+  "input_sha256": {
+    "data/processed/process_transfer/regional_sst.csv": "9cce9a5424dff79ef7245a5c2dc1fdbd8d9bc3c55f92dc5dd0d3803686eb4f10",
+    "data/processed/process_transfer/yellow_bohai_forcing.csv": "0c7d5648b55cb736bfaf25fe5ffabbaaf885e8d17d726077b903cd78c7914adf",
+    "data/processed/process_transfer/northern_ecs_forcing.csv": "6ea8669b7c6f2172c091426534691bf61fbcf80c4ec54151fb8b2d753c90c93d"
+  },
+  "scope": "Local post-outcome design before new sensitivity scores. Not a public or prospective preregistration."
+}

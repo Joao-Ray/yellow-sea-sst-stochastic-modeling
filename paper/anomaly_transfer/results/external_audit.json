@@ -1,0 +1,11 @@
+{
+  "evaluated_utc": "2026-10-16T09:00:38.923989+00:00",
+  "software_sha256": "4aaec3b06d7118df650271dfc5b16f1069481278963f59361fc06adb4564fc30",
+  "predictions_sha256": "059d5b789ed2508dfa9ba7516d393bf65747777482bd68e5686657cdb6c68bd2",
+  "original_baseline_support_and_loss_reproduced": true,
+  "n_days_by_period": {
+    "2023-2025": 1002,
+    "2026-Jan-Aug": 225
+  },
+  "scope": "Descriptive new source projections on already viewed satellite observations; no destination instrument test and no new p values."
+}
